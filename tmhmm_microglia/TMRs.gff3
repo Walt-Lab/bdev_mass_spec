@@ -1,0 +1,7 @@
+##gff-version 3
+# P32241 Length: 655
+# P32241 Number of predicted TMRs: 1
+P32241	signal	1	41				
+P32241	outside	42	349				
+P32241	TMhelix	350	370				
+P32241	inside	371	655				

@@ -1,0 +1,7 @@
+##gff-version 3
+# P39059 Length: 2321
+# P39059 Number of predicted TMRs: 1
+P39059	signal	1	39				
+P39059	outside	40	1642				
+P39059	TMhelix	1643	1663				
+P39059	inside	1664	2321				

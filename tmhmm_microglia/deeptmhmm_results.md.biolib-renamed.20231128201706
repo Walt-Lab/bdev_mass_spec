@@ -1,0 +1,20 @@
+## DeepTMHMM - Predictions
+Predicted topologies can be downloaded in [.gff3 format](TMRs.gff3) and [.3line format](predicted_topologies.3line)
+![picture](plot.png)
+You can download the probabilities used to generate this plot [here](Q7Z6I6_probs.csv)
+### Predicted Topologies
+```
+>Q7Z6I6 | GLOB
+MTELETAMGMIIDVFSRYSGSEGSTQTLTKGELKVLMEKELPGFLQSGKDKDAVDKLLKDLDANGDAQVDFSEFIVFVAAITSACHKYFEKAGLK
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+```
+
+
+```
+##gff-version 3
+# Q7Z6I6 Length: 95
+# Q7Z6I6 Number of predicted TMRs: 0
+Q7Z6I6	inside	1	95				
+
+```

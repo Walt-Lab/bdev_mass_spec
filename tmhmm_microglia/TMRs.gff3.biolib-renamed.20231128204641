@@ -1,0 +1,5 @@
+##gff-version 3
+# Q13651 Length: 207
+# Q13651 Number of predicted TMRs: 0
+Q13651	signal	1	30				
+Q13651	outside	31	207				

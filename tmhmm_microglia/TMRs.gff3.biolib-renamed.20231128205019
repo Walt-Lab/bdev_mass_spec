@@ -1,0 +1,7 @@
+##gff-version 3
+# Q00722 Length: 241
+# Q00722 Number of predicted TMRs: 1
+Q00722	signal	1	17				
+Q00722	outside	18	142				
+Q00722	TMhelix	143	163				
+Q00722	inside	164	241				

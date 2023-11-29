@@ -1,0 +1,6 @@
+##gff-version 3
+# P31785 Length: 263
+# P31785 Number of predicted TMRs: 1
+P31785	inside	1	53				
+P31785	TMhelix	54	74				
+P31785	outside	75	263				
