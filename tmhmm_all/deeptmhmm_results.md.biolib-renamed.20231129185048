@@ -1,0 +1,21 @@
+## DeepTMHMM - Predictions
+Predicted topologies can be downloaded in [.gff3 format](TMRs.gff3) and [.3line format](predicted_topologies.3line)
+![picture](plot.png)
+You can download the probabilities used to generate this plot [here](P16860_probs.csv)
+### Predicted Topologies
+```
+>P16860 | SP
+MDPQTAPSRALLLLLFLHLAFLGGRSHPLGSPGSASDLETSGLQEQRNHLQGKLSELQVEQTSLEPLQESPRPTGVWKSREVATEGIRGHRKMVLYTLRAPRSPKMVQGSGCFGRKMDRISSSSGLGCKVLRRH
+SSSSSSSSSSSSSSSSSSSSSSSSSSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+```
+
+
+```
+##gff-version 3
+# P16860 Length: 134
+# P16860 Number of predicted TMRs: 0
+P16860	signal	1	26				
+P16860	outside	27	134				
+
+```

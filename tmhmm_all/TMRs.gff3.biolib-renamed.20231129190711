@@ -1,0 +1,6 @@
+##gff-version 3
+# O95183 Length: 116
+# O95183 Number of predicted TMRs: 1
+O95183	inside	1	70				
+O95183	TMhelix	71	91				
+O95183	outside	92	116				
