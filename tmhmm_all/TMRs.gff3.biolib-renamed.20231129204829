@@ -1,0 +1,6 @@
+##gff-version 3
+# Q6PJW8 Length: 725
+# Q6PJW8 Number of predicted TMRs: 1
+Q6PJW8	inside	1	664				
+Q6PJW8	TMhelix	665	685				
+Q6PJW8	outside	686	725				

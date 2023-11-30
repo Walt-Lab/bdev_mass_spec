@@ -1,0 +1,7 @@
+##gff-version 3
+# P31997 Length: 349
+# P31997 Number of predicted TMRs: 1
+P31997	signal	1	34				
+P31997	outside	35	333				
+P31997	TMhelix	334	348				
+P31997	inside	349	349				

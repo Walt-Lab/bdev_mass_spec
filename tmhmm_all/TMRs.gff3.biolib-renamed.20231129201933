@@ -1,0 +1,5 @@
+##gff-version 3
+# P09668 Length: 335
+# P09668 Number of predicted TMRs: 0
+P09668	signal	1	22				
+P09668	outside	23	335				

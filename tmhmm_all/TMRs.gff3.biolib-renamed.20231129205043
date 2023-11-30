@@ -1,0 +1,7 @@
+##gff-version 3
+# Q9H7M9 Length: 311
+# Q9H7M9 Number of predicted TMRs: 1
+Q9H7M9	signal	1	32				
+Q9H7M9	outside	33	195				
+Q9H7M9	TMhelix	196	216				
+Q9H7M9	inside	217	311				

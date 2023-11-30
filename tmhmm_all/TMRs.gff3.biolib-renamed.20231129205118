@@ -1,0 +1,7 @@
+##gff-version 3
+# O14917 Length: 1159
+# O14917 Number of predicted TMRs: 1
+O14917	signal	1	17				
+O14917	outside	18	705				
+O14917	TMhelix	706	721				
+O14917	inside	722	1159				

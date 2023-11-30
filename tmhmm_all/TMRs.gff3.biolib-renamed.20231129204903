@@ -1,0 +1,7 @@
+##gff-version 3
+# P48357 Length: 1165
+# P48357 Number of predicted TMRs: 1
+P48357	signal	1	21				
+P48357	outside	22	841				
+P48357	TMhelix	842	862				
+P48357	inside	863	1165				

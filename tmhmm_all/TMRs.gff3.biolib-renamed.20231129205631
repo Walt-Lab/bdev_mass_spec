@@ -1,0 +1,7 @@
+##gff-version 3
+# Q16620 Length: 822
+# Q16620 Number of predicted TMRs: 1
+Q16620	signal	1	31				
+Q16620	outside	32	433				
+Q16620	TMhelix	434	454				
+Q16620	inside	455	822				

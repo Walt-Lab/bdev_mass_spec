@@ -1,0 +1,20 @@
+## DeepTMHMM - Predictions
+Predicted topologies can be downloaded in [.gff3 format](TMRs.gff3) and [.3line format](predicted_topologies.3line)
+![picture](plot.png)
+You can download the probabilities used to generate this plot [here](P25815_probs.csv)
+### Predicted Topologies
+```
+>P25815 | GLOB
+MTELETAMGMIIDVFSRYSGSEGSTQTLTKGELKVLMEKELPGFLQSGKDKDAVDKLLKDLDANGDAQVDFSEFIVFVAAITSACHKYFEKAGLK
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+```
+
+
+```
+##gff-version 3
+# P25815 Length: 95
+# P25815 Number of predicted TMRs: 0
+P25815	inside	1	95				
+
+```

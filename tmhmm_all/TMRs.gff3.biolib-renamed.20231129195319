@@ -1,0 +1,12 @@
+##gff-version 3
+# O60635 Length: 241
+# O60635 Number of predicted TMRs: 4
+O60635	inside	1	9				
+O60635	TMhelix	10	34				
+O60635	outside	35	55				
+O60635	TMhelix	56	77				
+O60635	inside	78	86				
+O60635	TMhelix	87	109				
+O60635	outside	110	211				
+O60635	TMhelix	212	236				
+O60635	inside	237	241				

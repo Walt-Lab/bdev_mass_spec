@@ -1,0 +1,6 @@
+##gff-version 3
+# P01375 Length: 233
+# P01375 Number of predicted TMRs: 1
+P01375	inside	1	30				
+P01375	TMhelix	31	51				
+P01375	outside	52	233				

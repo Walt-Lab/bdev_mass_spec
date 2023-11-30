@@ -1,0 +1,6 @@
+##gff-version 3
+# P21964 Length: 271
+# P21964 Number of predicted TMRs: 1
+P21964	outside	1	7				
+P21964	TMhelix	8	26				
+P21964	inside	27	271				
