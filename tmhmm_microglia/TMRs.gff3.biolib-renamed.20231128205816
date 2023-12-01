@@ -1,7 +1,0 @@
-##gff-version 3
-# Q03169 Length: 224
-# Q03169 Number of predicted TMRs: 1
-Q03169	signal	1	21				
-Q03169	outside	22	183				
-Q03169	TMhelix	184	205				
-Q03169	inside	206	224				

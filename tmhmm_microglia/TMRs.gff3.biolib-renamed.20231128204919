@@ -1,7 +1,0 @@
-##gff-version 3
-# P41218 Length: 976
-# P41218 Number of predicted TMRs: 1
-P41218	signal	1	25				
-P41218	outside	26	547				
-P41218	TMhelix	548	568				
-P41218	inside	569	976				
