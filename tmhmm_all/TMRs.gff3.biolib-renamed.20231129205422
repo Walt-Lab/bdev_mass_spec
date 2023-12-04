@@ -1,7 +1,0 @@
-##gff-version 3
-# Q12864 Length: 832
-# Q12864 Number of predicted TMRs: 1
-Q12864	signal	1	22				
-Q12864	outside	23	786				
-Q12864	TMhelix	787	807				
-Q12864	inside	808	832				

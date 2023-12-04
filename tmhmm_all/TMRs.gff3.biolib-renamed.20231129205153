@@ -1,7 +1,0 @@
-##gff-version 3
-# P16234 Length: 1089
-# P16234 Number of predicted TMRs: 1
-P16234	signal	1	23				
-P16234	outside	24	527				
-P16234	TMhelix	528	548				
-P16234	inside	549	1089				

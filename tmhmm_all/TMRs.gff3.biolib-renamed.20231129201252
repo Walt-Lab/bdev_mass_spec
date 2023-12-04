@@ -1,6 +1,0 @@
-##gff-version 3
-# Q9NWQ8 Length: 432
-# Q9NWQ8 Number of predicted TMRs: 1
-Q9NWQ8	outside	1	15				
-Q9NWQ8	TMhelix	16	36				
-Q9NWQ8	inside	37	432				

@@ -1,6 +1,0 @@
-##gff-version 3
-# O75354 Length: 484
-# O75354 Number of predicted TMRs: 1
-O75354	inside	1	42				
-O75354	TMhelix	43	60				
-O75354	outside	61	484				

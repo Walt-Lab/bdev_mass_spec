@@ -1,7 +1,0 @@
-##gff-version 3
-# Q13444 Length: 863
-# Q13444 Number of predicted TMRs: 1
-Q13444	signal	1	17				
-Q13444	outside	18	697				
-Q13444	TMhelix	698	715				
-Q13444	inside	716	863				

@@ -1,7 +1,0 @@
-##gff-version 3
-# P55082 Length: 362
-# P55082 Number of predicted TMRs: 1
-P55082	signal	1	21				
-P55082	outside	22	148				
-P55082	TMhelix	149	168				
-P55082	inside	169	362				

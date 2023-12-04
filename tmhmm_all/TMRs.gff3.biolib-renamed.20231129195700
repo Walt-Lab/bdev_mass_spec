@@ -1,6 +1,0 @@
-##gff-version 3
-# Q12912 Length: 555
-# Q12912 Number of predicted TMRs: 1
-Q12912	inside	1	495				
-Q12912	TMhelix	496	519				
-Q12912	outside	520	555				
