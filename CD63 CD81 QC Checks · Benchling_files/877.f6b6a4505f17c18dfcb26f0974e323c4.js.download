@@ -1,0 +1,858 @@
+(self.webpackChunkaurelia=self.webpackChunkaurelia||[]).push([[877],{514076:(o,g,r)=>{o.exports=r(123283).bnch.CharPickerData},123283:function(){var COMPILED=!0,goog=goog||{}
+goog.global=this
+goog.isDef=function(o){return void 0!==o}
+goog.exportPath_=function(o,g,r){o=o.split(".")
+r=r||goog.global
+o[0]in r||!r.execScript||r.execScript("var "+o[0])
+for(var e;o.length&&(e=o.shift());)!o.length&&goog.isDef(g)?r[e]=g:r=r[e]?r[e]:r[e]={}}
+goog.define=function(o,g){var r=g
+COMPILED||(goog.global.CLOSURE_UNCOMPILED_DEFINES&&Object.prototype.hasOwnProperty.call(goog.global.CLOSURE_UNCOMPILED_DEFINES,o)?r=goog.global.CLOSURE_UNCOMPILED_DEFINES[o]:goog.global.CLOSURE_DEFINES&&Object.prototype.hasOwnProperty.call(goog.global.CLOSURE_DEFINES,o)&&(r=goog.global.CLOSURE_DEFINES[o]))
+goog.exportPath_(o,r)}
+goog.DEBUG=!0
+goog.LOCALE="en"
+goog.TRUSTED_SITE=!0
+goog.STRICT_MODE_COMPATIBLE=!1
+goog.DISALLOW_TEST_ONLY_CODE=COMPILED&&!goog.DEBUG
+goog.ENABLE_CHROME_APP_SAFE_SCRIPT_LOADING=!1
+goog.provide=function(o){if(!COMPILED&&goog.isProvided_(o))throw Error('Namespace "'+o+'" already declared.')
+goog.constructNamespace_(o)}
+goog.constructNamespace_=function(o,g){if(!COMPILED){delete goog.implicitNamespaces_[o]
+for(var r=o;(r=r.substring(0,r.lastIndexOf(".")))&&!goog.getObjectByName(r);)goog.implicitNamespaces_[r]=!0}goog.exportPath_(o,g)}
+goog.VALID_MODULE_RE_=/^[a-zA-Z_$][a-zA-Z0-9._$]*$/
+goog.module=function(o){if(!goog.isString(o)||!o||-1==o.search(goog.VALID_MODULE_RE_))throw Error("Invalid module identifier")
+if(!goog.isInModuleLoader_())throw Error("Module "+o+" has been loaded incorrectly.")
+if(goog.moduleLoaderState_.moduleName)throw Error("goog.module may only be called once per module.")
+goog.moduleLoaderState_.moduleName=o
+if(!COMPILED){if(goog.isProvided_(o))throw Error('Namespace "'+o+'" already declared.')
+delete goog.implicitNamespaces_[o]}}
+goog.module.get=function(o){return goog.module.getInternal_(o)}
+goog.module.getInternal_=function(o){if(!COMPILED)return goog.isProvided_(o)?o in goog.loadedModules_?goog.loadedModules_[o]:goog.getObjectByName(o):null}
+goog.moduleLoaderState_=null
+goog.isInModuleLoader_=function(){return null!=goog.moduleLoaderState_}
+goog.module.declareTestMethods=function(){if(!goog.isInModuleLoader_())throw Error("goog.module.declareTestMethods must be called from within a goog.module")
+goog.moduleLoaderState_.declareTestMethods=!0}
+goog.module.declareLegacyNamespace=function(){if(!COMPILED&&!goog.isInModuleLoader_())throw Error("goog.module.declareLegacyNamespace must be called from within a goog.module")
+if(!COMPILED&&!goog.moduleLoaderState_.moduleName)throw Error("goog.module must be called prior to goog.module.declareLegacyNamespace.")
+goog.moduleLoaderState_.declareLegacyNamespace=!0}
+goog.setTestOnly=function(o){if(goog.DISALLOW_TEST_ONLY_CODE)throw o=o||"",Error("Importing test-only code into non-debug environment"+(o?": "+o:"."))}
+goog.forwardDeclare=function(o){}
+COMPILED||(goog.isProvided_=function(o){return o in goog.loadedModules_||!goog.implicitNamespaces_[o]&&goog.isDefAndNotNull(goog.getObjectByName(o))},goog.implicitNamespaces_={"goog.module":!0})
+goog.getObjectByName=function(o,g){for(var r,e=o.split("."),t=g||goog.global;r=e.shift();){if(!goog.isDefAndNotNull(t[r]))return null
+t=t[r]}return t}
+goog.globalize=function(o,g){var r,e=g||goog.global
+for(r in o)e[r]=o[r]}
+goog.addDependency=function(o,g,r,e){if(goog.DEPENDENCIES_ENABLED){var t
+o=o.replace(/\\/g,"/")
+for(var i=goog.dependencies_,n=0;t=g[n];n++)i.nameToPath[t]=o,i.pathIsModule[o]=!!e
+for(e=0;g=r[e];e++)o in i.requires||(i.requires[o]={}),i.requires[o][g]=!0}}
+goog.ENABLE_DEBUG_LOADER=!0
+goog.logToConsole_=function(o){goog.global.console&&goog.global.console.error(o)}
+goog.require=function(o){if(!COMPILED){goog.ENABLE_DEBUG_LOADER&&goog.IS_OLD_IE_&&goog.maybeProcessDeferredDep_(o)
+if(goog.isProvided_(o))return goog.isInModuleLoader_()?goog.module.getInternal_(o):null
+if(goog.ENABLE_DEBUG_LOADER){var g=goog.getPathFromDeps_(o)
+if(g)return goog.included_[g]=!0,goog.writeScripts_(),null}o="goog.require could not find: "+o
+goog.logToConsole_(o)
+throw Error(o)}}
+goog.basePath=""
+goog.nullFunction=function(){}
+goog.abstractMethod=function(){throw Error("unimplemented abstract method")}
+goog.addSingletonGetter=function(o){o.getInstance=function(){if(o.instance_)return o.instance_
+goog.DEBUG&&(goog.instantiatedSingletons_[goog.instantiatedSingletons_.length]=o)
+return o.instance_=new o}}
+goog.instantiatedSingletons_=[]
+goog.LOAD_MODULE_USING_EVAL=!0
+goog.SEAL_MODULE_EXPORTS=goog.DEBUG
+goog.loadedModules_={}
+goog.DEPENDENCIES_ENABLED=!COMPILED&&goog.ENABLE_DEBUG_LOADER
+goog.DEPENDENCIES_ENABLED&&(goog.included_={},goog.dependencies_={pathIsModule:{},nameToPath:{},requires:{},visited:{},written:{},deferred:{}},goog.inHtmlDocument_=function(){var o=goog.global.document
+return void 0!==o&&"write"in o},goog.findBasePath_=function(){if(goog.global.CLOSURE_BASE_PATH)goog.basePath=goog.global.CLOSURE_BASE_PATH
+else if(goog.inHtmlDocument_())for(var o=goog.global.document.getElementsByTagName("SCRIPT"),g=o.length-1;0<=g;--g){var r=o[g].src,e=-1==(e=r.lastIndexOf("?"))?r.length:e
+if("base.js"==r.substr(e-7,7)){goog.basePath=r.substr(0,e-7)
+break}}},goog.importScript_=function(o,g){(goog.global.CLOSURE_IMPORT_SCRIPT||goog.writeScriptTag_)(o,g)&&(goog.dependencies_.written[o]=!0)},goog.IS_OLD_IE_=!goog.global.atob&&goog.global.document&&goog.global.document.all,goog.importModule_=function(o){goog.importScript_("",'goog.retrieveAndExecModule_("'+o+'");')&&(goog.dependencies_.written[o]=!0)},goog.queuedModules_=[],goog.wrapModule_=function(o,g){return goog.LOAD_MODULE_USING_EVAL&&goog.isDef(goog.global.JSON)?"goog.loadModule("+goog.global.JSON.stringify(g+"\n//# sourceURL="+o+"\n")+");":'goog.loadModule(function(exports) {"use strict";'+g+"\n;return exports});\n//# sourceURL="+o+"\n"},goog.loadQueuedModules_=function(){var o=goog.queuedModules_.length
+if(0<o){var g=goog.queuedModules_
+goog.queuedModules_=[]
+for(var r=0;r<o;r++)goog.maybeProcessDeferredPath_(g[r])}},goog.maybeProcessDeferredDep_=function(o){goog.isDeferredModule_(o)&&goog.allDepsAreAvailable_(o)&&(o=goog.getPathFromDeps_(o),goog.maybeProcessDeferredPath_(goog.basePath+o))},goog.isDeferredModule_=function(o){return!(!(o=goog.getPathFromDeps_(o))||!goog.dependencies_.pathIsModule[o])&&goog.basePath+o in goog.dependencies_.deferred},goog.allDepsAreAvailable_=function(o){if((o=goog.getPathFromDeps_(o))&&o in goog.dependencies_.requires)for(var g in goog.dependencies_.requires[o])if(!goog.isProvided_(g)&&!goog.isDeferredModule_(g))return!1
+return!0},goog.maybeProcessDeferredPath_=function(o){if(o in goog.dependencies_.deferred){var g=goog.dependencies_.deferred[o]
+delete goog.dependencies_.deferred[o]
+goog.globalEval(g)}},goog.loadModule=function(o){var g=goog.moduleLoaderState_
+try{goog.moduleLoaderState_={moduleName:void 0,declareTestMethods:!1}
+var r
+if(goog.isFunction(o))r=o.call(goog.global,{})
+else{if(!goog.isString(o))throw Error("Invalid module definition")
+r=goog.loadModuleFromSource_.call(goog.global,o)}var e=goog.moduleLoaderState_.moduleName
+if(!goog.isString(e)||!e)throw Error('Invalid module name "'+e+'"')
+goog.moduleLoaderState_.declareLegacyNamespace?goog.constructNamespace_(e,r):goog.SEAL_MODULE_EXPORTS&&Object.seal&&Object.seal(r)
+goog.loadedModules_[e]=r
+if(goog.moduleLoaderState_.declareTestMethods)for(var t in r)0!==t.indexOf("test",0)&&"tearDown"!=t&&"setUp"!=t&&"setUpPage"!=t&&"tearDownPage"!=t||(goog.global[t]=r[t])}finally{goog.moduleLoaderState_=g}},goog.loadModuleFromSource_=function(a){eval(a)
+return{}},goog.writeScriptSrcNode_=function(o){goog.global.document.write('<script type="text/javascript" src="'+o+'"><\/script>')},goog.appendScriptSrcNode_=function(o){var g=goog.global.document,r=g.createElement("script")
+r.type="text/javascript"
+r.src=o
+r.defer=!1
+r.async=!1
+g.head.appendChild(r)},goog.writeScriptTag_=function(o,g){if(goog.inHtmlDocument_()){var r=goog.global.document
+if(!goog.ENABLE_CHROME_APP_SAFE_SCRIPT_LOADING&&"complete"==r.readyState){if(/\bdeps.js$/.test(o))return!1
+throw Error('Cannot write "'+o+'" after document load')}var e=goog.IS_OLD_IE_
+void 0===g?e?(e=" onreadystatechange='goog.onScriptLoad_(this, "+ ++goog.lastNonModuleScriptIndex_+")' ",r.write('<script type="text/javascript" src="'+o+'"'+e+"><\/script>")):goog.ENABLE_CHROME_APP_SAFE_SCRIPT_LOADING?goog.appendScriptSrcNode_(o):goog.writeScriptSrcNode_(o):r.write('<script type="text/javascript">'+g+"<\/script>")
+return!0}return!1},goog.lastNonModuleScriptIndex_=0,goog.onScriptLoad_=function(o,g){"complete"==o.readyState&&goog.lastNonModuleScriptIndex_==g&&goog.loadQueuedModules_()
+return!0},goog.writeScripts_=function(){function a(o){if(!(o in e.written)){if(!(o in e.visited)&&(e.visited[o]=!0,o in e.requires))for(var t in e.requires[o])if(!goog.isProvided_(t)){if(!(t in e.nameToPath))throw Error("Undefined nameToPath for "+t)
+a(e.nameToPath[t])}o in r||(r[o]=!0,g.push(o))}}var o,g=[],r={},e=goog.dependencies_
+for(o in goog.included_)e.written[o]||a(o)
+for(var t=0;t<g.length;t++)o=g[t],goog.dependencies_.written[o]=!0
+var i=goog.moduleLoaderState_
+goog.moduleLoaderState_=null
+for(t=0;t<g.length;t++){if(!(o=g[t]))throw goog.moduleLoaderState_=i,Error("Undefined script input")
+e.pathIsModule[o]?goog.importModule_(goog.basePath+o):goog.importScript_(goog.basePath+o)}goog.moduleLoaderState_=i},goog.getPathFromDeps_=function(o){return o in goog.dependencies_.nameToPath?goog.dependencies_.nameToPath[o]:null},goog.findBasePath_(),goog.global.CLOSURE_NO_DEPS||goog.importScript_(goog.basePath+"deps.js"))
+goog.normalizePath_=function(o){o=o.split("/")
+for(var g=0;g<o.length;)"."==o[g]?o.splice(g,1):g&&".."==o[g]&&o[g-1]&&".."!=o[g-1]?o.splice(--g,2):g++
+return o.join("/")}
+goog.loadFileSync_=function(o){if(goog.global.CLOSURE_LOAD_FILE_SYNC)return goog.global.CLOSURE_LOAD_FILE_SYNC(o)
+var g=new goog.global.XMLHttpRequest
+g.open("get",o,!1)
+g.send()
+return g.responseText}
+goog.retrieveAndExecModule_=function(o){if(!COMPILED){var g=o
+o=goog.normalizePath_(o)
+var r=goog.global.CLOSURE_IMPORT_SCRIPT||goog.writeScriptTag_,e=goog.loadFileSync_(o)
+if(null==e)throw Error("load of "+o+"failed")
+e=goog.wrapModule_(o,e),goog.IS_OLD_IE_?(goog.dependencies_.deferred[g]=e,goog.queuedModules_.push(g)):r(o,e)}}
+goog.typeOf=function(o){var g=typeof o
+if("object"==g){if(!o)return"null"
+if(o instanceof Array)return"array"
+if(o instanceof Object)return g
+var r=Object.prototype.toString.call(o)
+if("[object Window]"==r)return"object"
+if("[object Array]"==r||"number"==typeof o.length&&void 0!==o.splice&&void 0!==o.propertyIsEnumerable&&!o.propertyIsEnumerable("splice"))return"array"
+if("[object Function]"==r||void 0!==o.call&&void 0!==o.propertyIsEnumerable&&!o.propertyIsEnumerable("call"))return"function"}else if("function"==g&&void 0===o.call)return"object"
+return g}
+goog.isNull=function(o){return null===o}
+goog.isDefAndNotNull=function(o){return null!=o}
+goog.isArray=function(o){return"array"==goog.typeOf(o)}
+goog.isArrayLike=function(o){var g=goog.typeOf(o)
+return"array"==g||"object"==g&&"number"==typeof o.length}
+goog.isDateLike=function(o){return goog.isObject(o)&&"function"==typeof o.getFullYear}
+goog.isString=function(o){return"string"==typeof o}
+goog.isBoolean=function(o){return"boolean"==typeof o}
+goog.isNumber=function(o){return"number"==typeof o}
+goog.isFunction=function(o){return"function"==goog.typeOf(o)}
+goog.isObject=function(o){var g=typeof o
+return"object"==g&&null!=o||"function"==g}
+goog.getUid=function(o){return o[goog.UID_PROPERTY_]||(o[goog.UID_PROPERTY_]=++goog.uidCounter_)}
+goog.hasUid=function(o){return!!o[goog.UID_PROPERTY_]}
+goog.removeUid=function(o){"removeAttribute"in o&&o.removeAttribute(goog.UID_PROPERTY_)
+try{delete o[goog.UID_PROPERTY_]}catch(o){}}
+goog.UID_PROPERTY_="closure_uid_"+(1e9*Math.random()>>>0)
+goog.uidCounter_=0
+goog.getHashCode=goog.getUid
+goog.removeHashCode=goog.removeUid
+goog.cloneObject=function(o){if("object"==(r=goog.typeOf(o))||"array"==r){if(o.clone)return o.clone()
+var g,r="array"==r?[]:{}
+for(g in o)r[g]=goog.cloneObject(o[g])
+return r}return o}
+goog.bindNative_=function(o,g,r){return o.call.apply(o.bind,arguments)}
+goog.bindJs_=function(o,g,r){if(!o)throw Error()
+if(2<arguments.length){var e=Array.prototype.slice.call(arguments,2)
+return function(){var r=Array.prototype.slice.call(arguments)
+Array.prototype.unshift.apply(r,e)
+return o.apply(g,r)}}return function(){return o.apply(g,arguments)}}
+goog.bind=function(o,g,r){Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?goog.bind=goog.bindNative_:goog.bind=goog.bindJs_
+return goog.bind.apply(null,arguments)}
+goog.partial=function(o,g){var r=Array.prototype.slice.call(arguments,1)
+return function(){var g=r.slice()
+g.push.apply(g,arguments)
+return o.apply(this,g)}}
+goog.mixin=function(o,g){for(var r in g)o[r]=g[r]}
+goog.now=goog.TRUSTED_SITE&&Date.now||function(){return+new Date}
+goog.globalEval=function(o){if(goog.global.execScript)goog.global.execScript(o,"JavaScript")
+else{if(!goog.global.eval)throw Error("goog.globalEval not available")
+if(null==goog.evalWorksForGlobals_&&(goog.global.eval("var _et_ = 1;"),void 0!==goog.global._et_?(delete goog.global._et_,goog.evalWorksForGlobals_=!0):goog.evalWorksForGlobals_=!1),goog.evalWorksForGlobals_)goog.global.eval(o)
+else{var g=goog.global.document,r=g.createElement("SCRIPT")
+r.type="text/javascript"
+r.defer=!1
+r.appendChild(g.createTextNode(o))
+g.body.appendChild(r)
+g.body.removeChild(r)}}}
+goog.evalWorksForGlobals_=null
+goog.getCssName=function(o,g){var c=function(o){return goog.cssNameMapping_[o]||o},d=function(o){o=o.split("-")
+for(var g=[],r=0;r<o.length;r++)g.push(c(o[r]))
+return g.join("-")}
+d=goog.cssNameMapping_?"BY_WHOLE"==goog.cssNameMappingStyle_?c:d:function(o){return o}
+return g?o+"-"+d(g):d(o)}
+goog.setCssNameMapping=function(o,g){goog.cssNameMapping_=o
+goog.cssNameMappingStyle_=g}
+!COMPILED&&goog.global.CLOSURE_CSS_NAME_MAPPING&&(goog.cssNameMapping_=goog.global.CLOSURE_CSS_NAME_MAPPING)
+goog.getMsg=function(o,g){g&&(o=o.replace(/\{\$([^}]+)}/g,(function(o,r){return r in g?g[r]:o})))
+return o}
+goog.getMsgWithFallback=function(o,g){return o}
+goog.exportSymbol=function(o,g,r){goog.exportPath_(o,g,r)}
+goog.exportProperty=function(o,g,r){o[g]=r}
+goog.inherits=function(o,g){function c(){}c.prototype=g.prototype
+o.superClass_=g.prototype
+o.prototype=new c
+o.prototype.constructor=o
+o.base=function(o,r,e){for(var t=Array(arguments.length-2),i=2;i<arguments.length;i++)t[i-2]=arguments[i]
+return g.prototype[r].apply(o,t)}}
+goog.base=function(o,g,r){var e=arguments.callee.caller
+if(goog.STRICT_MODE_COMPATIBLE||goog.DEBUG&&!e)throw Error("arguments.caller not defined.  goog.base() cannot be used with strict mode code. See http://www.ecma-international.org/ecma-262/5.1/#sec-C")
+if(e.superClass_){for(var t=Array(arguments.length-1),i=1;i<arguments.length;i++)t[i-1]=arguments[i]
+return e.superClass_.constructor.apply(o,t)}t=Array(arguments.length-2)
+for(i=2;i<arguments.length;i++)t[i-2]=arguments[i]
+i=!1
+for(var n=o.constructor;n;n=n.superClass_&&n.superClass_.constructor)if(n.prototype[g]===e)i=!0
+else if(i)return n.prototype[g].apply(o,t)
+if(o[g]===e)return o.constructor.prototype[g].apply(o,t)
+throw Error("goog.base called from a method of one name to a method of a different name")}
+goog.scope=function(o){o.call(goog.global)}
+COMPILED||(goog.global.COMPILED=COMPILED)
+goog.defineClass=function(o,g){var r=g.constructor,e=g.statics
+r&&r!=Object.prototype.constructor||(r=function(){throw Error("cannot instantiate an interface (no constructor defined).")})
+r=goog.defineClass.createSealingConstructor_(r,o)
+o&&goog.inherits(r,o)
+delete g.constructor
+delete g.statics
+goog.defineClass.applyProperties_(r.prototype,g)
+null!=e&&(e instanceof Function?e(r):goog.defineClass.applyProperties_(r,e))
+return r}
+goog.defineClass.SEAL_CLASS_INSTANCES=goog.DEBUG
+goog.defineClass.createSealingConstructor_=function(o,g){if(goog.defineClass.SEAL_CLASS_INSTANCES&&Object.seal instanceof Function){if(g&&g.prototype&&g.prototype[goog.UNSEALABLE_CONSTRUCTOR_PROPERTY_])return o
+var c=function(){var g=o.apply(this,arguments)||this
+g[goog.UID_PROPERTY_]=g[goog.UID_PROPERTY_]
+this.constructor===c&&Object.seal(g)
+return g}
+return c}return o}
+goog.defineClass.OBJECT_PROTOTYPE_FIELDS_="constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf".split(" ")
+goog.defineClass.applyProperties_=function(o,g){for(var r in g)Object.prototype.hasOwnProperty.call(g,r)&&(o[r]=g[r])
+for(var e=0;e<goog.defineClass.OBJECT_PROTOTYPE_FIELDS_.length;e++)r=goog.defineClass.OBJECT_PROTOTYPE_FIELDS_[e],Object.prototype.hasOwnProperty.call(g,r)&&(o[r]=g[r])}
+goog.tagUnsealableClass=function(o){!COMPILED&&goog.defineClass.SEAL_CLASS_INSTANCES&&(o.prototype[goog.UNSEALABLE_CONSTRUCTOR_PROPERTY_]=!0)}
+goog.UNSEALABLE_CONSTRUCTOR_PROPERTY_="goog_defineClass_legacy_unsealable"
+goog.debug={}
+goog.debug.Error=function(o){if(Error.captureStackTrace)Error.captureStackTrace(this,goog.debug.Error)
+else{var g=Error().stack
+g&&(this.stack=g)}o&&(this.message=String(o))
+this.reportErrorToServer=!0}
+goog.inherits(goog.debug.Error,Error)
+goog.debug.Error.prototype.name="CustomError"
+goog.dom={}
+goog.dom.NodeType={ELEMENT:1,ATTRIBUTE:2,TEXT:3,CDATA_SECTION:4,ENTITY_REFERENCE:5,ENTITY:6,PROCESSING_INSTRUCTION:7,COMMENT:8,DOCUMENT:9,DOCUMENT_TYPE:10,DOCUMENT_FRAGMENT:11,NOTATION:12}
+goog.i18n={}
+goog.i18n.CharPickerData=function(){}
+goog.i18n.CharPickerData.MSG_CP_SYMBOL=goog.getMsg("Symbol")
+goog.i18n.CharPickerData.MSG_CP_ARROWS=goog.getMsg("Arrows")
+goog.i18n.CharPickerData.MSG_CP_BRAILLE=goog.getMsg("Braille")
+goog.i18n.CharPickerData.MSG_CP_CONTROL_PICTURES=goog.getMsg("Control Pictures")
+goog.i18n.CharPickerData.MSG_CP_CURRENCY=goog.getMsg("Currency")
+goog.i18n.CharPickerData.MSG_CP_EMOTICONS=goog.getMsg("Emoticons")
+goog.i18n.CharPickerData.MSG_CP_GAME_PIECES=goog.getMsg("Game Pieces")
+goog.i18n.CharPickerData.MSG_CP_GENDER_AND_GENEALOGICAL=goog.getMsg("Gender and Genealogical")
+goog.i18n.CharPickerData.MSG_CP_GEOMETRIC_SHAPES=goog.getMsg("Geometric Shapes")
+goog.i18n.CharPickerData.MSG_CP_KEYBOARD_AND_UI=goog.getMsg("Keyboard and UI")
+goog.i18n.CharPickerData.MSG_CP_LATIN_1_SUPPLEMENT=goog.getMsg("Latin 1 Supplement")
+goog.i18n.CharPickerData.MSG_CP_MATH=goog.getMsg("Math")
+goog.i18n.CharPickerData.MSG_CP_MATH_ALPHANUMERIC=goog.getMsg("Math Alphanumeric")
+goog.i18n.CharPickerData.MSG_CP_MISCELLANEOUS=goog.getMsg("Miscellaneous")
+goog.i18n.CharPickerData.MSG_CP_MUSICAL=goog.getMsg("Musical")
+goog.i18n.CharPickerData.MSG_CP_STARS_ASTERISKS=goog.getMsg("Stars/Asterisks")
+goog.i18n.CharPickerData.MSG_CP_SUBSCRIPT=goog.getMsg("Subscript")
+goog.i18n.CharPickerData.MSG_CP_SUPERSCRIPT=goog.getMsg("Superscript")
+goog.i18n.CharPickerData.MSG_CP_TECHNICAL=goog.getMsg("Technical")
+goog.i18n.CharPickerData.MSG_CP_TRANSPORT_AND_MAP=goog.getMsg("Transport And Map")
+goog.i18n.CharPickerData.MSG_CP_WEATHER_AND_ASTROLOGICAL=goog.getMsg("Weather and Astrological")
+goog.i18n.CharPickerData.MSG_CP_YIJING_TAI_XUAN_JING=goog.getMsg("Yijing / Tai Xuan Jing")
+goog.i18n.CharPickerData.MSG_CP_HISTORIC=goog.getMsg("Historic")
+goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY=goog.getMsg("Compatibility")
+goog.i18n.CharPickerData.MSG_CP_EMOJI=goog.getMsg("Emoji")
+goog.i18n.CharPickerData.MSG_CP_PEOPLE_AND_EMOTIONS=goog.getMsg("People and Emotions")
+goog.i18n.CharPickerData.MSG_CP_ANIMALS_PLANTS_AND_FOOD=goog.getMsg("Animals, Plants and Food")
+goog.i18n.CharPickerData.MSG_CP_OBJECTS=goog.getMsg("Objects")
+goog.i18n.CharPickerData.MSG_CP_SPORTS_CELEBRATIONS_AND_ACTIVITIES=goog.getMsg("Sports, Celebrations and Activities")
+goog.i18n.CharPickerData.MSG_CP_TRANSPORT_MAPS_AND_SIGNAGE=goog.getMsg("Transport, Maps and Signage")
+goog.i18n.CharPickerData.MSG_CP_WEATHER_SCENES_AND_ZODIAC_SIGNS=goog.getMsg("Weather, Scenes and Zodiac signs")
+goog.i18n.CharPickerData.MSG_CP_ENCLOSED=goog.getMsg("Enclosed")
+goog.i18n.CharPickerData.MSG_CP_MARKS=goog.getMsg("Marks")
+goog.i18n.CharPickerData.MSG_CP_SYMBOLS=goog.getMsg("Symbols")
+goog.i18n.CharPickerData.MSG_CP_PUNCTUATION=goog.getMsg("Punctuation")
+goog.i18n.CharPickerData.MSG_CP_ASCII_BASED=goog.getMsg("ASCII Based")
+goog.i18n.CharPickerData.MSG_CP_DASH_CONNECTOR=goog.getMsg("Dash/Connector")
+goog.i18n.CharPickerData.MSG_CP_OTHER=goog.getMsg("Other")
+goog.i18n.CharPickerData.MSG_CP_PAIRED=goog.getMsg("Paired")
+goog.i18n.CharPickerData.MSG_CP_NUMBER=goog.getMsg("Number")
+goog.i18n.CharPickerData.MSG_CP_DECIMAL=goog.getMsg("Decimal")
+goog.i18n.CharPickerData.MSG_CP_ENCLOSED_DOTTED=goog.getMsg("Enclosed/Dotted")
+goog.i18n.CharPickerData.MSG_CP_FRACTIONS_RELATED=goog.getMsg("Fractions/Related")
+goog.i18n.CharPickerData.MSG_CP_FORMAT_WHITESPACE=goog.getMsg("Format & Whitespace")
+goog.i18n.CharPickerData.MSG_CP_FORMAT=goog.getMsg("Format")
+goog.i18n.CharPickerData.MSG_CP_VARIATION_SELECTOR=goog.getMsg("Variation Selector")
+goog.i18n.CharPickerData.MSG_CP_WHITESPACE=goog.getMsg("Whitespace")
+goog.i18n.CharPickerData.MSG_CP_MODIFIER=goog.getMsg("Modifier")
+goog.i18n.CharPickerData.MSG_CP_ENCLOSING=goog.getMsg("Enclosing")
+goog.i18n.CharPickerData.MSG_CP_NONSPACING=goog.getMsg("Nonspacing")
+goog.i18n.CharPickerData.MSG_CP_SPACING=goog.getMsg("Spacing")
+goog.i18n.CharPickerData.MSG_CP_LATIN=goog.getMsg("Latin")
+goog.i18n.CharPickerData.MSG_CP_COMMON=goog.getMsg("Common")
+goog.i18n.CharPickerData.MSG_CP_FLIPPED_MIRRORED=goog.getMsg("Flipped/Mirrored")
+goog.i18n.CharPickerData.MSG_CP_PHONETICS_IPA=goog.getMsg("Phonetics (IPA)")
+goog.i18n.CharPickerData.MSG_CP_PHONETICS_X_IPA=goog.getMsg("Phonetics (X-IPA)")
+goog.i18n.CharPickerData.MSG_CP_OTHER_EUROPEAN_SCRIPTS=goog.getMsg("Other European Scripts")
+goog.i18n.CharPickerData.MSG_CP_ARMENIAN=goog.getMsg("Armenian")
+goog.i18n.CharPickerData.MSG_CP_CYRILLIC=goog.getMsg("Cyrillic")
+goog.i18n.CharPickerData.MSG_CP_GEORGIAN=goog.getMsg("Georgian")
+goog.i18n.CharPickerData.MSG_CP_GREEK=goog.getMsg("Greek")
+goog.i18n.CharPickerData.MSG_CP_CYPRIOT=goog.getMsg("Cypriot")
+goog.i18n.CharPickerData.MSG_CP_GLAGOLITIC=goog.getMsg("Glagolitic")
+goog.i18n.CharPickerData.MSG_CP_GOTHIC=goog.getMsg("Gothic")
+goog.i18n.CharPickerData.MSG_CP_LINEAR_B=goog.getMsg("Linear B")
+goog.i18n.CharPickerData.MSG_CP_OGHAM=goog.getMsg("Ogham")
+goog.i18n.CharPickerData.MSG_CP_OLD_ITALIC=goog.getMsg("Old Italic")
+goog.i18n.CharPickerData.MSG_CP_RUNIC=goog.getMsg("Runic")
+goog.i18n.CharPickerData.MSG_CP_SHAVIAN=goog.getMsg("Shavian")
+goog.i18n.CharPickerData.MSG_CP_AMERICAN_SCRIPTS=goog.getMsg("American Scripts")
+goog.i18n.CharPickerData.MSG_CP_CANADIAN_ABORIGINAL=goog.getMsg("Canadian Aboriginal")
+goog.i18n.CharPickerData.MSG_CP_CHEROKEE=goog.getMsg("Cherokee")
+goog.i18n.CharPickerData.MSG_CP_DESERET=goog.getMsg("Deseret")
+goog.i18n.CharPickerData.MSG_CP_AFRICAN_SCRIPTS=goog.getMsg("African Scripts")
+goog.i18n.CharPickerData.MSG_CP_EGYPTIAN_HIEROGLYPHS=goog.getMsg("Egyptian Hieroglyphs")
+goog.i18n.CharPickerData.MSG_CP_ETHIOPIC=goog.getMsg("Ethiopic")
+goog.i18n.CharPickerData.MSG_CP_MEROITIC_CURSIVE=goog.getMsg("Meroitic Cursive")
+goog.i18n.CharPickerData.MSG_CP_MEROITIC_HIEROGLYPHS=goog.getMsg("Meroitic Hieroglyphs")
+goog.i18n.CharPickerData.MSG_CP_NKO=goog.getMsg("Nko")
+goog.i18n.CharPickerData.MSG_CP_TIFINAGH=goog.getMsg("Tifinagh")
+goog.i18n.CharPickerData.MSG_CP_VAI=goog.getMsg("Vai")
+goog.i18n.CharPickerData.MSG_CP_BAMUM=goog.getMsg("Bamum")
+goog.i18n.CharPickerData.MSG_CP_COPTIC=goog.getMsg("Coptic")
+goog.i18n.CharPickerData.MSG_CP_OSMANYA=goog.getMsg("Osmanya")
+goog.i18n.CharPickerData.MSG_CP_MIDDLE_EASTERN_SCRIPTS=goog.getMsg("Middle Eastern Scripts")
+goog.i18n.CharPickerData.MSG_CP_ARABIC=goog.getMsg("Arabic")
+goog.i18n.CharPickerData.MSG_CP_HEBREW=goog.getMsg("Hebrew")
+goog.i18n.CharPickerData.MSG_CP_IMPERIAL_ARAMAIC=goog.getMsg("Imperial Aramaic")
+goog.i18n.CharPickerData.MSG_CP_INSCRIPTIONAL_PAHLAVI=goog.getMsg("Inscriptional Pahlavi")
+goog.i18n.CharPickerData.MSG_CP_INSCRIPTIONAL_PARTHIAN=goog.getMsg("Inscriptional Parthian")
+goog.i18n.CharPickerData.MSG_CP_MANDAIC=goog.getMsg("Mandaic")
+goog.i18n.CharPickerData.MSG_CP_OLD_SOUTH_ARABIAN=goog.getMsg("Old South Arabian")
+goog.i18n.CharPickerData.MSG_CP_SAMARITAN=goog.getMsg("Samaritan")
+goog.i18n.CharPickerData.MSG_CP_SYRIAC=goog.getMsg("Syriac")
+goog.i18n.CharPickerData.MSG_CP_AVESTAN=goog.getMsg("Avestan")
+goog.i18n.CharPickerData.MSG_CP_CARIAN=goog.getMsg("Carian")
+goog.i18n.CharPickerData.MSG_CP_CUNEIFORM=goog.getMsg("Cuneiform")
+goog.i18n.CharPickerData.MSG_CP_LYCIAN=goog.getMsg("Lycian")
+goog.i18n.CharPickerData.MSG_CP_LYDIAN=goog.getMsg("Lydian")
+goog.i18n.CharPickerData.MSG_CP_OLD_PERSIAN=goog.getMsg("Old Persian")
+goog.i18n.CharPickerData.MSG_CP_PHOENICIAN=goog.getMsg("Phoenician")
+goog.i18n.CharPickerData.MSG_CP_UGARITIC=goog.getMsg("Ugaritic")
+goog.i18n.CharPickerData.MSG_CP_SOUTH_ASIAN_SCRIPTS=goog.getMsg("South Asian Scripts")
+goog.i18n.CharPickerData.MSG_CP_BENGALI=goog.getMsg("Bengali")
+goog.i18n.CharPickerData.MSG_CP_CHAKMA=goog.getMsg("Chakma")
+goog.i18n.CharPickerData.MSG_CP_DEVANAGARI=goog.getMsg("Devanagari")
+goog.i18n.CharPickerData.MSG_CP_GUJARATI=goog.getMsg("Gujarati")
+goog.i18n.CharPickerData.MSG_CP_GURMUKHI=goog.getMsg("Gurmukhi")
+goog.i18n.CharPickerData.MSG_CP_KANNADA=goog.getMsg("Kannada")
+goog.i18n.CharPickerData.MSG_CP_LEPCHA=goog.getMsg("Lepcha")
+goog.i18n.CharPickerData.MSG_CP_LIMBU=goog.getMsg("Limbu")
+goog.i18n.CharPickerData.MSG_CP_MALAYALAM=goog.getMsg("Malayalam")
+goog.i18n.CharPickerData.MSG_CP_MEETEI_MAYEK=goog.getMsg("Meetei Mayek")
+goog.i18n.CharPickerData.MSG_CP_OL_CHIKI=goog.getMsg("Ol Chiki")
+goog.i18n.CharPickerData.MSG_CP_ORIYA=goog.getMsg("Oriya")
+goog.i18n.CharPickerData.MSG_CP_SAURASHTRA=goog.getMsg("Saurashtra")
+goog.i18n.CharPickerData.MSG_CP_SINHALA=goog.getMsg("Sinhala")
+goog.i18n.CharPickerData.MSG_CP_SORA_SOMPENG=goog.getMsg("Sora Sompeng")
+goog.i18n.CharPickerData.MSG_CP_TAMIL=goog.getMsg("Tamil")
+goog.i18n.CharPickerData.MSG_CP_TELUGU=goog.getMsg("Telugu")
+goog.i18n.CharPickerData.MSG_CP_THAANA=goog.getMsg("Thaana")
+goog.i18n.CharPickerData.MSG_CP_TIBETAN=goog.getMsg("Tibetan")
+goog.i18n.CharPickerData.MSG_CP_BRAHMI=goog.getMsg("Brahmi")
+goog.i18n.CharPickerData.MSG_CP_KAITHI=goog.getMsg("Kaithi")
+goog.i18n.CharPickerData.MSG_CP_KHAROSHTHI=goog.getMsg("Kharoshthi")
+goog.i18n.CharPickerData.MSG_CP_SHARADA=goog.getMsg("Sharada")
+goog.i18n.CharPickerData.MSG_CP_SYLOTI_NAGRI=goog.getMsg("Syloti Nagri")
+goog.i18n.CharPickerData.MSG_CP_TAKRI=goog.getMsg("Takri")
+goog.i18n.CharPickerData.MSG_CP_SOUTHEAST_ASIAN_SCRIPTS=goog.getMsg("Southeast Asian Scripts")
+goog.i18n.CharPickerData.MSG_CP_BALINESE=goog.getMsg("Balinese")
+goog.i18n.CharPickerData.MSG_CP_BATAK=goog.getMsg("Batak")
+goog.i18n.CharPickerData.MSG_CP_CHAM=goog.getMsg("Cham")
+goog.i18n.CharPickerData.MSG_CP_JAVANESE=goog.getMsg("Javanese")
+goog.i18n.CharPickerData.MSG_CP_KAYAH_LI=goog.getMsg("Kayah Li")
+goog.i18n.CharPickerData.MSG_CP_KHMER=goog.getMsg("Khmer")
+goog.i18n.CharPickerData.MSG_CP_LAO=goog.getMsg("Lao")
+goog.i18n.CharPickerData.MSG_CP_MYANMAR=goog.getMsg("Myanmar")
+goog.i18n.CharPickerData.MSG_CP_NEW_TAI_LUE=goog.getMsg("New Tai Lue")
+goog.i18n.CharPickerData.MSG_CP_TAI_LE=goog.getMsg("Tai Le")
+goog.i18n.CharPickerData.MSG_CP_TAI_THAM=goog.getMsg("Tai Tham")
+goog.i18n.CharPickerData.MSG_CP_TAI_VIET=goog.getMsg("Tai Viet")
+goog.i18n.CharPickerData.MSG_CP_THAI=goog.getMsg("Thai")
+goog.i18n.CharPickerData.MSG_CP_BUGINESE=goog.getMsg("Buginese")
+goog.i18n.CharPickerData.MSG_CP_BUHID=goog.getMsg("Buhid")
+goog.i18n.CharPickerData.MSG_CP_HANUNOO=goog.getMsg("Hanunoo")
+goog.i18n.CharPickerData.MSG_CP_REJANG=goog.getMsg("Rejang")
+goog.i18n.CharPickerData.MSG_CP_SUNDANESE=goog.getMsg("Sundanese")
+goog.i18n.CharPickerData.MSG_CP_TAGALOG=goog.getMsg("Tagalog")
+goog.i18n.CharPickerData.MSG_CP_TAGBANWA=goog.getMsg("Tagbanwa")
+goog.i18n.CharPickerData.MSG_CP_HANGUL=goog.getMsg("Hangul")
+goog.i18n.CharPickerData.MSG_CP_OTHER_EAST_ASIAN_SCRIPTS=goog.getMsg("Other East Asian Scripts")
+goog.i18n.CharPickerData.MSG_CP_BOPOMOFO=goog.getMsg("Bopomofo")
+goog.i18n.CharPickerData.MSG_CP_HIRAGANA=goog.getMsg("Hiragana")
+goog.i18n.CharPickerData.MSG_CP_KATAKANA=goog.getMsg("Katakana")
+goog.i18n.CharPickerData.MSG_CP_LISU=goog.getMsg("Lisu")
+goog.i18n.CharPickerData.MSG_CP_MIAO=goog.getMsg("Miao")
+goog.i18n.CharPickerData.MSG_CP_MONGOLIAN=goog.getMsg("Mongolian")
+goog.i18n.CharPickerData.MSG_CP_OLD_TURKIC=goog.getMsg("Old Turkic")
+goog.i18n.CharPickerData.MSG_CP_PHAGS_PA=goog.getMsg("Phags Pa")
+goog.i18n.CharPickerData.MSG_CP_YI=goog.getMsg("Yi")
+goog.i18n.CharPickerData.MSG_CP_HAN_1_STROKE_RADICALS=goog.getMsg("Han 1-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_LESS_COMMON=goog.getMsg("Less Common")
+goog.i18n.CharPickerData.MSG_CP_HAN_2_STROKE_RADICALS=goog.getMsg("Han 2-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_HAN_3_STROKE_RADICALS=goog.getMsg("Han 3-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_HAN_4_STROKE_RADICALS=goog.getMsg("Han 4-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_HAN_5_STROKE_RADICALS=goog.getMsg("Han 5-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_HAN_6_STROKE_RADICALS=goog.getMsg("Han 6-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_HAN_7_STROKE_RADICALS=goog.getMsg("Han 7-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_HAN_8_STROKE_RADICALS=goog.getMsg("Han 8-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_HAN_9_STROKE_RADICALS=goog.getMsg("Han 9-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_HAN_10_STROKE_RADICALS=goog.getMsg("Han 10-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_HAN_11_17_STROKE_RADICALS=goog.getMsg("Han 11..17-Stroke Radicals")
+goog.i18n.CharPickerData.MSG_CP_HAN_OTHER=goog.getMsg("Han - Other")
+goog.i18n.CharPickerData.MSG_CP_CJK_STROKES=goog.getMsg("CJK Strokes")
+goog.i18n.CharPickerData.MSG_CP_IDEOGRAPHIC_DESCRIPTION=goog.getMsg("Ideographic Description")
+goog.i18n.CharPickerData.prototype.categories=[goog.i18n.CharPickerData.MSG_CP_SYMBOL,goog.i18n.CharPickerData.MSG_CP_EMOJI,goog.i18n.CharPickerData.MSG_CP_PUNCTUATION,goog.i18n.CharPickerData.MSG_CP_NUMBER,goog.i18n.CharPickerData.MSG_CP_FORMAT_WHITESPACE,goog.i18n.CharPickerData.MSG_CP_MODIFIER,goog.i18n.CharPickerData.MSG_CP_LATIN,goog.i18n.CharPickerData.MSG_CP_OTHER_EUROPEAN_SCRIPTS,goog.i18n.CharPickerData.MSG_CP_AMERICAN_SCRIPTS,goog.i18n.CharPickerData.MSG_CP_AFRICAN_SCRIPTS,goog.i18n.CharPickerData.MSG_CP_MIDDLE_EASTERN_SCRIPTS,goog.i18n.CharPickerData.MSG_CP_SOUTH_ASIAN_SCRIPTS,goog.i18n.CharPickerData.MSG_CP_SOUTHEAST_ASIAN_SCRIPTS,goog.i18n.CharPickerData.MSG_CP_HANGUL,goog.i18n.CharPickerData.MSG_CP_OTHER_EAST_ASIAN_SCRIPTS,goog.i18n.CharPickerData.MSG_CP_HAN_1_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_2_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_3_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_4_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_5_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_6_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_7_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_8_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_9_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_10_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_11_17_STROKE_RADICALS,goog.i18n.CharPickerData.MSG_CP_HAN_OTHER]
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SYMBOL=[goog.i18n.CharPickerData.MSG_CP_ARROWS,goog.i18n.CharPickerData.MSG_CP_BRAILLE,goog.i18n.CharPickerData.MSG_CP_CONTROL_PICTURES,goog.i18n.CharPickerData.MSG_CP_CURRENCY,goog.i18n.CharPickerData.MSG_CP_EMOTICONS,goog.i18n.CharPickerData.MSG_CP_GAME_PIECES,goog.i18n.CharPickerData.MSG_CP_GENDER_AND_GENEALOGICAL,goog.i18n.CharPickerData.MSG_CP_GEOMETRIC_SHAPES,goog.i18n.CharPickerData.MSG_CP_KEYBOARD_AND_UI,goog.i18n.CharPickerData.MSG_CP_LATIN_1_SUPPLEMENT,goog.i18n.CharPickerData.MSG_CP_MATH,goog.i18n.CharPickerData.MSG_CP_MATH_ALPHANUMERIC,goog.i18n.CharPickerData.MSG_CP_MISCELLANEOUS,goog.i18n.CharPickerData.MSG_CP_MUSICAL,goog.i18n.CharPickerData.MSG_CP_STARS_ASTERISKS,goog.i18n.CharPickerData.MSG_CP_SUBSCRIPT,goog.i18n.CharPickerData.MSG_CP_SUPERSCRIPT,goog.i18n.CharPickerData.MSG_CP_TECHNICAL,goog.i18n.CharPickerData.MSG_CP_TRANSPORT_AND_MAP,goog.i18n.CharPickerData.MSG_CP_WEATHER_AND_ASTROLOGICAL,goog.i18n.CharPickerData.MSG_CP_YIJING_TAI_XUAN_JING,goog.i18n.CharPickerData.MSG_CP_HISTORIC,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY]
+goog.i18n.CharPickerData.CHARLIST_OF_SYMBOL="2>807AnTMm6e6HDk%`O728F1f4V1PNF2WF1G}58?]514M]Ol1%2l2^3X1U:1Un2Mb>$0MD-(068k11I3706:%MwiZ06 ;oA0FN (j90d3 H3XBMQQ10HB(2106uPM]N:qol202S20t2^.Z0^xM0:91E]J6O6 ;(i1-5W? Q6A06f5#1H2,]4MeEY[W1@3W}891N1GF1GN18N1P%k 2JA0sOc oG90nMcPTFNfFEQE10t2H3kQ7X1sj>$0OW6*F%E (P90UGv771.Uv46%7Y^Y1F2mc]1M+<Z1 9FP1 :3f1En5894WX3:2v+]lEQ?60f2E11OH1P1M]1U11UfCf111MuUmH6Ue6WGGu:26G8:2NO$M:16H8%2V28H211cvg.]4s9AnU#5PNdkX4-1Gc24P1P2:2P2:2P2:2P2:2P2g>50M8V2868G8,8M88mW888E868G8888868GM8k8M8M88,8d1eE8U8d1%46bf$0:;c8%Ef1Ev2:28]BmMbp)02p8071WO6WUw+w0 9G6e:-EGX26G6(k70Ocm,]AWG,8OUmOO68E86uMeU^`Q1t78V686GG6GM8|88k8-58MGs8k8d28M8U8Ok8-UGF28F28#28F28#28F28#28F28#28F28sGd4rLS1H1 1FGW8I(90EHB686WU8l1$Uv4?8En1E8|:29168U8718k8kG8M868688686e686888,148MO8|8E]7wV10k2tN1cYf806813692W]3%68X2f2|O6G86%1P5m6%5$6%468e[E8c11126v1MH2|%F9DuM8E86m8UTN%065j#0M ;DA0k2mO1NM[d3GV5eEms$6ut2WN493@5OA;80sD790UOc$sGk%2MfDE ;OA0v5-3g510E^jW1WV1:l Qq80N1871QC30 XFu6e6^X80O?vE82+Y16T+g1Ug2709+H12F30QjW0PC6 gM90sW#1G6$l7H1!%2N2O?ml1]6? g?i1N6 Q4A0F1mv3}1v8,uUe^zX171 w8A0sf7c2WA0#5A>E1-7 I{)0%4!P7|%4}3A,$0dA (PD0M(ZU16H1-3e!u6".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_EMOJI=[goog.i18n.CharPickerData.MSG_CP_PEOPLE_AND_EMOTIONS,goog.i18n.CharPickerData.MSG_CP_ANIMALS_PLANTS_AND_FOOD,goog.i18n.CharPickerData.MSG_CP_OBJECTS,goog.i18n.CharPickerData.MSG_CP_SPORTS_CELEBRATIONS_AND_ACTIVITIES,goog.i18n.CharPickerData.MSG_CP_TRANSPORT_MAPS_AND_SIGNAGE,goog.i18n.CharPickerData.MSG_CP_WEATHER_SCENES_AND_ZODIAC_SIGNS,goog.i18n.CharPickerData.MSG_CP_ENCLOSED,goog.i18n.CharPickerData.MSG_CP_MARKS,goog.i18n.CharPickerData.MSG_CP_SYMBOLS]
+goog.i18n.CharPickerData.CHARLIST_OF_EMOJI="^6A0n2:IE]7Y>X18N1%1-28EOO8871G|%U-5W? I6A0A_X1c8N6eXBt5 ;O906PJG]m1C1Amew)X16:It1]2W68E8X168[8d68MP171P1!1372 2DA0s%76o]W1@3nAN1GF1GN18N1Xzd191N38U9I (DA0v1O]2694t1m72$2>X1d1%DvXUvBN6 Q4A0F1mv4|HAUe98(rX1@2]k Y#90;v308ICU1d2W-3H9EH1-3e!u6 ;5A09M9188:48WE8n5EH2 Y%C0(wV1P7N3[EP1M".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_PUNCTUATION=[goog.i18n.CharPickerData.MSG_CP_ASCII_BASED,goog.i18n.CharPickerData.MSG_CP_DASH_CONNECTOR,goog.i18n.CharPickerData.MSG_CP_OTHER,goog.i18n.CharPickerData.MSG_CP_PAIRED,goog.i18n.CharPickerData.MSG_CP_HISTORIC,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY]
+goog.i18n.CharPickerData.CHARLIST_OF_PUNCTUATION=":2M8EG886[6O6f2H6eP16u 14f4gX80c%36%1gu30:26Q3t0XG (s70:<.MOEmEGGG8OEms88Iu3068G6n1! n36f48v2894X1;P80sP26[6]46P16nvMPF6f3c1^F1H76:2,va@1%5M]26;7106G,fh,Gs2Ms06nPcXF6f48v288686 gm808kQT30MnN72v1U8U(%t0Eb(t0 Ig80e91E91686W8$EH1X36P162pw0,12-1G|8F18W86nDE8c8M[6O6X2E8f2886".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_NUMBER=[goog.i18n.CharPickerData.MSG_CP_DECIMAL,goog.i18n.CharPickerData.MSG_CP_ENCLOSED_DOTTED,goog.i18n.CharPickerData.MSG_CP_FRACTIONS_RELATED,goog.i18n.CharPickerData.MSG_CP_OTHER,goog.i18n.CharPickerData.MSG_CP_HISTORIC,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY]
+goog.i18n.CharPickerData.CHARLIST_OF_NUMBER="P4,]A6egh10,HC,1I,fb,%A,%A,%A,%A,%A,%A,%A,%A,XK,%A,X6,PP,X6,Q]10,f3,PR,vB,9F,m,nG,]K,m,A710Ocm,^SZ0,vz,f3,1I,%A,]a,AnQ0,vB,f5,9D,2Q10,5O60, gs90#7%4@1Pvt2g+20,%2s8N1]2,n3N1 9G6eGEoX80Ocm,1IV1%3 ot20cHYc]AE9Ck]Lcvd,^910#1oF10,vh2}1073GMQ:30P2!P1EHVMI2V0,9Ts8^aP0sHn6%JsH2s](#2fg#1wnp0l1;-70? o560EgM10,Yk10EGMo230w6u0}39175n1:aMv2$HCUXI,^E10cnQso,60@8 w.80-2o?30EHVMoSU1?b}#0,".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_FORMAT_WHITESPACE=[goog.i18n.CharPickerData.MSG_CP_FORMAT,goog.i18n.CharPickerData.MSG_CP_VARIATION_SELECTOR,goog.i18n.CharPickerData.MSG_CP_WHITESPACE,goog.i18n.CharPickerData.MSG_CP_HISTORIC,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY]
+goog.i18n.CharPickerData.CHARLIST_OF_FORMAT_WHITESPACE=["vF;Z10c12fHf4gh40;920UX2Uf4U8M2n#0Iej0MQi50sbwt0vME","]=oY506%7E^$zA#LDF1AV1","fEIH602920,H3P4wB40;#s0","w-10f4^#206IV10(970ols0","fEAQ80?P3P4wB40^@s0"]
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_MODIFIER=[goog.i18n.CharPickerData.MSG_CP_ENCLOSING,goog.i18n.CharPickerData.MSG_CP_NONSPACING,goog.i18n.CharPickerData.MSG_CP_SPACING,goog.i18n.CharPickerData.MSG_CP_HISTORIC,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY]
+goog.i18n.CharPickerData.CHARLIST_OF_MODIFIER=["(y80M8E","%+#5GG,8t1(#60E8718kWm:I,H46v%71WO|oWQ1En1sGk%2MT_t0k","f!!.M%3M91gz30(C30f1695E8?8l18d2X4N32D40XH","%?71HP62x60M[F2926^Py0","n<686"]
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_LATIN=[goog.i18n.CharPickerData.MSG_CP_COMMON,goog.i18n.CharPickerData.MSG_CP_ENCLOSED,goog.i18n.CharPickerData.MSG_CP_FLIPPED_MIRRORED,goog.i18n.CharPickerData.MSG_CP_OTHER,goog.i18n.CharPickerData.MSG_CP_PHONETICS_IPA,goog.i18n.CharPickerData.MSG_CP_PHONETICS_X_IPA,goog.i18n.CharPickerData.MSG_CP_HISTORIC,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY]
+goog.i18n.CharPickerData.CHARLIST_OF_LATIN=":5N2mN2P6}18#28V1Gl1GcG|W68cGs8|GMGMG6G}1GWG6OU8GEOG6H168E11M.s$$6f16%2Mv3P168688uW.128$IN706126H26W6:16m6$6P16Gc916[878QAa06zph0696U8EOP3o2706 ^x90}6^yX1#28F5m-3:6N2 X4X1m6OEWku8WGc88M8H6%1nFmu11916X16H3H1%4P3[8EOmeWW.euWM918HMH6%512]I1Q^+20f+.%2X8]cfBg*10I710P1681H]E^BZ01BE ]N6v16m6P16Gv26W6W6G6H286O6G6m86OE86GUGGEGOEv2s8sG!OEOt2mV38?A570@3%5718}2H9|G@1G72GMG#1GcGsGF1G6m|GcHuO11G6e6O88mOuX18Eo]20}1u62cW0F1v6N1e68M91?H7zSi081s868EG?8E8EGcu8E8UGEw^60t5H193N3v!H1f171QmZ072f9E]96 %8N2%96$uH4H3u:9M%CF28718M868UO?86G68E8868GHOeP1I>70EO6LF80E8GW11OO6918Of26868886OV3WU%2W 1uH1WGeE11G6GO8G868s HZ6uP268691s15P36Al7068H8cHw!Y?20UwdW0#58s:BUbvh0d1g{A06AZW0sH2697 XFX1:A6116v5H6!P3E(o706vtM8E8?86GUGE8O8M8E86W8.U12-2Qd40HBMvE,et8:2Qtq0kg710N2mN2bV)0mWOXnc".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EUROPEAN_SCRIPTS=[goog.i18n.CharPickerData.MSG_CP_ARMENIAN,goog.i18n.CharPickerData.MSG_CP_CYRILLIC,goog.i18n.CharPickerData.MSG_CP_GEORGIAN,goog.i18n.CharPickerData.MSG_CP_GREEK,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_CYPRIOT,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_CYRILLIC,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_GEORGIAN,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_GLAGOLITIC,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_GOTHIC,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_GREEK,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_LINEAR_B,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_OGHAM,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_OLD_ITALIC,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_RUNIC,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_SHAVIAN,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_ARMENIAN,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_GREEK]
+goog.i18n.CharPickerData.CHARLIST_OF_OTHER_EUROPEAN_SCRIPTS="(W10V3Oc8V3G6W=4 2510-BuNEKuvfE (e10o{20eG@2mMGEJ ]]8E88#18@3P3$wC70@1GcGV3GcGs8888l1888888O#48U8eE8E88OEOUeE8k8eE8E88{l706W ^-+0cG8@386OG 2{h0F4W[872{<g06g^A0-2;;V0M8,8:2 ;Y40V3]3cW2a70V38e ^tB0F48F4 ^l*0V2 ]@MG6OEX7EO71f18GU8E;{(0#6YBt0@5OJE (z)0|8N28t1868N1GF1937B o_50l2 oh*0#28M g|50N7 A;*0N4 oe10g^$0U XG%$$%6Ef26OoN70888888n5G[8uuuuH189Rr:706we708E11EH1EH1EH16".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_AMERICAN_SCRIPTS=[goog.i18n.CharPickerData.MSG_CP_CANADIAN_ABORIGINAL,goog.i18n.CharPickerData.MSG_CP_CHEROKEE,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_DESERET]
+goog.i18n.CharPickerData.CHARLIST_OF_AMERICAN_SCRIPTS=["YP507w]oN6","wG50t7",";(*0F7"]
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_AFRICAN_SCRIPTS=[goog.i18n.CharPickerData.MSG_CP_EGYPTIAN_HIEROGLYPHS,goog.i18n.CharPickerData.MSG_CP_ETHIOPIC,goog.i18n.CharPickerData.MSG_CP_MEROITIC_CURSIVE,goog.i18n.CharPickerData.MSG_CP_MEROITIC_HIEROGLYPHS,goog.i18n.CharPickerData.MSG_CP_NKO,goog.i18n.CharPickerData.MSG_CP_TIFINAGH,goog.i18n.CharPickerData.MSG_CP_VAI,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_BAMUM,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_COPTIC,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_NKO,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_OSMANYA]
+goog.i18n.CharPickerData.CHARLIST_OF_AFRICAN_SCRIPTS=";Y[0}}N9 ;(40l68MGk88MGt38MG@28MGk88MGN18758MG}5el2ON2(;60}1.k8k8k8k8k8k8k8kI8X0cGcGc.k8kDDe0E (L,072m6 ;I,0-2 Q420l3P1MK1?W o_B0}4$3X1 ^th0NO8#2*2 (5i0F7GcY4p0tpzup06 Q210F12$A0}9O6eka1E ^720E g?*0t2G,".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_MIDDLE_EASTERN_SCRIPTS=[goog.i18n.CharPickerData.MSG_CP_ARABIC,goog.i18n.CharPickerData.MSG_CP_HEBREW,goog.i18n.CharPickerData.MSG_CP_IMPERIAL_ARAMAIC,goog.i18n.CharPickerData.MSG_CP_INSCRIPTIONAL_PAHLAVI,goog.i18n.CharPickerData.MSG_CP_INSCRIPTIONAL_PARTHIAN,goog.i18n.CharPickerData.MSG_CP_MANDAIC,goog.i18n.CharPickerData.MSG_CP_OLD_SOUTH_ARABIAN,goog.i18n.CharPickerData.MSG_CP_SAMARITAN,goog.i18n.CharPickerData.MSG_CP_SYRIAC,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_ARABIC,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_AVESTAN,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_CARIAN,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_CUNEIFORM,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_HEBREW,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_LYCIAN,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_LYDIAN,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_OLD_PERSIAN,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_PHOENICIAN,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_SYRIAC,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_UGARITIC,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_ARABIC,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_HEBREW]
+goog.i18n.CharPickerData.CHARLIST_OF_MIDDLE_EASTERN_SCRIPTS="op10U8,11Gl2m,]1F1O68W-18V6H2l1P774XQ8?^F60g2#0#2YVx06r##0vAry%0U]3[-1f11vV2QG$0V1 oj108G91V2eUC6F1886A?$0 (>+0@18! g!,0t1es ox,0@1Gs ^F20F2eZE Id,0-2 AA20@1X2N1Qt60{w6072 wq10P1O]2[?X2 ^u10UH46%2H7[fD6=Wc1HkG,8M (r,0-4Ok ;Y*0V4 gE=0-@HD@8H1M Qk10^>$0!f35}$0#2:168 ^V*0l2 AA,0N2e Aw*0F3WF1 I7,0d2O ;;10F1868t2v2Eq5%2V2 It*0t28 I!10MA^e1M8V2868G8,8M88mW888E868G8888868GM8k8M8M88,8d1eE8U8d1{W$0-813@Wv1#5G-4v371fAE88FC 2a(08.F18U886868!".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SOUTH_ASIAN_SCRIPTS=[goog.i18n.CharPickerData.MSG_CP_BENGALI,goog.i18n.CharPickerData.MSG_CP_CHAKMA,goog.i18n.CharPickerData.MSG_CP_DEVANAGARI,goog.i18n.CharPickerData.MSG_CP_GUJARATI,goog.i18n.CharPickerData.MSG_CP_GURMUKHI,goog.i18n.CharPickerData.MSG_CP_KANNADA,goog.i18n.CharPickerData.MSG_CP_LEPCHA,goog.i18n.CharPickerData.MSG_CP_LIMBU,goog.i18n.CharPickerData.MSG_CP_MALAYALAM,goog.i18n.CharPickerData.MSG_CP_MEETEI_MAYEK,goog.i18n.CharPickerData.MSG_CP_OL_CHIKI,goog.i18n.CharPickerData.MSG_CP_ORIYA,goog.i18n.CharPickerData.MSG_CP_SAURASHTRA,goog.i18n.CharPickerData.MSG_CP_SINHALA,goog.i18n.CharPickerData.MSG_CP_SORA_SOMPENG,goog.i18n.CharPickerData.MSG_CP_TAMIL,goog.i18n.CharPickerData.MSG_CP_TELUGU,goog.i18n.CharPickerData.MSG_CP_THAANA,goog.i18n.CharPickerData.MSG_CP_TIBETAN,goog.i18n.CharPickerData.MSG_CP_HISTORIC,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_BRAHMI,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_KAITHI,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_KANNADA,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_KHAROSHTHI,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_SHARADA,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_SYLOTI_NAGRI,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_TAKRI,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_BENGALI,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_DEVANAGARI,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_GURMUKHI,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_ORIYA,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_TIBETAN]
+goog.i18n.CharPickerData.CHARLIST_OF_SOUTH_ASIAN_SCRIPTS="gg206:2sG6G@18k8OMOf1n16W@1:*64[E958kG6GE.[6 wH.0F3X1F146EP3F1 (X20-4Ov1X16G718c8k9[6gMf0,DRg0M]4E8l18k[6H1YEg0l1 (*20!8E8@18k868UOv1X16W|fk6*uE958s8E8E:16 gg206fEcW6G@18k8GG693.,GE:v6a*E958UW6GEO%26O QR30s8E8}18,8UO936W,86CA6958k8E8Mu6116 oZ70F392N1OE=3#1 (r60l2H3O|K4|W| ^c30s8E8t3Gf1n16WV1Okw@4053506P5k8E8M.[6 wGj0?eEvI73$W,iOUOMfLs86 ;g70l3m6pc gg206%bsG6G@18k868UO13EWl1PY6CjE958kG6GE$6[6 oni0d4X2|486n4d1 oo30l1O728!8Gk94A+40j@406X6Wc88sv16 2D.0F2u, ;3308cOE8MO6886O6OEO|12]1-1=AX5UOE8M. wF30s8E8}18,8UOX26m6W,$sPA6=LEP5k8E8Mu6116 wq10P1O:5,PPV311_? 2{30|8?GV2888MGE8M8M8M8M8M8|8EH2GUf4s8c8kW6Ii806e,GsL$806f288W6f468ek8E86ec8M8M8M8M8M8|8E. (u70M8MO6jf30M Y^-0#4X1kWt24AE:4N1 26.0}311k=5E94? YZ30 gU,0X1M8E8V291s$!=7E86eMv3EW QT.0N4P1su,48EX4F1 (bi068E8M8}1eMy3OW92U Yv:0-3]1,y271 Yr2068 Yf20s Qz20G93EG Q0306 A|30]4.WWW91we#0M5e#0868$n1.WWW91".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SOUTHEAST_ASIAN_SCRIPTS=[goog.i18n.CharPickerData.MSG_CP_BALINESE,goog.i18n.CharPickerData.MSG_CP_BATAK,goog.i18n.CharPickerData.MSG_CP_CHAM,goog.i18n.CharPickerData.MSG_CP_JAVANESE,goog.i18n.CharPickerData.MSG_CP_KAYAH_LI,goog.i18n.CharPickerData.MSG_CP_KHMER,goog.i18n.CharPickerData.MSG_CP_LAO,goog.i18n.CharPickerData.MSG_CP_MYANMAR,goog.i18n.CharPickerData.MSG_CP_NEW_TAI_LUE,goog.i18n.CharPickerData.MSG_CP_TAI_LE,goog.i18n.CharPickerData.MSG_CP_TAI_THAM,goog.i18n.CharPickerData.MSG_CP_TAI_VIET,goog.i18n.CharPickerData.MSG_CP_THAI,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_BUGINESE,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_BUHID,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_HANUNOO,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_KHMER,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_REJANG,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_SUNDANESE,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_TAGALOG,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_TAGBANWA]
+goog.i18n.CharPickerData.CHARLIST_OF_SOUTHEAST_ASIAN_SCRIPTS="(C70F4n1kWV2.!KBUP4d1f3! (T70V312MK2F1 Q`i0t392E8sW,GM=4F191$6 2:i0F4P171G,W6q8MP4F1P1 2zi0V3$6)s ;I6073GE8?]2E8UO,m,Hi-2Srl286O g:3068G68GmM8k8E88G68M86.GU11,GMC4Gc86.8c QK40-3:1}1WMOO6uEW71918,W6Iwe0V18,D-e0#192MWE8EGkOMH1|8[M;xe0[ Y%60@3]1k$?O6K4d1u6 2z60t2GU ^@60#4]3,m,mk8c`7,8l2Gn3 ^7j0N48O6GUG8H2686K48EG6e68f2 ;z30N48691c.71*3Gk11! 2>60}1u6xU 2C606.#1 AA60l1O6RE gM60v311 Y%i0}1H2C271 IO70t2H1l1PNsyTE%271 I760718MH36K3E 2C606%3718E86".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HANGUL=[goog.i18n.CharPickerData.MSG_CP_OTHER,"ᄀ","ᄂ","ᄃ","ᄅ","ᄆ","ᄇ","ᄉ","ᄋ","ᄌ","ᄎ","ᄏ","ᄐ","ᄑ","ᄒ","ᅙ",goog.i18n.CharPickerData.MSG_CP_HISTORIC,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY]
+goog.i18n.CharPickerData.CHARLIST_OF_HANGUL="AzC0M88,8F1X1mWMPqYyh0}1WV42BA06Tis06 ;gj0}}-I (zk0Vr (+i0MAj20}}-I A,i0?2#30Vr A-i0EIS40Vr Y-i0EY]40}}-I w-i0IC60}}-I (-i06^U70Vr ^-i0Q`70}}-I I}r0Vr wqs0Vr 2.i02YA0Vr A.i0Y}A0Vr I.i0(qB0Vr Q.i0 oh40FN^L80d8 oJD0#2]5#2IGs0MX5#2OcGcGcGE".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EAST_ASIAN_SCRIPTS=[goog.i18n.CharPickerData.MSG_CP_BOPOMOFO,goog.i18n.CharPickerData.MSG_CP_HIRAGANA,goog.i18n.CharPickerData.MSG_CP_KATAKANA,goog.i18n.CharPickerData.MSG_CP_LISU,goog.i18n.CharPickerData.MSG_CP_MIAO,goog.i18n.CharPickerData.MSG_CP_MONGOLIAN,goog.i18n.CharPickerData.MSG_CP_OLD_TURKIC,goog.i18n.CharPickerData.MSG_CP_PHAGS_PA,goog.i18n.CharPickerData.MSG_CP_YI,goog.i18n.CharPickerData.MSG_CP_HISTORIC+" - "+goog.i18n.CharPickerData.MSG_CP_PHAGS_PA,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_BOPOMOFO,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_HIRAGANA,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_KATAKANA,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_PHAGS_PA,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY+" - "+goog.i18n.CharPickerData.MSG_CP_YI]
+goog.i18n.CharPickerData.CHARLIST_OF_OTHER_EAST_ASIAN_SCRIPTS="AzC0M88,8F1X1mWM]Ht3XAV2I8s06+f(06^`B0M AzC0M88F2X1mWM8#7.H8fD6QCD1T0l065is0U196G6f8wqs0946 AzC0M88F2X1mWM%8N8fD6n8V1I2D1L0l065is0U196:8Egqs0946 oph0l3m6pc 2591F611F4f1d1 gU60?O8,m738t4$t38aEE:4H9 2>,0l6 wU6068AU606e,Gs AzC06e,Gs2qT0-18}}-FO@4DL10 ohi0}4 Ql)0M ^%C0f91MF1^oU1bE$0Ujys06 ^%C0HIPDF1vRF48@7g`r0N18}3r%s06 Ql)0M Ql)0M".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_1_STROKE_RADICALS=["一","丨","丶","丿","乙","亅",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_1_STROKE_RADICALS="ItK0l3]1f7YL10 ;wK0M8! AyK0k8[ ^yK0,8N1^w30 Q#K0sG}2YfL0 Q)K0k (bC0c]R]q8O8f2EgqB2E5Cl1]116$f7fG A(D0t3(rX1V288k8!8k8868|8l188U8718M8N48E88GE8#48MG@3oA20]G2P60;QB0]9^(20^7L0t2".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_2_STROKE_RADICALS=["二","亠","人","儿","入","八","冂","冖","冫","几","凵","刀","力","勹","匕","匚","匸","十","卜","卩","厂","厶","又","讠",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_2_STROKE_RADICALS="^)K0M8N1 (+K0N2 A.K0lww)K0 (gL0V3 IkL0cI870 (kL0}1QyK0 ;mL0#1Yw50 woL0-1 oqL0#4 YvL0-1 QxL0? QyL0}D Y;L0V58@2 ^^L0d2 g{L0U ^{L0t2^IK0 w0M0! g1M0E8s868?QHK0rIK0G ^3M071 A5M0F2 Y7M0t4;XD0 ACM0l1 (DM0V2IS10 Y]a0tD QcC0}1%P8]qG688P1W6G6mO8^pB2F28d292%B6f6%A15P1ODrl1f1E9386H18e11Ee[n16[91e11.G$H1n18611$X2cX5k ;+D0tN8l49H2i40kAsS1uH3v1H788]9@18}2872Gk8E8|8s88E8G-18778@28lF8-6G,8@48#486GF28d28t18t48N3874868-78F58V18}28F48l48lG868d18N18#18!8FN8@98FP8s8}F8N28,8VG8F18tF8}2(s30%U;@101bI-50QE60^{40;X60IhB0}Oo_20d3j%S1".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_3_STROKE_RADICALS=["口","囗","土","士","夂","夊","夕","大","女","子","宀","寸","小","尢","尸","屮","山","巛","工","己","巾","干","幺","广","廴","廾","弋","弓","彐","彡","彳","纟","门","飞","饣","马",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_3_STROKE_RADICALS="IGM0dY8FM8tB ^`M0d6^GJ0 g3N0tZ8}48!Q#I0Ge gCN0%W}1 YlN0k 2mN0| AnN0l1 (oN0-6 wvN07D8}T 2DO0N4 YHO0-Aw]50 QSO0}1 YUO0t1^=H0 AWO0@1 AYO08t4 2dO0E A$K0A#30-W I.O0c8E A:O0| I;O071 Y<O0V78@2 ^{O0s 2$K0oM40U A}O0lAw7H0 (9P0, wAP071 ;BP0s oCP0d5 AIP0d1 wJP0!8s QLP0F7^]G06 (gX0tD wud0t4 obe0 wne0l4 (:e0V5 YeC0#2P=11Wm11686W(uB2}18l58E8EGMP8:5]6]9Lvl1G86:1mP26m6%1me%1E11X1OmEf1692Ge6H1%1Gm8GX3kX4[F1 YAE0@G8V(I!20|I!10E:5fX18EwYR1%1u8Gn3v11B1693P2uO91$8OH2H713vMXG%1%K:6]SG13%2H@vX93tU8F587w8}V8-68tA8dO8db8V38758V28t58F18k8#C8t!8V78V98tU8lT8de8}}V98lB8}B8#387987H8#38NJ8@78U8N18U8kgE10(L10v_X4ngA6109Nn2v2Ac101O1}HSQ*1094^.50N2:BP6Ay10Q<40]5;s20AE20V1H9^j20l1%g-3YY20YU10}zAv10@2;310F1]E72X3}1DeT18".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_4_STROKE_RADICALS=["心","戈","戶","手","支","攴","文","斗","斤","方","无","日","曰","月","木","欠","止","歹","殳","毋","比","毛","氏","气","水","火","爪","父","爻","爿","片","牙","牛","犬","见","贝","车","韦","风",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_4_STROKE_RADICALS="oSP0#q Y]P074 o{P0-1 g}P0F)2gF0 ((Q0U (oM0YG40d7(cA0 (;Q0V1YNF0 I=Q071 Y>Q0-1 Q@Q0d3 ;^Q0U ;@L0Y350FOH1os602W80 ;@L0wR5071868k (LR0-2Y070 wOR0}}N4:+IBD0 2TS0@5 2ZS0}1I-D0 AbS0F5 YgS072 oiS0! YjS0k 2kS0t4 (oS0U IpS0-2 AsS0dH8V[ I$T0le;@402[60nI12 A:M0wV70| ^HU0U YIU0M IxK0gl90s gJU0l1 ALU06 QLU0N7 wSU0lJ ;ba0U8? 2Sb0V6 I]b0#4 2Fe0k Aae071 ^SC0HE}2::MGEG.OovB2:8e#4G6G-28}2871]7$65ml1G$mEm6OGOEWE%1eE916Ou6m868W$6m6GU11OE8W91WEWGMmOG6eM$8e6W6mG611Of371136P2}18EH4M ^aE0]uFq8#@^U20U%LEwSS1f7HLfkX2vCH4vM(a10gv10IO10Yg30Hz}}VE8to8-w8@J8-28tK8td8N48FC8E8l68cGNM8V#8#98lK8-A8-A8|8728E8l287N8}}#E8@N8V%8tC88V88-88lC8N18@48t38l`;Y20(>101dYk201)XQ6nUv^Xao940kAi10cv3QF40UHdXG|fe8o^40}}l3YD10c]Ak]7@19YcX4UjUT16".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_5_STROKE_RADICALS=["玄","玉","瓜","瓦","甘","生","用","田","疋","疒","癶","白","皮","皿","目","矛","矢","石","示","禸","禾","穴","立","钅","长","鸟","龙",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_5_STROKE_RADICALS="QmU0U (mU0#U o@U0, g[U0d4 2{U0k w{U0! g|U0s I}U0N48k8}2 g7V0k A8V0tK ;SV0k o3V0:PV4 ^XV0d1A;A0 gZV0F4 (dV0dL(mA0 QzV0k ^zV0d1 w-S0(@20tT I5W0VBQH40P4;-506 wGW0c((20 IHW0dG (XW0-7 wfW0#1G72Ai70 YOd0@L Ald0 ;-f0#7 IIg0E QkC0}1n.O86n1^?B2V18V3{gl1$f2u6[P1[68$$P1P16926u[[E91$6.u:2UH4|f6O|11X1[E AoG0@:;12071n^kXD6I4R1:4WnB9d[15:49lHkX.1pP5Hw]nf]^H20()109d;u101@]2%KY!10:9f.;(307k8dL8}38@88-98?8V?WdA8}S87Q8748l!8-T8#d8d28lI8FK8#12@30nQI,10w^402B20F22,50-1AQ30}b(F10V49f}3]3".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_6_STROKE_RADICALS=["竹","米","糸","缶","网","羊","羽","老","而","耒","耳","聿","肉","臣","自","至","臼","舌","舛","舟","艮","色","艸","虍","虫","血","行","衣","襾","页","齐",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_6_STROKE_RADICALS=";jW0NY ;,N0YL70;<10}B Q4X0Vc guX0V2 ^wX075 IlV0;G20l4 (*X076 ^;X0? ^<X0c g=X0@2 g@X0-6 Y|X0, ;^O0Y490tP8l5 (UY0k YVY0! IWY0! 2XY0V1 gYY0N1 ;ZY0M IaY077 YhY0M (hY0c QiY0ld8lC8taI!60H1u6. gKP0^OA0U872 ImZ0lg ;2a0| ^3a0}1 ^!L0(K10IAD0tP2@50 (Va071 2Se0l4 oBg06 YmC0l2onC2Wn56XC-28U86G68M8@4jql1MemO68691Em6e6.6GO6n1Oem6P268me$6n19112Eue86WWW:168:4?v6G?%2 o5E0oq10;%10VE8VH91l;P^w0S1Q0101Io3102E20XZoi10n>2;10XUPN18e]1;n30v6m6(L40vHvCX1:8;g10A{30HM}}N@X2#B8F68@D8VI8@(8NQG#L8#68t18tO8#v8Na8##8VC8#^8tt(j10wB30YE30E(870NF13#hfxd1>RT18".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_7_STROKE_RADICALS=["卤","見","角","言","谷","豆","豕","豸","貝","赤","走","足","身","車","辛","辰","辵","邑","酉","釆","里","龟",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_7_STROKE_RADICALS="w4M0(<J0 ^Wa0?8#3 Yda074QB50 oha0#b^R50e A7b0N1 g8b0N1 ;9b073 2Db0N3 YGb0}88V2 gYb0| oZb0}5A(40 wfb0dM I$b0#2 2)b07EwQ4012 2|b0-1 ^}b0U (.O0oFD0@J YKc0tG Abc0NB gmc0c 2nc0U (Ig0 oaC0XE#1X*en1;}B2n5F18E8!jul186X1ev1[.mn1Gn18116P1[8m]111%1n1v1[G92G6un4kX7|v1 QAE0gj40lFu-8etLO#D^DT1PL9,AY30v9]_A^60Yl10;N50Az10oi10(I80F`8M8V58Nh8lCu}}}hml3Glb8N@;820o{80|m-3n3V3u-712#9nwv3+zT16".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_8_STROKE_RADICALS=["金","長","門","阜","隶","隹","雨","靑","非","鱼","齿",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_8_STROKE_RADICALS="wVS0(HA0-!o_20GG Ykd0s Ild0V9 Yzd0@D Y<d0E w<d0F4 ^@d0d9 g1e071 w2e0M (Xf0d9 ;Fg0F1 ;qC0!:(IvB2vf71865vl194m.uu14:1]1EWH191$H1m92v1v195X8M QTJ0l8H1F4OV68-5:ssQMR1AQ50Q>U0#88@yP2dcf1798N#8FJQn30@1^;106;y30l8f4@1P1N61OV39B!DzT1E".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_9_STROKE_RADICALS=["面","革","韋","韭","音","頁","風","飛","食","首","香",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_9_STROKE_RADICALS="23e0k w3e0-8 oCe0V2 wFe0c ghW06oy70F1 gHe0dA wWe0V3 Qbe0E wbe0@B Qse0E ose0t1 wrC0?f)(AC2N1{gl1f298Ef56n8M ooH0g520-Q8!IHS1:_P32-30ARC0YA40](^b70gd807Y8lBelaW728NG91}Zv1t288-4Iz70d1mt1n1|el1H2N1".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_10_STROKE_RADICALS=["馬","骨","高","髟","鬥","鬯","鬲","鬼",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_10_STROKE_RADICALS="Que0VHQY106 I@e0N4 o_e0k I`e0N6 o2f0, g3f0E (3f0, w4f0t2 wsC0s^?C2Ubvl1:9nT ^_J077O#9wM(1gQ10#Y]3};gl60@192l2".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_11_17_STROKE_RADICALS=["魚","鳥","鹵","鹿","麥","麦","麻","黃","黍","黑","黹","黽","黾","鼎","鼓","鼠","鼻","齊","齒","龍","龜","龠",goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_11_17_STROKE_RADICALS="Y7f0NQXWPh Qhf0dB87B8l59c w@f0! o[f0V3 2`f08d1 A`f0n1E 2|f0s (|f0, w}f0M IdN0(mI0s8#2 w3g0M 24g08| A4g091E o5g0U 26g071 I7g0V2 w9g0N1 2Bg0c (Bg0}3 AHg0E8s gIg0E ;Ig0c YtC0#12hC2fYt1>yl1692H26ef66P5946H5nE.6 IDK0t9$@9uNDGkoOR1fk^x102.20nDQf301=^N50;g202j30M^>90od80g320to12t!]1-H8F[GN6284075f3@394E8l2.G".split(" ")
+goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_OTHER=[goog.i18n.CharPickerData.MSG_CP_CJK_STROKES,goog.i18n.CharPickerData.MSG_CP_IDEOGRAPHIC_DESCRIPTION,goog.i18n.CharPickerData.MSG_CP_OTHER,goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,goog.i18n.CharPickerData.MSG_CP_LESS_COMMON]
+goog.i18n.CharPickerData.CHARLIST_OF_HAN_OTHER=["AQC0N28M8d7H%F3","oxC0|","AzC0M8|8}1mmWM2iT0o|O065ms0P3MH1","gMD0F3PB|%CF2[U%8#2Q+r0M","Q=727K"]
+goog.i18n.CharPickerData.prototype.subcategories=[goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SYMBOL,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_EMOJI,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_PUNCTUATION,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_NUMBER,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_FORMAT_WHITESPACE,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_MODIFIER,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_LATIN,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EUROPEAN_SCRIPTS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_AMERICAN_SCRIPTS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_AFRICAN_SCRIPTS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_MIDDLE_EASTERN_SCRIPTS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SOUTH_ASIAN_SCRIPTS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SOUTHEAST_ASIAN_SCRIPTS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HANGUL,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EAST_ASIAN_SCRIPTS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_1_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_2_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_3_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_4_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_5_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_6_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_7_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_8_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_9_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_10_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_11_17_STROKE_RADICALS,goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_OTHER]
+goog.i18n.CharPickerData.prototype.charList=[goog.i18n.CharPickerData.CHARLIST_OF_SYMBOL,goog.i18n.CharPickerData.CHARLIST_OF_EMOJI,goog.i18n.CharPickerData.CHARLIST_OF_PUNCTUATION,goog.i18n.CharPickerData.CHARLIST_OF_NUMBER,goog.i18n.CharPickerData.CHARLIST_OF_FORMAT_WHITESPACE,goog.i18n.CharPickerData.CHARLIST_OF_MODIFIER,goog.i18n.CharPickerData.CHARLIST_OF_LATIN,goog.i18n.CharPickerData.CHARLIST_OF_OTHER_EUROPEAN_SCRIPTS,goog.i18n.CharPickerData.CHARLIST_OF_AMERICAN_SCRIPTS,goog.i18n.CharPickerData.CHARLIST_OF_AFRICAN_SCRIPTS,goog.i18n.CharPickerData.CHARLIST_OF_MIDDLE_EASTERN_SCRIPTS,goog.i18n.CharPickerData.CHARLIST_OF_SOUTH_ASIAN_SCRIPTS,goog.i18n.CharPickerData.CHARLIST_OF_SOUTHEAST_ASIAN_SCRIPTS,goog.i18n.CharPickerData.CHARLIST_OF_HANGUL,goog.i18n.CharPickerData.CHARLIST_OF_OTHER_EAST_ASIAN_SCRIPTS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_1_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_2_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_3_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_4_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_5_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_6_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_7_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_8_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_9_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_10_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_11_17_STROKE_RADICALS,goog.i18n.CharPickerData.CHARLIST_OF_HAN_OTHER]
+goog.i18n.uChar={}
+goog.i18n.uChar.SUPPLEMENTARY_CODE_POINT_MIN_VALUE_=65536
+goog.i18n.uChar.CODE_POINT_MAX_VALUE_=1114111
+goog.i18n.uChar.LEAD_SURROGATE_MIN_VALUE_=55296
+goog.i18n.uChar.LEAD_SURROGATE_MAX_VALUE_=56319
+goog.i18n.uChar.TRAIL_SURROGATE_MIN_VALUE_=56320
+goog.i18n.uChar.TRAIL_SURROGATE_MAX_VALUE_=57343
+goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_=10
+goog.i18n.uChar.toHexString=function(o){o=goog.i18n.uChar.toCharCode(o)
+return"U+"+goog.i18n.uChar.padString_(o.toString(16).toUpperCase(),4,"0")}
+goog.i18n.uChar.padString_=function(o,g,r){for(;o.length<g;)o=r+o
+return o}
+goog.i18n.uChar.toCharCode=function(o){return goog.i18n.uChar.getCodePointAround(o,0)}
+goog.i18n.uChar.fromCharCode=function(o){if(!(goog.isDefAndNotNull(o)&&0<=o&&o<=goog.i18n.uChar.CODE_POINT_MAX_VALUE_))return null
+if(goog.i18n.uChar.isSupplementaryCodePoint(o)){var g=(o&(1<<goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_)-1)+goog.i18n.uChar.TRAIL_SURROGATE_MIN_VALUE_
+return String.fromCharCode((o>>goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_)+(goog.i18n.uChar.LEAD_SURROGATE_MIN_VALUE_-(goog.i18n.uChar.SUPPLEMENTARY_CODE_POINT_MIN_VALUE_>>goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_)))+String.fromCharCode(g)}return String.fromCharCode(o)}
+goog.i18n.uChar.getCodePointAround=function(o,g){var r=o.charCodeAt(g)
+if(goog.i18n.uChar.isLeadSurrogateCodePoint(r)&&g+1<o.length){var e=o.charCodeAt(g+1)
+if(goog.i18n.uChar.isTrailSurrogateCodePoint(e))return goog.i18n.uChar.buildSupplementaryCodePoint(r,e)}else if(goog.i18n.uChar.isTrailSurrogateCodePoint(r)&&0<g&&(e=o.charCodeAt(g-1),goog.i18n.uChar.isLeadSurrogateCodePoint(e)))return-goog.i18n.uChar.buildSupplementaryCodePoint(e,r)
+return r}
+goog.i18n.uChar.charCount=function(o){return goog.i18n.uChar.isSupplementaryCodePoint(o)?2:1}
+goog.i18n.uChar.isSupplementaryCodePoint=function(o){return o>=goog.i18n.uChar.SUPPLEMENTARY_CODE_POINT_MIN_VALUE_&&o<=goog.i18n.uChar.CODE_POINT_MAX_VALUE_}
+goog.i18n.uChar.isLeadSurrogateCodePoint=function(o){return o>=goog.i18n.uChar.LEAD_SURROGATE_MIN_VALUE_&&o<=goog.i18n.uChar.LEAD_SURROGATE_MAX_VALUE_}
+goog.i18n.uChar.isTrailSurrogateCodePoint=function(o){return o>=goog.i18n.uChar.TRAIL_SURROGATE_MIN_VALUE_&&o<=goog.i18n.uChar.TRAIL_SURROGATE_MAX_VALUE_}
+goog.i18n.uChar.buildSupplementaryCodePoint=function(o,g){return goog.i18n.uChar.isLeadSurrogateCodePoint(o)&&goog.i18n.uChar.isTrailSurrogateCodePoint(g)?(o<<goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_)-(goog.i18n.uChar.LEAD_SURROGATE_MIN_VALUE_<<goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_)+(g-goog.i18n.uChar.TRAIL_SURROGATE_MIN_VALUE_+goog.i18n.uChar.SUPPLEMENTARY_CODE_POINT_MIN_VALUE_):null}
+goog.string={}
+goog.string.DETECT_DOUBLE_ESCAPING=!1
+goog.string.FORCE_NON_DOM_HTML_UNESCAPING=!1
+goog.string.Unicode={NBSP:" "}
+goog.string.startsWith=function(o,g){return 0==o.lastIndexOf(g,0)}
+goog.string.endsWith=function(o,g){var r=o.length-g.length
+return 0<=r&&o.indexOf(g,r)==r}
+goog.string.caseInsensitiveStartsWith=function(o,g){return 0==goog.string.caseInsensitiveCompare(g,o.substr(0,g.length))}
+goog.string.caseInsensitiveEndsWith=function(o,g){return 0==goog.string.caseInsensitiveCompare(g,o.substr(o.length-g.length,g.length))}
+goog.string.caseInsensitiveEquals=function(o,g){return o.toLowerCase()==g.toLowerCase()}
+goog.string.subs=function(o,g){for(var r=o.split("%s"),e="",t=Array.prototype.slice.call(arguments,1);t.length&&1<r.length;)e+=r.shift()+t.shift()
+return e+r.join("%s")}
+goog.string.collapseWhitespace=function(o){return o.replace(/[\s\xa0]+/g," ").replace(/^\s+|\s+$/g,"")}
+goog.string.isEmptyOrWhitespace=function(o){return/^[\s\xa0]*$/.test(o)}
+goog.string.isEmptyString=function(o){return 0==o.length}
+goog.string.isEmpty=goog.string.isEmptyOrWhitespace
+goog.string.isEmptyOrWhitespaceSafe=function(o){return goog.string.isEmptyOrWhitespace(goog.string.makeSafe(o))}
+goog.string.isEmptySafe=goog.string.isEmptyOrWhitespaceSafe
+goog.string.isBreakingWhitespace=function(o){return!/[^\t\n\r ]/.test(o)}
+goog.string.isAlpha=function(o){return!/[^a-zA-Z]/.test(o)}
+goog.string.isNumeric=function(o){return!/[^0-9]/.test(o)}
+goog.string.isAlphaNumeric=function(o){return!/[^a-zA-Z0-9]/.test(o)}
+goog.string.isSpace=function(o){return" "==o}
+goog.string.isUnicodeChar=function(o){return 1==o.length&&" "<=o&&"~">=o||""<=o&&"�">=o}
+goog.string.stripNewlines=function(o){return o.replace(/(\r\n|\r|\n)+/g," ")}
+goog.string.canonicalizeNewlines=function(o){return o.replace(/(\r\n|\r|\n)/g,"\n")}
+goog.string.normalizeWhitespace=function(o){return o.replace(/\xa0|\s/g," ")}
+goog.string.normalizeSpaces=function(o){return o.replace(/\xa0|[ \t]+/g," ")}
+goog.string.collapseBreakingSpaces=function(o){return o.replace(/[\t\r\n ]+/g," ").replace(/^[\t\r\n ]+|[\t\r\n ]+$/g,"")}
+goog.string.trim=goog.TRUSTED_SITE&&String.prototype.trim?function(o){return o.trim()}:function(o){return o.replace(/^[\s\xa0]+|[\s\xa0]+$/g,"")}
+goog.string.trimLeft=function(o){return o.replace(/^[\s\xa0]+/,"")}
+goog.string.trimRight=function(o){return o.replace(/[\s\xa0]+$/,"")}
+goog.string.caseInsensitiveCompare=function(o,g){var r=String(o).toLowerCase(),e=String(g).toLowerCase()
+return r<e?-1:r==e?0:1}
+goog.string.numerateCompareRegExp_=/(\.\d+)|(\d+)|(\D+)/g
+goog.string.numerateCompare=function(o,g){if(o==g)return 0
+if(!o)return-1
+if(!g)return 1
+for(var r=o.toLowerCase().match(goog.string.numerateCompareRegExp_),e=g.toLowerCase().match(goog.string.numerateCompareRegExp_),t=Math.min(r.length,e.length),i=0;i<t;i++){var n=r[i],_=e[i]
+if(n!=_)return r=parseInt(n,10),!isNaN(r)&&(e=parseInt(_,10),!isNaN(e)&&r-e)?r-e:n<_?-1:1}return r.length!=e.length?r.length-e.length:o<g?-1:1}
+goog.string.urlEncode=function(o){return encodeURIComponent(String(o))}
+goog.string.urlDecode=function(o){return decodeURIComponent(o.replace(/\+/g," "))}
+goog.string.newLineToBr=function(o,g){return o.replace(/(\r\n|\r|\n)/g,g?"<br />":"<br>")}
+goog.string.htmlEscape=function(o,g){if(g)o=o.replace(goog.string.AMP_RE_,"&amp;").replace(goog.string.LT_RE_,"&lt;").replace(goog.string.GT_RE_,"&gt;").replace(goog.string.QUOT_RE_,"&quot;").replace(goog.string.SINGLE_QUOTE_RE_,"&#39;").replace(goog.string.NULL_RE_,"&#0;"),goog.string.DETECT_DOUBLE_ESCAPING&&(o=o.replace(goog.string.E_RE_,"&#101;"))
+else{if(!goog.string.ALL_RE_.test(o))return o;-1!=o.indexOf("&")&&(o=o.replace(goog.string.AMP_RE_,"&amp;"));-1!=o.indexOf("<")&&(o=o.replace(goog.string.LT_RE_,"&lt;"));-1!=o.indexOf(">")&&(o=o.replace(goog.string.GT_RE_,"&gt;"));-1!=o.indexOf('"')&&(o=o.replace(goog.string.QUOT_RE_,"&quot;"));-1!=o.indexOf("'")&&(o=o.replace(goog.string.SINGLE_QUOTE_RE_,"&#39;"));-1!=o.indexOf("\0")&&(o=o.replace(goog.string.NULL_RE_,"&#0;"))
+goog.string.DETECT_DOUBLE_ESCAPING&&-1!=o.indexOf("e")&&(o=o.replace(goog.string.E_RE_,"&#101;"))}return o}
+goog.string.AMP_RE_=/&/g
+goog.string.LT_RE_=/</g
+goog.string.GT_RE_=/>/g
+goog.string.QUOT_RE_=/"/g
+goog.string.SINGLE_QUOTE_RE_=/'/g
+goog.string.NULL_RE_=/\x00/g
+goog.string.E_RE_=/e/g
+goog.string.ALL_RE_=goog.string.DETECT_DOUBLE_ESCAPING?/[\x00&<>"'e]/:/[\x00&<>"']/
+goog.string.unescapeEntities=function(o){return goog.string.contains(o,"&")?!goog.string.FORCE_NON_DOM_HTML_UNESCAPING&&"document"in goog.global?goog.string.unescapeEntitiesUsingDom_(o):goog.string.unescapePureXmlEntities_(o):o}
+goog.string.unescapeEntitiesWithDocument=function(o,g){return goog.string.contains(o,"&")?goog.string.unescapeEntitiesUsingDom_(o,g):o}
+goog.string.unescapeEntitiesUsingDom_=function(o,g){var r,e={"&amp;":"&","&lt;":"<","&gt;":">","&quot;":'"'}
+r=g?g.createElement("div"):goog.global.document.createElement("div")
+return o.replace(goog.string.HTML_ENTITY_PATTERN_,(function(o,g){var t=e[o]
+if(t)return t
+if("#"==g.charAt(0)){var i=Number("0"+g.substr(1))
+isNaN(i)||(t=String.fromCharCode(i))}t||(r.innerHTML=o+" ",t=r.firstChild.nodeValue.slice(0,-1))
+return e[o]=t}))}
+goog.string.unescapePureXmlEntities_=function(o){return o.replace(/&([^;]+);/g,(function(o,g){switch(g){case"amp":return"&"
+case"lt":return"<"
+case"gt":return">"
+case"quot":return'"'
+default:if("#"==g.charAt(0)){var r=Number("0"+g.substr(1))
+if(!isNaN(r))return String.fromCharCode(r)}return o}}))}
+goog.string.HTML_ENTITY_PATTERN_=/&([^;\s<&]+);?/g
+goog.string.whitespaceEscape=function(o,g){return goog.string.newLineToBr(o.replace(/  /g," &#160;"),g)}
+goog.string.preserveSpaces=function(o){return o.replace(/(^|[\n ]) /g,"$1"+goog.string.Unicode.NBSP)}
+goog.string.stripQuotes=function(o,g){for(var r=g.length,e=0;e<r;e++){var t=1==r?g:g.charAt(e)
+if(o.charAt(0)==t&&o.charAt(o.length-1)==t)return o.substring(1,o.length-1)}return o}
+goog.string.truncate=function(o,g,r){r&&(o=goog.string.unescapeEntities(o))
+o.length>g&&(o=o.substring(0,g-3)+"...")
+r&&(o=goog.string.htmlEscape(o))
+return o}
+goog.string.truncateMiddle=function(o,g,r,e){r&&(o=goog.string.unescapeEntities(o))
+if(e&&o.length>g){e>g&&(e=g)
+var t=o.length-e
+o=o.substring(0,g-e)+"..."+o.substring(t)}else o.length>g&&(e=Math.floor(g/2),t=o.length-e,o=o.substring(0,e+g%2)+"..."+o.substring(t))
+r&&(o=goog.string.htmlEscape(o))
+return o}
+goog.string.specialEscapeChars_={"\0":"\\0","\b":"\\b","\f":"\\f","\n":"\\n","\r":"\\r","\t":"\\t","\v":"\\x0B",'"':'\\"',"\\":"\\\\"}
+goog.string.jsEscapeCache_={"'":"\\'"}
+goog.string.quote=function(o){if((o=String(o)).quote)return o.quote()
+for(var g=['"'],r=0;r<o.length;r++){var e=o.charAt(r),t=e.charCodeAt(0)
+g[r+1]=goog.string.specialEscapeChars_[e]||(31<t&&127>t?e:goog.string.escapeChar(e))}g.push('"')
+return g.join("")}
+goog.string.escapeString=function(o){for(var g=[],r=0;r<o.length;r++)g[r]=goog.string.escapeChar(o.charAt(r))
+return g.join("")}
+goog.string.escapeChar=function(o){if(o in goog.string.jsEscapeCache_)return goog.string.jsEscapeCache_[o]
+if(o in goog.string.specialEscapeChars_)return goog.string.jsEscapeCache_[o]=goog.string.specialEscapeChars_[o]
+var g=o,r=o.charCodeAt(0)
+if(31<r&&127>r)g=o
+else{256>r?(g="\\x",16>r||256<r)&&(g+="0"):(g="\\u",4096>r&&(g+="0"))
+g+=r.toString(16).toUpperCase()}return goog.string.jsEscapeCache_[o]=g}
+goog.string.contains=function(o,g){return-1!=o.indexOf(g)}
+goog.string.caseInsensitiveContains=function(o,g){return goog.string.contains(o.toLowerCase(),g.toLowerCase())}
+goog.string.countOf=function(o,g){return o&&g?o.split(g).length-1:0}
+goog.string.removeAt=function(o,g,r){var e=o
+0<=g&&g<o.length&&0<r&&(e=o.substr(0,g)+o.substr(g+r,o.length-g-r))
+return e}
+goog.string.remove=function(o,g){var r=new RegExp(goog.string.regExpEscape(g),"")
+return o.replace(r,"")}
+goog.string.removeAll=function(o,g){var r=new RegExp(goog.string.regExpEscape(g),"g")
+return o.replace(r,"")}
+goog.string.regExpEscape=function(o){return String(o).replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g,"\\$1").replace(/\x08/g,"\\x08")}
+goog.string.repeat=function(o,g){return Array(g+1).join(o)}
+goog.string.padNumber=function(o,g,r){-1==(r=(o=goog.isDef(r)?o.toFixed(r):String(o)).indexOf("."))&&(r=o.length)
+return goog.string.repeat("0",Math.max(0,g-r))+o}
+goog.string.makeSafe=function(o){return null==o?"":String(o)}
+goog.string.buildString=function(o){return Array.prototype.join.call(arguments,"")}
+goog.string.getRandomString=function(){return Math.floor(2147483648*Math.random()).toString(36)+Math.abs(Math.floor(2147483648*Math.random())^goog.now()).toString(36)}
+goog.string.compareVersions=function(o,g){for(var r=0,e=goog.string.trim(String(o)).split("."),t=goog.string.trim(String(g)).split("."),i=Math.max(e.length,t.length),n=0;0==r&&n<i;n++){var _=e[n]||"",C=t[n]||"",s=RegExp("(\\d*)(\\D*)","g"),P=RegExp("(\\d*)(\\D*)","g")
+do{var S=s.exec(_)||["","",""],A=P.exec(C)||["","",""]
+if(0==S[0].length&&0==A[0].length)break
+r=0==S[1].length?0:parseInt(S[1],10)
+var E=0==A[1].length?0:parseInt(A[1],10)
+r=goog.string.compareElements_(r,E)||goog.string.compareElements_(0==S[2].length,0==A[2].length)||goog.string.compareElements_(S[2],A[2])}while(0==r)}return r}
+goog.string.compareElements_=function(o,g){return o<g?-1:o>g?1:0}
+goog.string.HASHCODE_MAX_=4294967296
+goog.string.hashCode=function(o){for(var g=0,r=0;r<o.length;++r)g=31*g+o.charCodeAt(r),g%=goog.string.HASHCODE_MAX_
+return g}
+goog.string.uniqueStringCounter_=2147483648*Math.random()|0
+goog.string.createUniqueString=function(){return"goog_"+goog.string.uniqueStringCounter_++}
+goog.string.toNumber=function(o){var g=Number(o)
+return 0==g&&goog.string.isEmptyOrWhitespace(o)?NaN:g}
+goog.string.isLowerCamelCase=function(o){return/^[a-z]+([A-Z][a-z]*)*$/.test(o)}
+goog.string.isUpperCamelCase=function(o){return/^([A-Z][a-z]*)+$/.test(o)}
+goog.string.toCamelCase=function(o){return String(o).replace(/\-([a-z])/g,(function(o,g){return g.toUpperCase()}))}
+goog.string.toSelectorCase=function(o){return String(o).replace(/([A-Z])/g,"-$1").toLowerCase()}
+goog.string.toTitleCase=function(o,g){var r=goog.isString(g)?goog.string.regExpEscape(g):"\\s"
+return o.replace(new RegExp("(^"+(r?"|["+r+"]+":"")+")([a-z])","g"),(function(o,g,r){return g+r.toUpperCase()}))}
+goog.string.capitalize=function(o){return String(o.charAt(0)).toUpperCase()+String(o.substr(1)).toLowerCase()}
+goog.string.parseInt=function(o){isFinite(o)&&(o=String(o))
+return goog.isString(o)?/^\s*-?0x/i.test(o)?parseInt(o,16):parseInt(o,10):NaN}
+goog.string.splitLimit=function(o,g,r){o=o.split(g)
+for(var e=[];0<r&&o.length;)e.push(o.shift()),r--
+o.length&&e.push(o.join(g))
+return e}
+goog.string.editDistance=function(o,g){var r=[],e=[]
+if(o==g)return 0
+if(!o.length||!g.length)return Math.max(o.length,g.length)
+for(var t=0;t<g.length+1;t++)r[t]=t
+for(t=0;t<o.length;t++){e[0]=t+1
+for(var i=0;i<g.length;i++)e[i+1]=Math.min(e[i]+1,r[i+1]+1,r[i]+(o[t]!=g[i]))
+for(i=0;i<r.length;i++)r[i]=e[i]}return e[g.length]}
+goog.asserts={}
+goog.asserts.ENABLE_ASSERTS=goog.DEBUG
+goog.asserts.AssertionError=function(o,g){g.unshift(o)
+goog.debug.Error.call(this,goog.string.subs.apply(null,g))
+g.shift()
+this.messagePattern=o}
+goog.inherits(goog.asserts.AssertionError,goog.debug.Error)
+goog.asserts.AssertionError.prototype.name="AssertionError"
+goog.asserts.DEFAULT_ERROR_HANDLER=function(o){throw o}
+goog.asserts.errorHandler_=goog.asserts.DEFAULT_ERROR_HANDLER
+goog.asserts.doAssertFailure_=function(o,g,r,e){var t="Assertion failed"
+if(r){t=t+": "+r
+var i=e}else o&&(t+=": "+o,i=g)
+o=new goog.asserts.AssertionError(""+t,i||[])
+goog.asserts.errorHandler_(o)}
+goog.asserts.setErrorHandler=function(o){goog.asserts.ENABLE_ASSERTS&&(goog.asserts.errorHandler_=o)}
+goog.asserts.assert=function(o,g,r){goog.asserts.ENABLE_ASSERTS&&!o&&goog.asserts.doAssertFailure_("",null,g,Array.prototype.slice.call(arguments,2))
+return o}
+goog.asserts.fail=function(o,g){goog.asserts.ENABLE_ASSERTS&&goog.asserts.errorHandler_(new goog.asserts.AssertionError("Failure"+(o?": "+o:""),Array.prototype.slice.call(arguments,1)))}
+goog.asserts.assertNumber=function(o,g,r){goog.asserts.ENABLE_ASSERTS&&!goog.isNumber(o)&&goog.asserts.doAssertFailure_("Expected number but got %s: %s.",[goog.typeOf(o),o],g,Array.prototype.slice.call(arguments,2))
+return o}
+goog.asserts.assertString=function(o,g,r){goog.asserts.ENABLE_ASSERTS&&!goog.isString(o)&&goog.asserts.doAssertFailure_("Expected string but got %s: %s.",[goog.typeOf(o),o],g,Array.prototype.slice.call(arguments,2))
+return o}
+goog.asserts.assertFunction=function(o,g,r){goog.asserts.ENABLE_ASSERTS&&!goog.isFunction(o)&&goog.asserts.doAssertFailure_("Expected function but got %s: %s.",[goog.typeOf(o),o],g,Array.prototype.slice.call(arguments,2))
+return o}
+goog.asserts.assertObject=function(o,g,r){goog.asserts.ENABLE_ASSERTS&&!goog.isObject(o)&&goog.asserts.doAssertFailure_("Expected object but got %s: %s.",[goog.typeOf(o),o],g,Array.prototype.slice.call(arguments,2))
+return o}
+goog.asserts.assertArray=function(o,g,r){goog.asserts.ENABLE_ASSERTS&&!goog.isArray(o)&&goog.asserts.doAssertFailure_("Expected array but got %s: %s.",[goog.typeOf(o),o],g,Array.prototype.slice.call(arguments,2))
+return o}
+goog.asserts.assertBoolean=function(o,g,r){goog.asserts.ENABLE_ASSERTS&&!goog.isBoolean(o)&&goog.asserts.doAssertFailure_("Expected boolean but got %s: %s.",[goog.typeOf(o),o],g,Array.prototype.slice.call(arguments,2))
+return o}
+goog.asserts.assertElement=function(o,g,r){!goog.asserts.ENABLE_ASSERTS||goog.isObject(o)&&o.nodeType==goog.dom.NodeType.ELEMENT||goog.asserts.doAssertFailure_("Expected Element but got %s: %s.",[goog.typeOf(o),o],g,Array.prototype.slice.call(arguments,2))
+return o}
+goog.asserts.assertInstanceof=function(o,g,r,e){!goog.asserts.ENABLE_ASSERTS||o instanceof g||goog.asserts.doAssertFailure_("Expected instanceof %s but got %s.",[goog.asserts.getType_(g),goog.asserts.getType_(o)],r,Array.prototype.slice.call(arguments,3))
+return o}
+goog.asserts.assertObjectPrototypeIsIntact=function(){for(var o in Object.prototype)goog.asserts.fail(o+" should not be enumerable in Object.prototype.")}
+goog.asserts.getType_=function(o){return o instanceof Function?o.displayName||o.name||"unknown type name":o instanceof Object?o.constructor.displayName||o.constructor.name||Object.prototype.toString.call(o):null===o?"null":typeof o}
+goog.array={}
+goog.NATIVE_ARRAY_PROTOTYPES=goog.TRUSTED_SITE
+goog.array.ASSUME_NATIVE_FUNCTIONS=!1
+goog.array.peek=function(o){return o[o.length-1]}
+goog.array.last=goog.array.peek
+goog.array.ARRAY_PROTOTYPE_=Array.prototype
+goog.array.indexOf=goog.NATIVE_ARRAY_PROTOTYPES&&(goog.array.ASSUME_NATIVE_FUNCTIONS||goog.array.ARRAY_PROTOTYPE_.indexOf)?function(o,g,r){goog.asserts.assert(null!=o.length)
+return goog.array.ARRAY_PROTOTYPE_.indexOf.call(o,g,r)}:function(o,g,r){r=null==r?0:0>r?Math.max(0,o.length+r):r
+if(goog.isString(o))return goog.isString(g)&&1==g.length?o.indexOf(g,r):-1
+for(;r<o.length;r++)if(r in o&&o[r]===g)return r
+return-1}
+goog.array.lastIndexOf=goog.NATIVE_ARRAY_PROTOTYPES&&(goog.array.ASSUME_NATIVE_FUNCTIONS||goog.array.ARRAY_PROTOTYPE_.lastIndexOf)?function(o,g,r){goog.asserts.assert(null!=o.length)
+return goog.array.ARRAY_PROTOTYPE_.lastIndexOf.call(o,g,null==r?o.length-1:r)}:function(o,g,r){0>(r=null==r?o.length-1:r)&&(r=Math.max(0,o.length+r))
+if(goog.isString(o))return goog.isString(g)&&1==g.length?o.lastIndexOf(g,r):-1
+for(;0<=r;r--)if(r in o&&o[r]===g)return r
+return-1}
+goog.array.forEach=goog.NATIVE_ARRAY_PROTOTYPES&&(goog.array.ASSUME_NATIVE_FUNCTIONS||goog.array.ARRAY_PROTOTYPE_.forEach)?function(o,g,r){goog.asserts.assert(null!=o.length)
+goog.array.ARRAY_PROTOTYPE_.forEach.call(o,g,r)}:function(o,g,r){for(var e=o.length,t=goog.isString(o)?o.split(""):o,i=0;i<e;i++)i in t&&g.call(r,t[i],i,o)}
+goog.array.forEachRight=function(o,g,r){var e=o.length,t=goog.isString(o)?o.split(""):o
+for(e=e-1;0<=e;--e)e in t&&g.call(r,t[e],e,o)}
+goog.array.filter=goog.NATIVE_ARRAY_PROTOTYPES&&(goog.array.ASSUME_NATIVE_FUNCTIONS||goog.array.ARRAY_PROTOTYPE_.filter)?function(o,g,r){goog.asserts.assert(null!=o.length)
+return goog.array.ARRAY_PROTOTYPE_.filter.call(o,g,r)}:function(o,g,r){for(var e=o.length,t=[],i=0,n=goog.isString(o)?o.split(""):o,_=0;_<e;_++)if(_ in n){var C=n[_]
+g.call(r,C,_,o)&&(t[i++]=C)}return t}
+goog.array.map=goog.NATIVE_ARRAY_PROTOTYPES&&(goog.array.ASSUME_NATIVE_FUNCTIONS||goog.array.ARRAY_PROTOTYPE_.map)?function(o,g,r){goog.asserts.assert(null!=o.length)
+return goog.array.ARRAY_PROTOTYPE_.map.call(o,g,r)}:function(o,g,r){for(var e=o.length,t=Array(e),i=goog.isString(o)?o.split(""):o,n=0;n<e;n++)n in i&&(t[n]=g.call(r,i[n],n,o))
+return t}
+goog.array.reduce=goog.NATIVE_ARRAY_PROTOTYPES&&(goog.array.ASSUME_NATIVE_FUNCTIONS||goog.array.ARRAY_PROTOTYPE_.reduce)?function(o,g,r,e){goog.asserts.assert(null!=o.length)
+e&&(g=goog.bind(g,e))
+return goog.array.ARRAY_PROTOTYPE_.reduce.call(o,g,r)}:function(o,g,r,e){var t=r
+goog.array.forEach(o,(function(r,i){t=g.call(e,t,r,i,o)}))
+return t}
+goog.array.reduceRight=goog.NATIVE_ARRAY_PROTOTYPES&&(goog.array.ASSUME_NATIVE_FUNCTIONS||goog.array.ARRAY_PROTOTYPE_.reduceRight)?function(o,g,r,e){goog.asserts.assert(null!=o.length)
+e&&(g=goog.bind(g,e))
+return goog.array.ARRAY_PROTOTYPE_.reduceRight.call(o,g,r)}:function(o,g,r,e){var t=r
+goog.array.forEachRight(o,(function(r,i){t=g.call(e,t,r,i,o)}))
+return t}
+goog.array.some=goog.NATIVE_ARRAY_PROTOTYPES&&(goog.array.ASSUME_NATIVE_FUNCTIONS||goog.array.ARRAY_PROTOTYPE_.some)?function(o,g,r){goog.asserts.assert(null!=o.length)
+return goog.array.ARRAY_PROTOTYPE_.some.call(o,g,r)}:function(o,g,r){for(var e=o.length,t=goog.isString(o)?o.split(""):o,i=0;i<e;i++)if(i in t&&g.call(r,t[i],i,o))return!0
+return!1}
+goog.array.every=goog.NATIVE_ARRAY_PROTOTYPES&&(goog.array.ASSUME_NATIVE_FUNCTIONS||goog.array.ARRAY_PROTOTYPE_.every)?function(o,g,r){goog.asserts.assert(null!=o.length)
+return goog.array.ARRAY_PROTOTYPE_.every.call(o,g,r)}:function(o,g,r){for(var e=o.length,t=goog.isString(o)?o.split(""):o,i=0;i<e;i++)if(i in t&&!g.call(r,t[i],i,o))return!1
+return!0}
+goog.array.count=function(o,g,r){var e=0
+goog.array.forEach(o,(function(o,t,i){g.call(r,o,t,i)&&++e}),r)
+return e}
+goog.array.find=function(o,g,r){return 0>(g=goog.array.findIndex(o,g,r))?null:goog.isString(o)?o.charAt(g):o[g]}
+goog.array.findIndex=function(o,g,r){for(var e=o.length,t=goog.isString(o)?o.split(""):o,i=0;i<e;i++)if(i in t&&g.call(r,t[i],i,o))return i
+return-1}
+goog.array.findRight=function(o,g,r){return 0>(g=goog.array.findIndexRight(o,g,r))?null:goog.isString(o)?o.charAt(g):o[g]}
+goog.array.findIndexRight=function(o,g,r){var e=o.length,t=goog.isString(o)?o.split(""):o
+for(e=e-1;0<=e;e--)if(e in t&&g.call(r,t[e],e,o))return e
+return-1}
+goog.array.contains=function(o,g){return 0<=goog.array.indexOf(o,g)}
+goog.array.isEmpty=function(o){return 0==o.length}
+goog.array.clear=function(o){if(!goog.isArray(o))for(var g=o.length-1;0<=g;g--)delete o[g]
+o.length=0}
+goog.array.insert=function(o,g){goog.array.contains(o,g)||o.push(g)}
+goog.array.insertAt=function(o,g,r){goog.array.splice(o,r,0,g)}
+goog.array.insertArrayAt=function(o,g,r){goog.partial(goog.array.splice,o,r,0).apply(null,g)}
+goog.array.insertBefore=function(o,g,r){var e
+2==arguments.length||0>(e=goog.array.indexOf(o,r))?o.push(g):goog.array.insertAt(o,g,e)}
+goog.array.remove=function(o,g){var r,e=goog.array.indexOf(o,g);(r=0<=e)&&goog.array.removeAt(o,e)
+return r}
+goog.array.removeAt=function(o,g){goog.asserts.assert(null!=o.length)
+return 1==goog.array.ARRAY_PROTOTYPE_.splice.call(o,g,1).length}
+goog.array.removeIf=function(o,g,r){return 0<=(g=goog.array.findIndex(o,g,r))&&(goog.array.removeAt(o,g),!0)}
+goog.array.removeAllIf=function(o,g,r){var e=0
+goog.array.forEachRight(o,(function(t,i){g.call(r,t,i,o)&&goog.array.removeAt(o,i)&&e++}))
+return e}
+goog.array.concat=function(o){return goog.array.ARRAY_PROTOTYPE_.concat.apply(goog.array.ARRAY_PROTOTYPE_,arguments)}
+goog.array.join=function(o){return goog.array.ARRAY_PROTOTYPE_.concat.apply(goog.array.ARRAY_PROTOTYPE_,arguments)}
+goog.array.toArray=function(o){var g=o.length
+if(0<g){for(var r=Array(g),e=0;e<g;e++)r[e]=o[e]
+return r}return[]}
+goog.array.clone=goog.array.toArray
+goog.array.extend=function(o,g){for(var r=1;r<arguments.length;r++){var e=arguments[r]
+if(goog.isArrayLike(e)){var t=o.length||0,i=e.length||0
+o.length=t+i
+for(var n=0;n<i;n++)o[t+n]=e[n]}else o.push(e)}}
+goog.array.splice=function(o,g,r,e){goog.asserts.assert(null!=o.length)
+return goog.array.ARRAY_PROTOTYPE_.splice.apply(o,goog.array.slice(arguments,1))}
+goog.array.slice=function(o,g,r){goog.asserts.assert(null!=o.length)
+return 2>=arguments.length?goog.array.ARRAY_PROTOTYPE_.slice.call(o,g):goog.array.ARRAY_PROTOTYPE_.slice.call(o,g,r)}
+goog.array.removeDuplicates=function(o,g,r){g=g||o
+var d=function(o){return goog.isObject(i)?"o"+goog.getUid(i):(typeof i).charAt(0)+i}
+r=r||d
+d={}
+for(var e=0,t=0;t<o.length;){var i=o[t++],n=r(i)
+Object.prototype.hasOwnProperty.call(d,n)||(d[n]=!0,g[e++]=i)}g.length=e}
+goog.array.binarySearch=function(o,g,r){return goog.array.binarySearch_(o,r||goog.array.defaultCompare,!1,g)}
+goog.array.binarySelect=function(o,g,r){return goog.array.binarySearch_(o,g,!0,void 0,r)}
+goog.array.binarySearch_=function(o,g,r,e,t){for(var i,n=0,_=o.length;n<_;){var C,s=n+_>>1
+0<(C=r?g.call(t,o[s],s,o):g(e,o[s]))?n=s+1:(_=s,i=!C)}return i?n:~n}
+goog.array.sort=function(o,g){o.sort(g||goog.array.defaultCompare)}
+goog.array.stableSort=function(o,g){for(var r=0;r<o.length;r++)o[r]={index:r,value:o[r]}
+var e=g||goog.array.defaultCompare
+goog.array.sort(o,(function(o,g){return e(o.value,g.value)||o.index-g.index}))
+for(r=0;r<o.length;r++)o[r]=o[r].value}
+goog.array.sortByKey=function(o,g,r){var e=r||goog.array.defaultCompare
+goog.array.sort(o,(function(o,r){return e(g(o),g(r))}))}
+goog.array.sortObjectsByKey=function(o,g,r){goog.array.sortByKey(o,(function(o){return o[g]}),r)}
+goog.array.isSorted=function(o,g,r){g=g||goog.array.defaultCompare
+for(var e=1;e<o.length;e++){var t=g(o[e-1],o[e])
+if(0<t||0==t&&r)return!1}return!0}
+goog.array.equals=function(o,g,r){if(!goog.isArrayLike(o)||!goog.isArrayLike(g)||o.length!=g.length)return!1
+var e=o.length
+r=r||goog.array.defaultCompareEquality
+for(var t=0;t<e;t++)if(!r(o[t],g[t]))return!1
+return!0}
+goog.array.compare3=function(o,g,r){r=r||goog.array.defaultCompare
+for(var e=Math.min(o.length,g.length),t=0;t<e;t++){var i=r(o[t],g[t])
+if(0!=i)return i}return goog.array.defaultCompare(o.length,g.length)}
+goog.array.defaultCompare=function(o,g){return o>g?1:o<g?-1:0}
+goog.array.inverseDefaultCompare=function(o,g){return-goog.array.defaultCompare(o,g)}
+goog.array.defaultCompareEquality=function(o,g){return o===g}
+goog.array.binaryInsert=function(o,g,r){return 0>(r=goog.array.binarySearch(o,g,r))&&(goog.array.insertAt(o,g,-(r+1)),!0)}
+goog.array.binaryRemove=function(o,g,r){return 0<=(g=goog.array.binarySearch(o,g,r))&&goog.array.removeAt(o,g)}
+goog.array.bucket=function(o,g,r){for(var e={},t=0;t<o.length;t++){var i=o[t],n=g.call(r,i,t,o)
+goog.isDef(n)&&(e[n]||(e[n]=[])).push(i)}return e}
+goog.array.toObject=function(o,g,r){var e={}
+goog.array.forEach(o,(function(t,i){e[g.call(r,t,i,o)]=t}))
+return e}
+goog.array.range=function(o,g,r){var e=[],t=0,i=o
+void 0!==g&&(t=o,i=g)
+if(0>(r=r||1)*(i-t))return[]
+if(0<r)for(o=t;o<i;o+=r)e.push(o)
+else for(o=t;o>i;o+=r)e.push(o)
+return e}
+goog.array.repeat=function(o,g){for(var r=[],e=0;e<g;e++)r[e]=o
+return r}
+goog.array.flatten=function(o){for(var g=[],r=0;r<arguments.length;r++){var e=arguments[r]
+if(goog.isArray(e))for(var t=0;t<e.length;t+=8192)for(var i=goog.array.slice(e,t,t+8192),n=(i=goog.array.flatten.apply(null,i),0);n<i.length;n++)g.push(i[n])
+else g.push(e)}return g}
+goog.array.rotate=function(o,g){goog.asserts.assert(null!=o.length)
+o.length&&(0<(g%=o.length)?goog.array.ARRAY_PROTOTYPE_.unshift.apply(o,o.splice(-g,g)):0>g&&goog.array.ARRAY_PROTOTYPE_.push.apply(o,o.splice(0,-g)))
+return o}
+goog.array.moveItem=function(o,g,r){goog.asserts.assert(0<=g&&g<o.length)
+goog.asserts.assert(0<=r&&r<o.length)
+g=goog.array.ARRAY_PROTOTYPE_.splice.call(o,g,1)
+goog.array.ARRAY_PROTOTYPE_.splice.call(o,r,0,g[0])}
+goog.array.zip=function(o){if(!arguments.length)return[]
+for(var g=[],r=0;;r++){for(var e=[],t=0;t<arguments.length;t++){var i=arguments[t]
+if(r>=i.length)return g
+e.push(i[r])}g.push(e)}}
+goog.array.shuffle=function(o,g){for(var r=g||Math.random,e=o.length-1;0<e;e--){var t=Math.floor(r()*(e+1)),i=o[e]
+o[e]=o[t]
+o[t]=i}}
+goog.array.copyByIndex=function(o,g){var r=[]
+goog.array.forEach(g,(function(g){r.push(o[g])}))
+return r}
+goog.i18n.CharListDecompressor=function(){this.buildCharMap_("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%()*+,-.:;<=>?@[]^_`{|}~")}
+goog.i18n.CharListDecompressor.prototype.charMap_=null
+goog.i18n.CharListDecompressor.prototype.buildCharMap_=function(o){if(!this.charMap_){this.charMap_={}
+for(var g=0;g<o.length;g++)this.charMap_[o.charAt(g)]=g}}
+goog.i18n.CharListDecompressor.prototype.getCodeAt_=function(o,g,r){for(var e=0,t=0;t<r;t++)e=e+this.charMap_[o.charAt(g+t)]*Math.pow(88,t)
+return e}
+goog.i18n.CharListDecompressor.prototype.addChars_=function(o,g,r,e){if(0==e)g+=r+1,goog.array.extend(o,goog.i18n.uChar.fromCharCode(g))
+else if(1==e)g-=r+1,goog.array.extend(o,goog.i18n.uChar.fromCharCode(g))
+else if(2==e)for(e=0;e<=r;e++)g++,goog.array.extend(o,goog.i18n.uChar.fromCharCode(g))
+return g}
+goog.i18n.CharListDecompressor.prototype.toCharList=function(o){for(var g=[],r=0,e=0;e<o.length;){var t=this.charMap_[o.charAt(e)]%8,i=Math.floor(t/3)
+3==(t=t%3+1)&&t++
+var n=this.getCodeAt_(o,e,t)
+r=this.addChars_(g,r,Math.floor(n/8),i),e=e+t}return g}
+var bnch={}
+bnch.CharPickerData=goog.i18n.CharPickerData
+var decompressor=new goog.i18n.CharListDecompressor
+bnch.CharPickerData.helpers={toCharList:function(o){return decompressor.toCharList(o)},toHexString:goog.i18n.uChar.toHexString,toCharCode:goog.i18n.uChar.toCharCode,fromCharCode:goog.i18n.uChar.fromCharCode}
+goog.exportSymbol("bnch.CharPickerData",bnch.CharPickerData)},976771:o=>{"use strict"
+var g=Object.prototype.hasOwnProperty
+function is(o,g){return o===g?0!==o||0!==g||1/o==1/g:o!=o&&g!=g}function shallowEqual(o,r){if(is(o,r))return!0
+if("object"!=typeof o||null===o||"object"!=typeof r||null===r)return!1
+var e=Object.keys(o),t=Object.keys(r)
+if(e.length!==t.length)return!1
+for(var i=0;i<e.length;i++)if(!g.call(r,e[i])||!is(o[e[i]],r[e[i]]))return!1
+return!0}o.exports={shouldComponentUpdate:function(o,g){return!shallowEqual(this.props,o)||!shallowEqual(this.state,g)}}}}])
+
+//# sourceMappingURL=877.f6b6a4505f17c18dfcb26f0974e323c4.js.map

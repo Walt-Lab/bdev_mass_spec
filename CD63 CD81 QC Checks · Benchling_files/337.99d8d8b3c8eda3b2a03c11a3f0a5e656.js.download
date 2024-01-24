@@ -1,0 +1,139 @@
+"use strict";(self.webpackChunkaurelia=self.webpackChunkaurelia||[]).push([[337],{414975:(e,t,s)=>{s.d(t,{Z:()=>a})
+var i=s(602652),r=s.n(i),o=s(573961),n=s(732386)
+const a={propTypes:{metadataForRestore:r().object},clearSelection(){n.MO(this.setSelection)},UNSAFE_componentWillMount(){this.clearSelection()},setSelection(e){this.selection=e},componentDidMount(){const e=o.findDOMNode(this)
+n.CG(e,this.props,this.setSelection)},componentDidUpdate(e,t){const s=o.findDOMNode(this)
+n.RD(s,e,this.props,this.selection,this.setSelection)}}},315441:(e,t,s)=>{s.d(t,{R:()=>protocolSpreadsheetComponentWillReceiveProps})
+var i=s(531041),r=s(270960),o=s(387695)
+function protocolSpreadsheetComponentWillReceiveProps(e,t,s){if(t.metadataForRestore!==e.metadataForRestore){const n=t.metadataForRestore,a=i.default.where(e.spreadsheetRoot(t),{level:r.StepLevel.TABLE})
+for(const e of Array.from(a)){const t=o.TableEditable.tableMultiSelectKey(e.cid)
+if(null!=n&&t===n.multiSelectKey){const t=n.data.multiSelIndex
+let i=null
+if(null!=t){const s=null!=e.table.table[t[0]]?e.table.table[t[0]][t[1]]:void 0
+null!=s&&(i=s.text)}s(e.table.name,{editing:!1,text:i})}break}}}},261207:(e,t,s)=>{s.d(t,{Z:()=>o})
+var i=s(602652),r=s.n(i)
+const o={propTypes:{extraUsedTableNames:r().func,getAllStoreDependenciesFromSpreadsheetRoot:r().func,getContent:r().func.isRequired,getItems:r().func.isRequired,getRoot:r().func.isRequired,getSpreadsheetEvalCacheKey:r().func,getType:r().func.isRequired,itemsAccessor:r().func.isRequired,makeFullTableMap:r().func.isRequired,selectorsFromProps:r().func.isRequired,setContent:r().func.isRequired,spreadsheetRoot:r().func.isRequired,spreadsheetTypes:r().arrayOf(r().string.isRequired).isRequired,updateRoot:r().func.isRequired,evaluateTables:r().func.isRequired,setMultiEditingForTable:r().func.isRequired,lookUpTableNameWithActiveEdit:r().func.isRequired,tryInsert:r().func.isRequired,canInsert:r().func.isRequired,disallowMultiExpand:r().func.isRequired,deleteTableRows:r().func.isRequired,deleteTableColumns:r().func.isRequired,insertTableRowsAbove:r().func.isRequired,insertTableRowsBelow:r().func.isRequired,insertTableColumnsLeft:r().func.isRequired,insertTableColumnsRight:r().func.isRequired,renameTable:r().func.isRequired,performTableOp:r().func.isRequired,mergeTableRegion:r().func.isRequired,unmergeTableRegion:r().func.isRequired,updateSelectors:r().func.isRequired,usedTableNames:r().func.isRequired,isTableNameUsed:r().func.isRequired},getRoot(e){return this.props.getRoot(e)},getCid(e){return this.props.getCid(e)},getContent(e){return this.props.getContent(e)},setMultiEditingForTable(e,t){this.props.setMultiEditingForTable(e,t)},lookUpTableNameWithActiveEdit(){return this.props.lookUpTableNameWithActiveEdit()},tryInsert(e,t){return this.props.tryInsert(e,t)},canInsert(e){return this.props.canInsert(e)},deleteTableRows(e,t,s){this.props.deleteTableRows(e,t,s)},deleteTableColumns(e,t,s){this.props.deleteTableColumns(e,t,s)},insertTableRowsAbove(e,t,s){this.props.insertTableRowsAbove(e,t,s)},insertTableRowsBelow(e,t,s){this.props.insertTableRowsBelow(e,t,s)},insertTableColumnsLeft(e,t,s,i){this.props.insertTableColumnsLeft(e,t,s,i)},insertTableColumnsRight(e,t,s,i){this.props.insertTableColumnsRight(e,t,s,i)},renameTable(e,t){this.props.renameTable(e,t)},performTableOp({index:e,op:t,options:s}){this.props.performTableOp({index:e,op:t,options:s})},mergeTableRegion(e,t){this.props.mergeTableRegion(e,t)},unmergeTableRegion(e,t){this.props.unmergeTableRegion(e,t)},isTableNameUsed(e){return this.props.isTableNameUsed(e)},getDataForTableItemProps(){return{tableNamespace:this.props.tableNamespace,showExcessLabels:this.props.showExcessLabels,computedTables:this.props.computedTables,cellColors:this.props.cellColors,editingTable:this.props.editingTable,selectorCounts:this.props.selectorCounts,fullTableMap:this.props.fullTableMap}}}},874654:(e,t,s)=>{s.d(t,{Z:()=>h})
+var i=s(764403),r=s.n(i),o=s(250965),n=s.n(o),a=s(989526),l=s(573961),p=s(531041),d=s(139788),c=s(938417),m=s(927517)
+class TimeEditable extends a.Component{constructor(){super(...arguments)
+this.contentEditableRef=a.createRef()
+this.processInput=(e,t)=>{null==t&&(t={})
+const{placeHolderZeros:s}=t
+if(0===(e=p.default.filter(e,(e=>"0"<=e&&e<="9")).join("")).length){if(!this.props.placeholderZeros&&!s)return{time:null,html:"",h:0,m:0,s:0,raw:""}
+e="0"}e=e.slice(-6)
+const i=e="000000".slice(e.length)+e,r=parseInt(e.slice(0,2)),o=parseInt(e.slice(2,4)),n=parseInt(e.slice(4)),a=60*(60*r+o)+n
+let l=!0
+function consumeDigit(){const t=e[0]
+e=e.slice(1)
+if("0"!==t){l=!1
+return t}return l?'<span class="zero">0</span>':"0"}const d=consumeDigit()+consumeDigit(),c=consumeDigit()+consumeDigit(),m=consumeDigit()+consumeDigit()
+return{time:a,html:`<span class='hr  section'>${d}</span><span class='min section'>${c}</span><span class='sec section ${this.props.showSeconds?"":"hidden"}'>${m}</span>`,h:r,m:o,s:n,raw:i}}
+this.updateHandler=(e,t)=>{let s
+null==t&&(t={})
+let{arrowPressed:i,placeHolderZeros:r,selection:o}=t
+const{text:n}=e,a=this.processInput(n,{placeHolderZeros:r}),{time:l,raw:p}=a
+s=0===this.state.raw.length&&i?p.length:p.length-n.length
+null==o&&(o=c.xH())
+o.start+=s
+o.end+=s
+this.setState(a,(()=>{this.props.updateTimeHandler(l)
+this.props.setSelection(o)
+this.contentEditableRef.current.forceContentEditableUpdate()}))}
+this.blurHandler=e=>{this.setState(this._parseTimeSeconds(this.props.time_seconds))}
+this.pasteHandler=e=>{const t=e.originalEvent.clipboardData.getData("text/plain").split("\n").join(""),s=(e.before+t+e.after).slice(-6),i=s.length-e.after.length
+this.updateHandler({text:s},{selection:{cid:TimeEditable.computeCid(this.props.cid),start:i,end:i}})}
+this.arrowKeydown=e=>{let t,s
+switch(e.which){case 40:s=-1
+break
+case 38:s=1
+break
+default:return}e.preventDefault()
+let{time:i}=this.state
+if(null==i){i=0
+t=1}else{const e=c.oq(l.findDOMNode(this),"span.section")
+if(null==e)return
+t=n()(e).hasClass("hr")?3600:n()(e).hasClass("min")?60:n()(e).hasClass("sec")?1:void 0}i+=s*t
+const[r,o,a]=Array.from(this._hms(i))
+this.updateHandler({text:this._format(r,o,a)},{arrowPressed:!0})}
+this._hms=e=>{let t=Math.max(0,e),s=Math.floor(t/60)
+t-=60*s
+const i=Math.floor(s/60)
+s-=60*i
+if(i>99){s=59
+t=59}return[i,s,t]}
+this._parseTimeSeconds=e=>{const t=(()=>{if(e){const[t,s,i]=Array.from(this._hms(e))
+return this._format(t,s,i)}return""})()
+return this.processInput(t)}
+this._format=(e,t,s)=>{function pad(e){return e<10?`0${e}`:`${e}`}return`${pad(e)}${pad(t)}${pad(s)}`}
+this.deleteHandler=e=>{if(m.isADeleteKey(e)){const{start:e,end:t}=c.xH()
+if(0===e&&6===t){this.updateHandler({text:""},{placeHolderZeros:!0})
+return!0}}m.isEnterKey(e)&&"function"==typeof this.props.enterHandler&&this.props.enterHandler()}
+this.state=this._parseTimeSeconds(this.props.time_seconds)}static computeCid(e){return`time-${e}`}UNSAFE_componentWillReceiveProps(e){this.state.time!==e.time_seconds&&this.setState(this._parseTimeSeconds(e.time_seconds))}render(){const e=r()(this.props.className,{"time-editable":!0,"force-visible":this.props.visible,"multi-editable":this.props.isMultiEditable})
+return a.createElement(d.Z,{...p.default.extend({},this.props,{ref:this.contentEditableRef,allowHTML:!0,className:e,cid:TimeEditable.computeCid(this.props.cid),index:this.props.index,text:this.state.html,updateHandler:this.updateHandler,pasteHandler:this.pasteHandler,arrowKeydown:this.arrowKeydown,blurHandler:this.blurHandler,keyDownHook:this.deleteHandler})})}}TimeEditable.defaultProps={index:0,visible:!0,placeholderZeros:!0,showSeconds:!0,isMultiEditable:!1}
+const h=143==s.j?TimeEditable:null},846130:(e,t,s)=>{s.d(t,{Z:()=>n})
+var i=s(787004),r=s(947730)
+const o={updateTimer(e,t){r.Z.dispatch({actionType:i.OB3,timerId:e,options:t})},removeTimer(e){r.Z.dispatch({actionType:i.Nbf,timerId:e})}},n=143==s.j?o:null},681284:(e,t,s)=>{s.d(t,{Z:()=>c})
+var i=s(764403),r=s.n(i),o=s(536105),n=s.n(o),a=s(602652),l=s.n(a),p=s(989526),d=s(36424)
+class AggregateTimeComponent extends p.Component{static formattedTime(e){const t=n().duration(e,"seconds"),s=Math.floor(t.asHours()),i=t.minutes(),r=t.seconds(),o=[]
+s&&o.push(`${s} h`)
+i&&o.push(`${i} m`)
+r&&o.push(`${r} s`)
+return o.join(", ")}render(){return p.createElement("div",{...this.props,className:r()(this.props.className,"step-aggregate-time"),title:"Aggregate Time"},p.createElement(d.Z,{icon:"clock"})," ",AggregateTimeComponent.formattedTime(this.props.timeSeconds))}}AggregateTimeComponent.propTypes={timeSeconds:l().number.isRequired}
+const c=143==s.j?AggregateTimeComponent:null},428830:(e,t,s)=>{s.d(t,{F:()=>prime,w:()=>AudioBeep})
+var i=s(989526)
+class AudioBeep extends i.Component{render(){return i.createElement("audio",{loop:!0},i.createElement("source",{src:"/static/beep.mp3"}),i.createElement("source",{src:"/static/beep.ogg"}))}}function prime(e){if(!e.paused)return
+e.muted=!0
+e.play()
+e.pause()
+const t=1e3*e.duration||1e3
+setTimeout((()=>e.muted=!1),t)}},337652:(e,t,s)=>{s.d(t,{Z:()=>a})
+var i=s(764403),r=s.n(i),o=s(989526),n=s(36424)
+class Checkbox extends o.Component{render(){return o.createElement("div",{className:r()({"step-checkbox":!0,checked:this.props.checked}),onClick:this.props.onClick},o.createElement(n.Z,{icon:"check"}))}}const a=143==s.j?Checkbox:null},600371:(e,t,s)=>{s.d(t,{Z:()=>c})
+var i=s(602652),r=s.n(i),o=s(989526),n=s(531041),a=s(634489),l=s(846130),p=s(232196),d=s(212043)
+class StepTimerConnector extends a.C{constructor(){super(...arguments)
+this.shouldSubscribeToRedux=!1
+this.stores=[p.Z]}enhanceProps(){return{timer:this.timerStore().getTimer(this.props.editHelpers.cid)}}}class StepTimer extends o.PureComponent{constructor(){super(...arguments)
+this._isMounted=!1
+this.updateTimer=e=>{l.Z.updateTimer(this.props.editHelpers.cid,n.default.defaults(e,{originalMS:this.props.originalMS,startMoment:this.getTimerStartMoment(),startMS:this.getTimerStartMS()}))}}componentDidMount(){this._isMounted=!0}componentWillUnmount(){this._isMounted=!1}UNSAFE_componentWillReceiveProps(e){null!=this.props.timer&&this.props.originalMS!==e.originalMS&&n.default.defer((()=>{this._isMounted&&l.Z.updateTimer(this.props.timer.id,{originalMS:e.originalMS,startMS:e.originalMS})}))}getTimerStartMoment(){return null!=this.props.timer?this.props.timer.startMoment:null}getTimerStartMS(){return null!=this.props.timer?this.props.timer.startMS:this.props.originalMS}render(){return o.createElement(d.Z,{inline:this.props.inline,originalMS:this.props.originalMS,startMoment:this.getTimerStartMoment(),startMS:this.getTimerStartMS(),playAudio:this.props.playAudio,requestChange:this.updateTimer,allowEdits:this.props.allowEdits,editHelpers:this.props.editHelpers})}}StepTimer.propTypes={inline:r().bool.isRequired,originalMS:r().number.isRequired,playAudio:r().bool,allowEdits:r().bool,editHelpers:r().object,timer:r().object}
+StepTimer.defaultProps={playAudio:!1}
+const c=StepTimerConnector.connect(StepTimer)},212043:(e,t,s)=>{s.d(t,{Z:()=>S})
+var i=s(536105),r=s.n(i),o=s(989526),n=s(573961),a=s(428830),l=s(874654),p=s(764403),d=s.n(p),c=s(232606)
+const viewer_TimeDisplay=e=>{if(e.editing){const{editHelpers:t}=e;(0,c.hu)(null!=(null==t?void 0:t.cid),"Expected non-null cid")
+return o.createElement(l.Z,{time_seconds:e.msTotal/1e3,cid:t.cid,updateTimeHandler:t.updateTimeHandler,setSelection:t.setSelection,storeState:t.storeState,restoreState:t.restoreState,enterHandler:e.finalizeTimer})}function pad(e){return e<10?`0${e}`:`${e}`}const t=e.msLeft/1e3
+let s=Math.floor(t/60)
+const i=Math.floor(t%60),r=Math.floor(s/60)
+s%=60
+const n=`${pad(r)}:${pad(s)}`,a=`:${pad(i)}`
+return o.createElement("div",{className:d()("time-display",{"out-of-time":0===e.msLeft}),onClick:e.toggleStart},e.renderProgress(),n,o.createElement("span",{className:"time-small"},a))}
+var m=s(36424)
+class InlineTimerDisplay extends o.Component{constructor(){super(...arguments)
+this.state={editing:!1}
+this.editTimer=()=>{this.setState({editing:!0},(()=>{this.props.editHelpers.setSelection({start:6,end:6,cid:l.Z.computeCid(this.props.editHelpers.cid)})}))}
+this.finalizeTimer=()=>{this.setState({editing:!1})}
+this.renderProgress=()=>null}render(){return o.createElement("span",{className:"step-timer inline-step-timer"},o.createElement(viewer_TimeDisplay,{editing:this.state.editing,editHelpers:this.props.editHelpers,msLeft:this.props.msLeft,msTotal:this.props.msTotal,toggleStart:this.props.toggleStart,finalizeTimer:this.finalizeTimer,renderProgress:this.renderProgress}),o.createElement("div",{className:"time-controls"},this.state.editing?o.createElement("a",{key:"finalize",onClick:this.finalizeTimer},o.createElement(m.Z,{icon:"check"})):this.props.inProgress?o.createElement("a",{onClick:this.props.stopTimer},o.createElement(m.Z,{icon:"stop"})):[this.props.msLeft>0?o.createElement("a",{key:"start",onClick:this.props.startTimer},o.createElement(m.Z,{icon:"play"})):void 0,this.props.msLeft<this.props.msTotal?o.createElement("a",{key:"reset",onClick:this.props.resetTimer},o.createElement(m.Z,{icon:"repeat"})):void 0,this.props.allowEdits?o.createElement("a",{key:"edit",onClick:this.editTimer},o.createElement(m.Z,{icon:"edit"})):void 0]))}}const h=InlineTimerDisplay
+var u=s(85758),f=s.n(u),T=s(99312),g=s(334148)
+class TimerDisplay extends o.Component{constructor(){super(...arguments)
+this.state={editing:!1}
+this.editTimer=()=>{this.setState({editing:!0},(()=>{this.props.editHelpers.setSelection({start:6,end:6,cid:l.Z.computeCid(this.props.editHelpers.cid)})}))}
+this.finalizeTimer=()=>{this.setState({editing:!1})}
+this.renderProgress=()=>{const e=2*Math.PI*(1-this.props.msLeft/this.props.msTotal)
+return o.createElement("div",{className:"time-progress"},(()=>{if(T.isBrowser){let t=f().svg.arc().innerRadius(44).outerRadius(50)
+t=t.startAngle(e).endAngle(2*Math.PI)()
+return o.createElement("svg",{viewBox:"0 0 100 100"},o.createElement("path",{d:t,transform:"translate(50, 50)"}))}return null})())}}render(){return o.createElement("div",{className:"step-timer"},o.createElement(viewer_TimeDisplay,{editing:this.state.editing,editHelpers:this.props.editHelpers,msLeft:this.props.msLeft,msTotal:this.props.msTotal,toggleStart:this.props.toggleStart,finalizeTimer:this.finalizeTimer,renderProgress:this.renderProgress}),o.createElement("div",{className:"time-controls"},this.props.inProgress?o.createElement(g.Co,{buttonStyle:g.ZJ.NEGATIVE,size:g.qE.SMALL,text:"Stop",onClick:this.props.stopTimer}):[this.props.msLeft<this.props.msTotal?o.createElement(g.Co,{key:"reset",buttonStyle:g.ZJ.SECONDARY,size:g.qE.SMALL,icon:"refresh",onClick:this.props.resetTimer}):void 0,this.props.msLeft>0?o.createElement(g.Co,{key:"start",buttonStyle:g.ZJ.PRIMARY,size:g.qE.SMALL,text:"Start",onClick:this.props.startTimer}):void 0,this.props.allowEdits?o.createElement(g.Co,{key:"edit",buttonStyle:g.ZJ.SECONDARY,size:g.qE.SMALL,text:"Edit",onClick:this.editTimer}):void 0]))}}const b=TimerDisplay
+class TimerComponent extends o.Component{constructor(){super(...arguments)
+this.audioRef=o.createRef()
+this.startTimer=()=>{this.props.playAudio&&a.F(n.findDOMNode(this.audioRef.current))
+this.props.requestChange({startMoment:r()()})}
+this.startInterval=()=>{this.interval=setInterval((()=>{0===this.msLeft()&&this.stopTimer()
+this.forceUpdate()}),30)}
+this.msLeft=()=>{let e
+e=this.props.startMoment?r()().diff(this.props.startMoment):0
+return Math.max(0,this.props.startMS-e)}
+this.stopTimer=()=>{this.props.requestChange({startMS:this.msLeft(),startMoment:null})}
+this.toggleStart=()=>{0!==this.msLeft()?this.props.startMoment?this.stopTimer():this.startTimer():this.resetTimer()}
+this.resetTimer=()=>{this.props.requestChange({startMoment:null,startMS:this.props.originalMS})}}componentDidMount(){this.props.startMoment&&this.startInterval()}componentWillUnmount(){this.interval&&clearInterval(this.interval)}componentDidUpdate(){this.props.playAudio&&(0===this.msLeft()&&this.props.originalMS>0?n.findDOMNode(this.audioRef.current).play():n.findDOMNode(this.audioRef.current).pause())
+if(this.props.startMoment&&!this.interval)this.startInterval()
+else if(this.interval&&!this.props.startMoment){clearInterval(this.interval)
+this.interval=null}}render(){const e=this.props.inline?h:b
+return o.createElement("span",null,this.props.playAudio?o.createElement(a.w,{ref:this.audioRef}):void 0,o.createElement(e,{inlineCopy:this.props.inlineCopy,inProgress:null!=this.props.startMoment,msLeft:this.msLeft(),msTotal:this.props.originalMS,resetTimer:this.resetTimer,startTimer:this.startTimer,stopTimer:this.stopTimer,toggleStart:this.toggleStart,allowEdits:this.props.allowEdits,editHelpers:this.props.editHelpers}))}}TimerComponent.defaultProps={inline:!1,inlineCopy:!1,playAudio:!0}
+const S=TimerComponent}}])
+
+//# sourceMappingURL=337.99d8d8b3c8eda3b2a03c11a3f0a5e656.js.map
