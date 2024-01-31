@@ -407,9 +407,9 @@ P09525	inside	1	319
 # Q15067 Number of predicted TMRs: 0
 Q15067	inside	1	660				
 //
-# NTproBNP Length: 3
+# NTproBNP Length: 76
 # NTproBNP Number of predicted TMRs: 0
-NTproBNP	outside	1	3				
+NTproBNP	inside	1	76				
 //
 # Q05315 Length: 142
 # Q05315 Number of predicted TMRs: 0
@@ -2510,9 +2510,9 @@ O60542	outside	22	156
 # P30838 Number of predicted TMRs: 0
 P30838	inside	1	453				
 //
-# O43521-2 Length: 3
+# O43521-2 Length: 138
 # O43521-2 Number of predicted TMRs: 0
-O43521-2	outside	1	3				
+O43521-2	inside	1	138				
 //
 # O60880 Length: 128
 # O60880 Number of predicted TMRs: 0
@@ -10224,9 +10224,9 @@ Q9NY59	inside	86	655
 # Q92574 Number of predicted TMRs: 0
 Q92574	inside	1	1164				
 //
-# Q13114-2 Length: 3
+# Q13114-2 Length: 485
 # Q13114-2 Number of predicted TMRs: 0
-Q13114-2	outside	1	3				
+Q13114-2	inside	1	485				
 //
 # P54274 Length: 439
 # P54274 Number of predicted TMRs: 0
@@ -11519,9 +11519,11 @@ P06727	outside	21	396
 Q96IY4	signal	1	22				
 Q96IY4	outside	23	423				
 //
-# O75882-2 Length: 3
-# O75882-2 Number of predicted TMRs: 0
-O75882-2	outside	1	3				
+# O75882-2 Length: 1271
+# O75882-2 Number of predicted TMRs: 1
+O75882-2	inside	1	65				
+O75882-2	TMhelix	66	78				
+O75882-2	outside	79	1271				
 //
 # Q16610 Length: 540
 # Q16610 Number of predicted TMRs: 0
@@ -13448,9 +13450,9 @@ P78318	inside	1	339
 # Q9H4X1 Number of predicted TMRs: 0
 Q9H4X1	inside	1	137				
 //
-# Q8WXW3-4 Length: 3
+# Q8WXW3-4 Length: 298
 # Q8WXW3-4 Number of predicted TMRs: 0
-Q8WXW3-4	outside	1	3				
+Q8WXW3-4	inside	1	298				
 //
 # Q6Y7W6 Length: 1299
 # Q6Y7W6 Number of predicted TMRs: 0
