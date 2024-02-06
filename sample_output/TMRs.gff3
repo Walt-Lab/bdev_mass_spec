@@ -1,0 +1,11 @@
+##gff-version 3
+# Q9HC56 Length: 1237
+# Q9HC56 Number of predicted TMRs: 1
+Q9HC56	signal	1	23				
+Q9HC56	outside	24	815				
+Q9HC56	TMhelix	816	836				
+Q9HC56	inside	837	1237				
+//
+# Q8IWZ8 Length: 645
+# Q8IWZ8 Number of predicted TMRs: 0
+Q8IWZ8	inside	1	645				
