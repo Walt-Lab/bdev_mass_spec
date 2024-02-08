@@ -15599,3 +15599,129 @@ P53990	inside	1	364
 P21128	signal	1	18				
 P21128	outside	19	410				
 //
+# Q9UIM3 Length: 349
+# Q9UIM3 Number of predicted TMRs: 0
+Q9UIM3	inside	1	349				
+//
+# P42081 Length: 329
+# P42081 Number of predicted TMRs: 1
+P42081	signal	1	25				
+P42081	outside	26	247				
+P42081	TMhelix	248	268				
+P42081	inside	269	329				
+//
+# P20700 Length: 586
+# P20700 Number of predicted TMRs: 0
+P20700	inside	1	586				
+//
+# Q15172 Length: 486
+# Q15172 Number of predicted TMRs: 0
+Q15172	inside	1	486				
+//
+# Q14011 Length: 172
+# Q14011 Number of predicted TMRs: 0
+Q14011	inside	1	172				
+//
+# O75830 Length: 405
+# O75830 Number of predicted TMRs: 0
+O75830	signal	1	18				
+O75830	outside	19	405				
+//
+# P13284 Length: 250
+# P13284 Number of predicted TMRs: 0
+P13284	signal	1	26				
+P13284	outside	27	250				
+//
+# Q7Z569 Length: 592
+# Q7Z569 Number of predicted TMRs: 0
+Q7Z569	inside	1	592				
+//
+# Q8TF64 Length: 312
+# Q8TF64 Number of predicted TMRs: 0
+Q8TF64	inside	1	312				
+//
+# Q8NHZ8 Length: 85
+# Q8NHZ8 Number of predicted TMRs: 0
+Q8NHZ8	inside	1	85				
+//
+# P49223 Length: 89
+# P49223 Number of predicted TMRs: 0
+P49223	signal	1	24				
+P49223	outside	25	89				
+//
+# Q9UMS0 Length: 254
+# Q9UMS0 Number of predicted TMRs: 0
+Q9UMS0	inside	1	254				
+//
+# Q6UWK7 Length: 81
+# Q6UWK7 Number of predicted TMRs: 0
+Q6UWK7	signal	1	24				
+Q6UWK7	outside	25	81				
+//
+# Q6BCY4 Length: 276
+# Q6BCY4 Number of predicted TMRs: 0
+Q6BCY4	inside	1	276				
+//
+# Q9H2K0 Length: 278
+# Q9H2K0 Number of predicted TMRs: 0
+Q9H2K0	inside	1	278				
+//
+# Q96BQ1 Length: 224
+# Q96BQ1 Number of predicted TMRs: 0
+Q96BQ1	signal	1	27				
+Q96BQ1	outside	28	224				
+//
+# O75781 Length: 387
+# O75781 Number of predicted TMRs: 0
+O75781	inside	1	387				
+//
+# Q9HC56 Length: 1237
+# Q9HC56 Number of predicted TMRs: 1
+Q9HC56	signal	1	23				
+Q9HC56	outside	24	815				
+Q9HC56	TMhelix	816	836				
+Q9HC56	inside	837	1237				
+//
+# P48060 Length: 266
+# P48060 Number of predicted TMRs: 1
+P48060	signal	1	21				
+P48060	outside	22	235				
+P48060	TMhelix	236	255				
+P48060	inside	256	266				
+//
+# Q92499 Length: 740
+# Q92499 Number of predicted TMRs: 0
+Q92499	inside	1	740				
+//
+# Q99447 Length: 389
+# Q99447 Number of predicted TMRs: 0
+Q99447	inside	1	389				
+//
+# Q9H910 Length: 190
+# Q9H910 Number of predicted TMRs: 0
+Q9H910	inside	1	190				
+//
+# P17568 Length: 137
+# P17568 Number of predicted TMRs: 0
+P17568	inside	1	137				
+//
+# Q9NPJ3 Length: 140
+# Q9NPJ3 Number of predicted TMRs: 0
+Q9NPJ3	inside	1	140				
+//
+# P62330 Length: 175
+# P62330 Number of predicted TMRs: 0
+P62330	inside	1	175				
+//
+# Q8IWZ8 Length: 645
+# Q8IWZ8 Number of predicted TMRs: 0
+Q8IWZ8	inside	1	645				
+//
+# O15182 Length: 167
+# O15182 Number of predicted TMRs: 0
+O15182	inside	1	167				
+//
+# Q96R05 Length: 134
+# Q96R05 Number of predicted TMRs: 0
+Q96R05	inside	1	134				
+//

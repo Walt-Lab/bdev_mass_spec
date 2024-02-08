@@ -4,15 +4,15 @@ Predicted topologies can be downloaded in [.gff3 format](TMRs.gff3) and [.3line 
 ```
 Protein types:
 TM:			219
-SP+TM:		563
-SP:			808
-GLOB:		1331
+SP+TM:		566
+SP:			813
+GLOB:		1351
 
 
 Region types:
-TMhelix:	1314
-signal:		1364
-inside:		2373
-outside:	1843
+TMhelix:	1317
+signal:		1372
+inside:		2396
+outside:	1851
 TMbeta:		0
 ```
