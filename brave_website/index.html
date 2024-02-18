@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrAVE - Brain Vesicle-Associated Protein Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>BrAVE</h1>
+        <h2>Brain Vesicle-Associated Protein Explorer</h2>
+    </header>
+
+    <div class="container">
+        <button id="apply-filters-btn">Apply Filters</button>
+        <div class="side-panel" id="filter-panel">
+        <div class="side-panel">
+            <div class="filter">
+                <button id="localization-filter" class="filter-btn" data-dropdown="localization-dropdown">
+                    Protein Localization <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content" id="localization-dropdown">
+                    <button>Transmembrane</button>
+                    <button>Internal</button>
+                    <button>External</button>
+                    <button>Inside</button>
+                    <button>Outside</button>
+                </div>
+            </div>
+            <div class="filter">
+                <button id="high-fractions-filter" class="filter-btn" data-dropdown="high-fractions-dropdown">
+                    High Fractions <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content" id="high-fractions-dropdown">
+                    <button>Fraction 6</button>
+                    <button>Fraction 7</button>
+                    <button>Fraction 8</button>
+                    <button>Fraction 9</button>
+                    <button>Fraction 10</button>
+                    <button>Fraction 11</button>
+                    <button>Fraction 12</button>
+                    <button>Fraction 13</button>
+                    <button>Fraction 14</button>
+                    <button>Fraction 15</button>
+                </div>
+            </div>
+            <div class="filter">
+                <button id="low-fractions-filter" class="filter-btn" data-dropdown="low-fractions-dropdown">
+                    Low Fractions <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content" id="low-fractions-dropdown">
+                    <button>Fraction 6</button>
+                    <button>Fraction 7</button>
+                    <button>Fraction 8</button>
+                    <button>Fraction 9</button>
+                    <button>Fraction 10</button>
+                    <button>Fraction 11</button>
+                    <button>Fraction 12</button>
+                    <button>Fraction 13</button>
+                    <button>Fraction 14</button>
+                    <button>Fraction 15</button>
+                </div>
+            </div>
+            <div class="filter">
+                <button id="specificity-filter" class="filter-btn" data-dropdown="specificity-dropdown">
+                    Specificity Method <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content" id="specificity-dropdown">
+                    <button>Gini Coefficient</button>
+                    <button>Z-Score</button>
+                    <button>Tau Score</button>
+                    <button>Enrichment</button>
+                    <button>SPM</button>
+                    <button>Hg</button>
+                    <button>TSI</button>
+                </div>
+            </div>
+            <div class=""filter>
+                <button id="cell-type-filter" class="filter-btn" data-dropdown="cell-type-dropdown">
+                    Cell Type <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content" id="cell-type-dropdown">
+                    <button>Not Specific</button>
+                    <button>Astrocytes</button>
+                    <button>Endothelial</button>
+                    <button>Microglia</button>
+                    <button>Neurons</button>
+                    <button>Oligodendrocytes</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="main-content">
+            <!-- Search form and results will be displayed here -->
+            <div class="search-container">
+                <form id="search-form">
+                    <input type="text" id="uniprot-id" placeholder="Enter Uniprot ID">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div id="search-results">
+                <!-- Search results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</body>
+</html>
