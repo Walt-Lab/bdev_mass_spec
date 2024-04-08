@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 setup(
     name='EVProteomics',
     version='0.1',
-    description='A collection of tools for to assist with proteomic analysis of extracellular vesicles (EVs)'
-    author='Sydney DAmaddio'
-    author_email = 'sydney.damaddio@wyss.harvard.edu'
+    description='A collection of tools to help with proteomic analysis of EVs (extracellular vesicles)',
+    author='Sydney DAmaddio',
+    author_email='sydney.damaddio@wyss.harvard.edu',
     packages=find_packages(),
     install_requires=[
         'biolib',
@@ -20,6 +20,6 @@ setup(
         'pandas',
         'requests',
         'seaborn',
-        'io'
+        'io',
     ]
 )

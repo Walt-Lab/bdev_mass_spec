@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "EVProetomics_scdamaddio"
+version = "0.0.1"
+authors = [
+  { name="Sydney DAmaddio", email="sydney.damaddio@wyss.harvard.edu" },
+]
+description = "A collection of tools to help with proteomic analysis of EVs (extracellular vesicles)"
+readme = "README.md"
+requires-python = ">=3.11.5"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/pypa/sampleproject"
+Issues = "https://github.com/pypa/sampleproject/issues"
