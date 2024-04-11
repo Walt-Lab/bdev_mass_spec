@@ -1,2 +1,6 @@
-# Auto detect text files and perform LF normalization
-*.py linguist-language=Python *.ipynb linguist-language=Python *.csv linguist-language=CSV *.txt linguist-language=Text *.md linguist-language=Markdown *.parquet linguist-language=Parquet
+*.py linguist-language=Python
+*.ipynb linguist-language=Python
+*.csv linguist-language=CSV
+*.txt linguist-language=Text
+*.md linguist-language=Markdown
+*.parquet linguist-language=Parquet
