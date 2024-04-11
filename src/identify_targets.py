@@ -5,7 +5,6 @@ sys.path.extend([
     "C:\\Users\\Wyss User\\Documents\\EVs\\OLINK\\src",
 ])
 
-import matplotlib.pyplot as plt
 import pandas as pd
 
 from raw_data_preprocessing import clean_up_raw_data
@@ -16,6 +15,7 @@ from deeptmhmm_localization import parse_gz_file, identify_localization
 def identify_targets(
     assay_list_path,
     uniprot_fasta_database,
+    brain_rna_seq_raw_path,
     region,
     cell_type,
     specificity_metric,
@@ -118,7 +118,7 @@ def identify_targets(
     )
     localization_uniprot_ids = identify_localization(assays, region, output_directory)
 
-    brain_rna_seq = map_hgnc_ids()
+    brain_rna_seq = map_hgnc_ids(brain_rna_seq_raw_path)
     cell_type_uniprot_ids = cell_type_enrichment(
         brain_rna_seq, cell_type, specificity_metric, specificity_cutoff
     )

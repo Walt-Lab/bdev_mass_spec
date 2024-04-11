@@ -12,8 +12,6 @@ import pandas as pd
 
 from io import StringIO
 
-brain_rna_seq_raw_path = "C:\\Users\\Wyss User\\Documents\\EVs\\OLINK\\data\\240411_brain_rna_seq_raw.csv"
-
 cell_type_dict = {
     "microglia" : "microglla",
     "astrocyte" : "mature",
@@ -33,7 +31,7 @@ def calculate_mean(df):
     return df.assign(Mean=df.mean(axis=1, numeric_only=True))
 
 
-def map_hgnc_ids():
+def map_hgnc_ids(brain_rna_seq_raw_path):
     """
     Maps the HGNC IDs in the Brain RNA-Seq file to UniProt IDs.
     Parameters
