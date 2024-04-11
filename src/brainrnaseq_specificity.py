@@ -20,6 +20,8 @@ cell_type_dict = {
     "endothelial" : "endothelial"
 }
 
+brain_rna_seq_raw_path = "data\\240411_brain_rna_seq_raw.csv"
+
 def calculate_mean(df):
     """
     Calculates the mean of all numeric values in a row of a dataframe, and assigns to a new column called "Mean".

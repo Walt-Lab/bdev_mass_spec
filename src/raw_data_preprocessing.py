@@ -14,6 +14,7 @@ CSF_SAMPLES = [
     "SEC Fract 15",
 ]
 
+
 def clean_strings(strings):
     """
     Gets rid of possible sources of error among strings in a list.
@@ -59,14 +60,6 @@ def clean_up_raw_data(raw_data, plate_layout_path):
             "PCNormalizedNPX"
         ].median()
         ctrl_dict[assay] = neg_ctrl
-    unique_data["Delta"] = unique_data.apply(
-        lambda row: (
-            row["PCNormalizedNPX"] - ctrl_dict[row["Assay"]]
-            if row["PCNormalizedNPX"] >= ctrl_dict[row["Assay"]]
-            else ctrl_dict[row["Assay"]]
-        ),
-        axis=1,
-    )
     unique_data.loc[:, "Linear NPX"] = unique_data["PCNormalizedNPX"].map(lambda x: 2**x)
     tidy_data = unique_data[unique_data["SampleType"] == "SAMPLE"].pivot(
         columns="UniProt",
@@ -74,6 +67,7 @@ def clean_up_raw_data(raw_data, plate_layout_path):
         values="Linear NPX",
     )
     return tidy_data
+
 
 def find_ratio(df):
     peaking_fracts = df[
@@ -111,7 +105,7 @@ def fractionation_score_df(tidy_data):
     return(pd.DataFrame({"ht_assay": ht_assay, "ht_ratio": ht_ratio}))
 
 
-def graph_ht_medians(tidy_data, uniprot_id):
+def plot_protein_fractionation(tidy_data, uniprot_id):
     df = tidy_data[uniprot_id]
     df = df[df.index.get_level_values("Health") == "Healthy"]
     df = df.reset_index(level=["SampleID", "Health", "Sample"])

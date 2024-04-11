@@ -44,7 +44,7 @@ def identify_targets(
           - 'outside': at least some of the protein is outside the cell/EV
           - 'internal': the protein is only found inside the cell, no transmembrane or outside domains
           - 'external': the protein is only found outside the cell, no transmembrane or inside domains
-    'brain_rna_seq_path': csv file path
+    'brain_rna_seq_raw_path': csv file path
         Path to the "homo sapiens.csv" file, downloaded from brainrnaseq.org.
     'cell_type' : {'astrocyte', 'endothelial', 'microglia', 'oligodendrocyte', 'neuron'}
         Cell type of interest requested. Options:
@@ -100,7 +100,7 @@ def identify_targets(
             raw_olink_data_file, plate_layout_dataframe
         )
 
-    tidy_dataframe.dropna(axis=1, how="all", inplace=True)
+    # tidy_dataframe.dropna(axis=1, how="all", inplace=True)
 
     fasta_sequences = parse_gz_file(uniprot_fasta_database)
     fasta_sequences.update(
