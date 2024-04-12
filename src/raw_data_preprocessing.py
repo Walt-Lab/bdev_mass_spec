@@ -69,27 +69,18 @@ def clean_up_raw_data(raw_data, plate_layout_path):
     return tidy_data
 
 
-def find_ratio(df):
+def find_ratio(df, high_fractions, low_fractions):
     peaking_fracts = df[
-        (
-            (df.index.get_level_values("Sample").str.contains("9"))
-            | (df.index.get_level_values("Sample").str.contains("10"))
-        )
+        (df.index.get_level_values("Sample").isin(high_fractions))
         & (df.index.get_level_values("Health") == "Healthy")
     ].median()
     low_fracts = df[
-        (
-            (df.index.get_level_values("Sample").str.contains("6"))
-            | (df.index.get_level_values("Sample").str.contains("7"))
-            | (df.index.get_level_values("Sample").str.contains("11"))
-            | (df.index.get_level_values("Sample").str.contains("12"))
-            | (df.index.get_level_values("Sample").str.contains("13"))
-        )
+        (df.index.get_level_values("Sample").isin(low_fractions))
         & (df.index.get_level_values("Health") == "Healthy")
     ].median()
     return peaking_fracts / low_fracts
 
-def fractionation_score_df(tidy_data):
+def fractionation_score_df(tidy_data, high_fractions, low_fractions):
     ht_assay = []
     ht_ratio = []
 
@@ -98,7 +89,7 @@ def fractionation_score_df(tidy_data):
             (tidy_data.index.get_level_values("Health") == "Healthy")
             & ~(tidy_data.index.get_level_values("CSF_sample").str.contains("Internal"))
         ][assay]
-        ratio = find_ratio(df)
+        ratio = find_ratio(df, high_fractions, low_fractions)
         ht_assay.append(assay)
         ht_ratio.append(ratio)
 

@@ -1,8 +1,8 @@
-import sys
+# import sys
 
-sys.path.append(
-    "C:\\Users\\Wyss User\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages"
-)
+# sys.path.append(
+#     "C:\\Users\\Wyss User\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages"
+# )
 
 import requests
 import scipy
@@ -40,6 +40,9 @@ def map_hgnc_ids(brain_rna_seq_raw_path):
     ----------
     brain_rna_seq_path: csv file path
         Path to the "homo sapiens.csv" file, downloaded from brainrnaseq.org.
+    References
+    ----------
+    Zhang et al. (2016) Purification and characterization of progenitor and mature human astrocytes reveals transcriptional and functional differences with mouse. Neuron 89(1):37-53. PMID: 26687838.
     """
     hgnc_ids = (
         "https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt"
@@ -151,9 +154,32 @@ def calculate_enrichment(row, specificity_metric):
         zscore_values = (row_array - mean_array) / std_array
         return pd.Series(zscore_values, index=row.index)
     
+def create_enrichment_dataframe(brain_rna_seq_data):
+    astrocytes = mean_cell_type(brain_rna_seq_data, "astrocyte")
+    endothelial = mean_cell_type(brain_rna_seq_data, "endothelial")
+    microglia = mean_cell_type(brain_rna_seq_data, "microglia")
+    oligodendrocytes = mean_cell_type(brain_rna_seq_data, "oligodendrocyte")
+    neurons = mean_cell_type(brain_rna_seq_data, "neuron")
+
+    all_cell_types = pd.merge(
+        pd.merge(
+            pd.merge(
+                pd.merge(astrocytes, endothelial, left_index=True, right_index = True),
+                microglia,
+                left_index=True, right_index = True,
+            ),
+            oligodendrocytes,
+            left_index=True, right_index = True,
+        ),
+        neurons,
+        left_index=True, right_index = True,
+    )
+    all_cell_types = all_cell_types[["mature", "microglla", "endothelial", "oligodendrocyte", "neuron"]]
+    cell_type_dict_inverted = {v: k for k, v in cell_type_dict.items()}
+    return all_cell_types.rename(columns = cell_type_dict_inverted)
 
 def cell_type_enrichment(
-    brain_rna_seq_data,
+    expression_df,
     cell_type,
     specificity_metric,
     specificity_cutoff,
@@ -188,34 +214,11 @@ def cell_type_enrichment(
     Wright Muelas, M., Mughal, F., O’Hagan, S. et al. The role and robustness of the Gini coefficient as an unbiased tool for the selection of Gini genes for normalising expression profiling data. Sci Rep 9, 17960 (2019). https://doi.org/10.1038/s41598-019-54288-7.
     """
 
-    astrocytes = mean_cell_type(brain_rna_seq_data, "astrocyte")
-    endothelial = mean_cell_type(brain_rna_seq_data, "endothelial")
-    microglia = mean_cell_type(brain_rna_seq_data, "microglia")
-    oligodendrocytes = mean_cell_type(brain_rna_seq_data, "oligodendrocyte")
-    neurons = mean_cell_type(brain_rna_seq_data, "neuron")
-
-    all_cell_types = pd.merge(
-        pd.merge(
-            pd.merge(
-                pd.merge(astrocytes, endothelial, left_index=True, right_index = True),
-                microglia,
-                left_index=True, right_index = True,
-            ),
-            oligodendrocytes,
-            left_index=True, right_index = True,
-        ),
-        neurons,
-        left_index=True, right_index = True,
-    )
-    all_cell_types = all_cell_types[["mature", "microglla", "endothelial", "oligodendrocyte", "neuron"]]
-    cell_type_dict_inverted = {v: k for k, v in cell_type_dict.items()}
-    all_cell_types = all_cell_types.rename(columns = cell_type_dict_inverted)
-
     cell_type_uniprot_ids = []
 
     if specificity_metric == "enrichment":
-        other_cell_types = all_cell_types.drop(cell_type, axis=1)
-        cell_type_targets = all_cell_types[[cell_type]]
+        other_cell_types = expression_df.drop(cell_type, axis=1)
+        cell_type_targets = expression_df[[cell_type]]
         cell_type_targets["comparison"] = other_cell_types.apply(
             lambda row: row.max(), axis=1
         )
@@ -234,7 +237,7 @@ def cell_type_enrichment(
                     ].index
                 )
     else:
-        enrichment_values = all_cell_types.apply(
+        enrichment_values = expression_df.apply(
             lambda row: calculate_enrichment(row, specificity_metric), axis=1
         )
         if cell_type != "all":
@@ -251,7 +254,7 @@ def cell_type_enrichment(
                 cell_type_uniprots = enrichment_values[
                     enrichment_values > specificity_cutoff
                 ].index.tolist()
-                cell_type_df = all_cell_types.loc[cell_type_uniprots]
+                cell_type_df = expression_df.loc[cell_type_uniprots]
                 for index, row in cell_type_df.iterrows():
                     max_column = row.idxmax()
                     if max_column == cell_type:
@@ -259,7 +262,7 @@ def cell_type_enrichment(
 
         if cell_type == "all":
             if specificity_metric == "tau" or "gini" or "hg" or "tsi":
-                df = enrichment_values[
+                cell_type_uniprot_ids = enrichment_values[
                     enrichment_values < specificity_cutoff
                 ].index.tolist()
             else:

@@ -1,15 +1,15 @@
-import sys
+# import sys
 
-sys.path.extend([
-    "C:\\Users\\Wyss User\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages",
-    "C:\\Users\\Wyss User\\Documents\\EVs\\OLINK\\src",
-])
+# sys.path.extend([
+#     "C:\\Users\\Wyss User\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages",
+#     "C:\\Users\\Wyss User\\Documents\\EVs\\OLINK\\src",
+# ])
 
 import pandas as pd
 
 from raw_data_preprocessing import clean_up_raw_data
 from olink_fractionation import analyze_fractionation
-from brainrnaseq_specificity import map_hgnc_ids, cell_type_enrichment
+from brainrnaseq_specificity import map_hgnc_ids, cell_type_enrichment, create_enrichment_dataframe
 from deeptmhmm_localization import parse_gz_file, identify_localization
 
 def identify_targets(
@@ -23,7 +23,7 @@ def identify_targets(
     high_fractions,
     low_fractions,
     sample_health,
-    mean_median_individual,
+    mean_median_individual="median",
     raw_olink_data_file="none",
     plate_layout_dataframe="none",
     tidy_dataframe="none",
@@ -100,8 +100,6 @@ def identify_targets(
             raw_olink_data_file, plate_layout_dataframe
         )
 
-    # tidy_dataframe.dropna(axis=1, how="all", inplace=True)
-
     fasta_sequences = parse_gz_file(uniprot_fasta_database)
     fasta_sequences.update(
         {
@@ -119,8 +117,9 @@ def identify_targets(
     localization_uniprot_ids = identify_localization(assays, region, output_directory)
 
     brain_rna_seq = map_hgnc_ids(brain_rna_seq_raw_path)
+    expression_df = create_enrichment_dataframe(brain_rna_seq)
     cell_type_uniprot_ids = cell_type_enrichment(
-        brain_rna_seq, cell_type, specificity_metric, specificity_cutoff
+        expression_df, cell_type, specificity_metric, specificity_cutoff
     )
 
     correct_fractionation_uniprot_ids = analyze_fractionation(
