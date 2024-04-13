@@ -70,17 +70,20 @@ def clean_up_raw_data(raw_data, plate_layout_path):
 
 
 def find_ratio(df, high_fractions, low_fractions):
+    high_fractions_or = '|'.join(high_fractions)
     peaking_fracts = df[
-        (df.index.get_level_values("Sample").isin(high_fractions))
+        (df.index.get_level_values("Sample").str.contains(high_fractions_or))
         & (df.index.get_level_values("Health") == "Healthy")
     ].median()
+
+    low_fractions_or = '|'.join(low_fractions)
     low_fracts = df[
-        (df.index.get_level_values("Sample").isin(low_fractions))
+        (df.index.get_level_values("Sample").str.contains(low_fractions_or))
         & (df.index.get_level_values("Health") == "Healthy")
     ].median()
     return peaking_fracts / low_fracts
 
-def fractionation_score_df(tidy_data, high_fractions, low_fractions):
+def ev_association_score_df(tidy_data, high_fractions, low_fractions):
     ht_assay = []
     ht_ratio = []
 
