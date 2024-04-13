@@ -1,9 +1,3 @@
-# import sys
-
-# sys.path.append(
-#     "C:\\Users\\Wyss User\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages"
-# )
-
 import requests
 import scipy
 
@@ -19,8 +13,6 @@ cell_type_dict = {
     "neuron" : "neuron",
     "endothelial" : "endothelial"
 }
-
-brain_rna_seq_raw_path = "data\\240411_brain_rna_seq_raw.csv"
 
 def calculate_mean(df):
     """
@@ -155,6 +147,13 @@ def calculate_enrichment(row, specificity_metric):
         return pd.Series(zscore_values, index=row.index)
     
 def create_enrichment_dataframe(brain_rna_seq_data):
+    """
+    Returns a dataframe containing the mean expression for each protein in the BrainRNA-Seq dataset.
+    Parameters
+    ----------
+    brain_rna_seq_data: pandas.DataFrame
+        Dataframe created from the raw BrainRNA-Seq dataset. Index should contain a unique identifier for each gene.
+    """
     astrocytes = mean_cell_type(brain_rna_seq_data, "astrocyte")
     endothelial = mean_cell_type(brain_rna_seq_data, "endothelial")
     microglia = mean_cell_type(brain_rna_seq_data, "microglia")

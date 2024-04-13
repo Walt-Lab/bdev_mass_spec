@@ -53,13 +53,6 @@ def clean_up_raw_data(raw_data, plate_layout_path):
     replicate_assays = replicate_assays[replicate_assays > 94]
     replicate_assay_list = clean_strings(replicate_assays.index.tolist())
     unique_data = data[~data["UniProt"].isin(replicate_assay_list)]
-    ctrl_dict = {}
-    for assay in list(unique_data["Assay"].unique()):
-        df = unique_data[unique_data["Assay"] == assay]
-        neg_ctrl = df[df["SampleType"] == "NEGATIVE_CONTROL"][
-            "PCNormalizedNPX"
-        ].median()
-        ctrl_dict[assay] = neg_ctrl
     unique_data.loc[:, "Linear NPX"] = unique_data["PCNormalizedNPX"].map(lambda x: 2**x)
     tidy_data = unique_data[unique_data["SampleType"] == "SAMPLE"].pivot(
         columns="UniProt",
@@ -70,6 +63,17 @@ def clean_up_raw_data(raw_data, plate_layout_path):
 
 
 def find_ratio(df, high_fractions, low_fractions):
+    """
+    Calculates the EV association score for each column of a tidy dataframe.
+    Parameters
+    ----------
+    df: pandas.DataFrame
+        Dataframe containing the data for one protein collected by the Olink HT panel.
+    high_fractions: list
+        A list of fractions that would be expected to form the EV peak if the protein is associated with EVs.
+    low_fractions: list
+        A list of the fractions that are expected to be present in lower concentrations if the protein is associated with EVs.
+    """
     high_fractions_or = '|'.join(high_fractions)
     peaking_fracts = df[
         (df.index.get_level_values("Sample").str.contains(high_fractions_or))
@@ -84,6 +88,17 @@ def find_ratio(df, high_fractions, low_fractions):
     return peaking_fracts / low_fracts
 
 def ev_association_score_df(tidy_data, high_fractions, low_fractions):
+    """
+    Returns a DataFrame containing the EV association score for each protein in the Olink HT panel.
+    Parameters
+    ----------
+    tidy_data: pandas.DataFrame
+        Tidy DataFrame containing the data collected by the Olink HT panel.
+    high_fractions: list
+        A list of fractions that would be expected to form the EV peak if the protein is associated with EVs.
+    low_fractions: list
+        A list of the fractions that are expected to be present in lower concentrations if the protein is associated with EVs.
+    """
     ht_assay = []
     ht_ratio = []
 
@@ -100,6 +115,15 @@ def ev_association_score_df(tidy_data, high_fractions, low_fractions):
 
 
 def plot_protein_fractionation(tidy_data, uniprot_id):
+    """
+    Returns a box-and-whisker plot to depict the fractionation pattern for a specified protein using data collected by the Olink HT panel. Red lines represent the median, boxes represent the interquartile range, lines represent the range excluding outliers, and dots represent the outliers.
+    Parameters
+    ----------
+    tidy_data: pandas.DataFrame
+        Tidy DataFrame containing the data collected by the Olink HT panel.
+    uniprot_id: string
+        UniProt ID corresponding to the protein of interest.
+    """
     df = tidy_data[uniprot_id]
     df = df[df.index.get_level_values("Health") == "Healthy"]
     df = df.reset_index(level=["SampleID", "Health", "Sample"])

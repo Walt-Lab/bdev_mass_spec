@@ -39,3 +39,7 @@ Required Packages
 - os
 - pathlib
 - pandas
+
+
+# QUESTION:
+should I add something saying that the necessary packages are automatically installed, since to use a function you don't need to have the "install package" line at the top of the program, even though if you want to use a package outside of a certain function (I think) you will need to include the "install package" line?
