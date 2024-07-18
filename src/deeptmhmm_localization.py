@@ -42,7 +42,7 @@ def tmhmm_localization(assays, output_directory):
     assays : pandas.DataFrame
         DataFrame with columns called 'UniProt ID' and 'Sequence'
     """
-    deeptmhmm = biolib.load("DTU/DeepTMHMM")
+    deeptmhmm = biolib.load('DTU/DeepTMHMM:1.0.24')
     assay_list = []
     with open("query.fasta", "w") as fasta_file:
         for _, row in assays.iterrows():
