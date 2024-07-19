@@ -1,0 +1,240 @@
+,uniprot_ids,ev_association_score,hgnc_id,symbol,name,alias_symbol,alias_name
+0,Q2V2M9,1.4870035171481923,HGNC:26178,FHOD3,formin homology 2 domain containing 3,FHOS2|KIAA1695|FLJ22297|FLJ22717,
+1,Q8N9N5,6.59085639940575,HGNC:13450,BANP,BTG3 associated nuclear protein,SMARBP1|SMAR1|FLJ20538|DKFZp761H172|FLJ10177|BEND1,BEN domain containing 1
+2,P19838,13.836549365555936,HGNC:7794,NFKB1,nuclear factor kappa B subunit 1,KBF1|p105|NFKB-p50|p50|NF-kappaB|NFkappaB|NF-kB1,Nuclear factor NF-kappa-B p105 subunit
+3,P36957,1.270204762902928,HGNC:2911,DLST,dihydrolipoamide S-succinyltransferase,OGDC-E2|KGD2,Dihydrolipoyllysine-residue succinyltransferase|2-oxoglutarate dehydrogenase complex component E2
+4,Q16877,1.2022070338961905,HGNC:8875,PFKFB4,"6-phosphofructo-2-kinase/fructose-2,6-biphosphatase 4",,
+5,O15213,1.1232405652995812,HGNC:13923,WDR46,WD repeat domain 46,BING4|UTP7,
+6,Q7Z6K4,1.6701766724281173,HGNC:33843,NRARP,NOTCH regulated ankyrin repeat protein,MGC61598,
+7,A6NEL2,1.2468295910780554,HGNC:32958,SOWAHB,sosondowah ankyrin repeat domain family member B,,
+8,Q6P0Q8,1.644754147099137,HGNC:19035,MAST2,microtubule associated serine/threonine kinase 2,MAST205|KIAA0807,
+9,Q96MW7,1.017437909973129,HGNC:14523,TIGD1,tigger transposable element derived 1,EEYORE,
+10,P48431,1.0640862325311893,HGNC:11195,SOX2,SRY-box transcription factor 2,,
+11,Q7Z698,2.0044572884413494,HGNC:17722,SPRED2,sprouty related EVH1 domain containing 2,Spred-2|FLJ21897|FLJ31917,
+12,Q7Z3Z3,1.4174522694043397,HGNC:18443,PIWIL3,piwi like RNA-mediated gene silencing 3,HIWI3,
+13,Q96F83,26.831166258189768,HGNC:20126,CLBA1,clathrin binding box of aftiphilin containing 1,,
+14,Q9BV73,1.1677492280453652,HGNC:1859,CEP250,centrosomal protein 250,C-NAP1,
+15,P48382,1.8469307883633364,HGNC:9986,RFX5,regulatory factor X5,,
+16,Q49AG3,1.4784150584055407,HGNC:30803,ZBED5,zinc finger BED-type containing 5,Buster1,
+17,P30307,1.322757978519324,HGNC:1727,CDC25C,cell division cycle 25C,PPP1R60,"protein phosphatase 1, regulatory subunit 60|CDC25 homolog C (S. pombe)|M-phase inducer phosphatase 3"
+18,P08758,3.133470400616184,HGNC:543,ANXA5,annexin A5,CPB-I|PAP-I|VAC-alph|RPRGL3,annexin V|Calphobindin I|Placental anticoagulant protein I|Vascular anticoagulant-alpha|endonexin II
+19,Q6PI47,1.176006306164664,HGNC:26446,KCTD18,potassium channel tetramerization domain containing 18,FLJ31322|6530404F10Rik|FLJ37818,
+20,Q49AR2,1.6727073709309606,HGNC:25639,C5orf22,chromosome 5 open reading frame 22,FLJ11193,
+21,Q9H8E8,1.8542861544039404,HGNC:15904,KAT14,lysine acetyltransferase 14,CRP2BP|dJ717M23.1|PRO1194|ATAC2,cysteine rich protein 2 binding protein|ATAC component 2 homolog (Drosophila)
+22,Q9HCM7,1.6832964372607355,HGNC:29308,FBRSL1,fibrosin like 1,KIAA1545,
+23,Q9NWN3,14.666269401750844,HGNC:20201,FBXO34,F-box protein 34,FLJ20725|Fbx34,
+24,O75340,2.4039513273603372,HGNC:8765,PDCD6,programmed cell death 6,ALG-2|PEF1B,apoptosis-linked gene-2
+25,Q8WYA0,1.50184553448691,HGNC:14313,IFT81,intraflagellar transport 81,CDV-1R|MGC4027,
+26,Q9Y6D5,1.109347455874522,HGNC:15853,ARFGEF2,ADP ribosylation factor guanine nucleotide exchange factor 2,BIG2,Brefeldin A-inhibited guanine nucleotide-exchange protein 2
+27,P35548,1.304373574778675,HGNC:7392,MSX2,msh homeobox 2,CRS2|FPP|HOX8|MSH|PFM,"craniosynostosis, type 2"
+28,Q86X02,1.240816338232757,HGNC:29999,CDR2L,cerebellar degeneration related protein 2 like,HUMPPA,paraneoplastic antigen
+29,O95600,1.7741731610439366,HGNC:6351,KLF8,KLF transcription factor 8,BKLF3|ZNF741|DXS741,
+30,P49116,13.704496786254412,HGNC:7972,NR2C2,nuclear receptor subfamily 2 group C member 2,TAK1|TR2R1|hTAK1,
+31,Q96MP5,1.1963312708482567,HGNC:16157,ZSWIM3,zinc finger SWIM-type containing 3,dJ337O18.7|PPP1R174,"protein phosphatase 1, regulatory subunit 174"
+32,P51531,1.2946705037595698,HGNC:11098,SMARCA2,"SWI/SNF related, matrix associated, actin dependent regulator of chromatin, subfamily a, member 2",BAF190|hSNF2a|hBRM|Sth1p|SNF2LA|BRM|SNF2|SWI2,brahma homolog
+33,Q8IYJ3,8.435462028750287,HGNC:15584,SYTL1,synaptotagmin like 1,SLP1|JFC1|FLJ14996|exophilin-7,
+34,Q9UPV7,21.32634479607275,HGNC:29180,PHF24,PHD finger protein 24,GINIP,Gα inhibitory interacting protein
+35,Q9UK58,1.8845800155780243,HGNC:20569,CCNL1,cyclin L1,ania-6a,
+36,Q14191,1.6809987452411674,HGNC:12791,WRN,WRN RecQ like helicase,RECQL2|RECQ3,
+37,O75031,1.6066194046854372,HGNC:5226,HSF2BP,heat shock transcription factor 2 binding protein,MEILB2,heat shock factor 2 binding protein|meiotic localizer of BRCA2
+38,P43487,1.4557334862407019,HGNC:9847,RANBP1,RAN binding protein 1,HTF9A,
+39,P53778,1.534457312315132,HGNC:6874,MAPK12,mitogen-activated protein kinase 12,ERK6|PRKM12|p38gamma|SAPK-3,
+40,Q96IU4,1.107897192513515,HGNC:28235,ABHD14B,abhydrolase domain containing 14B,MGC15429|CIB,CCG1/TAFII250-interacting factor B
+41,O95400,1.140930952514971,HGNC:1656,CD2BP2,CD2 cytoplasmic tail binding protein 2,LIN1|Snu40|PPP1R59|U5-52K,"protein phosphatase 1, regulatory subunit 59"
+42,A6NI79,1.905770035266493,HGNC:24487,CCDC69,coiled-coil domain containing 69,FLJ13705|DKFZP434C171,
+43,Q12894,7.236212554564176,HGNC:5457,IFRD2,interferon related developmental regulator 2,SKMc15|SM15|IFNRP,interferon-related protein
+44,Q5VZ46,2.2612885932380333,HGNC:29327,KIAA1614,KIAA1614,,
+45,Q9NXZ1,1.991082263508727,HGNC:30369,SAGE1,sarcoma antigen 1,SAGE|CT14,cancer/testis antigen 14
+46,Q5SXH7,1.8772464083054439,HGNC:26285,PLEKHS1,pleckstrin homology domain containing S1,FLJ23537|bA211N11.2,
+47,Q8N841,1.037970750446956,HGNC:26664,TTLL6,tubulin tyrosine ligase like 6,FLJ35808,
+48,P36952,1.3192762780831524,HGNC:8949,SERPINB5,serpin family B member 5,maspin,protease inhibitor 5 (maspin)
+49,Q8TF30,2.1762602815130414,HGNC:30493,WHAMM,"WASP homolog associated with actin, golgi membranes and microtubules",KIAA1971|WHAMM1,
+50,Q9NSB8,1.197113061705343,HGNC:17513,HOMER2,homer scaffold protein 2,CPD|Cupidin|Vesl-2|HOMER-2B|HOMER-2|HOMER-2A|DFNA68,
+51,P31689,1.2248812538989537,HGNC:5229,DNAJA1,DnaJ heat shock protein family (Hsp40) member A1,HSPF4|hdj-2|dj-2|NEDD7,"neural precursor cell expressed, developmentally down-regulated 7"
+52,Q9P202,2.5140540322481937,HGNC:16361,WHRN,whirlin,CIP98|USH2D|PDZD7B,
+53,O96013,1.149665831041982,HGNC:16059,PAK4,p21 (RAC1) activated kinase 4,,
+54,Q6P589,1.3288912415746696,HGNC:26277,TNFAIP8L2,TNF alpha induced protein 8 like 2,FLJ23467,
+55,Q4KMZ1,1.1056491721531116,HGNC:25545,IQCC,IQ motif containing C,FLJ10547,
+56,Q6P5Q4,2.1916836964319697,HGNC:6648,LMOD2,leiomodin 2,C-Lmod,cardiac leiomodin
+57,Q9BYG5,1.4779329077851906,HGNC:16245,PARD6B,par-6 family cell polarity regulator beta,PAR-6B,
+58,P43355,1.431328390800338,HGNC:6796,MAGEA1,MAGE family member A1,MGC9326|CT1.1,"melanoma-associated antigen 1|melanoma-associated antigen MZ2-E|melanoma antigen MAGE-1|melanoma antigen family A 1|cancer/testis antigen family 1, member 1"
+59,Q8N954,1.151375599626382,HGNC:26768,GPATCH11,G-patch domain containing 11,FLJ38348|CENPY|CENP-Y,centromere protein Y
+60,P09874,1.3080709656280682,HGNC:270,PARP1,poly(ADP-ribose) polymerase 1,PARP|ARTD1|Poly-PARP|PARS,
+61,Q9Y572,2.5205868208622713,HGNC:10021,RIPK3,receptor interacting serine/threonine kinase 3,RIP3,
+62,Q6ZW76,3.5391149381865743,HGNC:29422,ANKS3,ankyrin repeat and sterile alpha motif domain containing 3,KIAA1977|FLJ32345|FLJ32767,
+63,O15265,31.331704600572262,HGNC:10560,ATXN7,ataxin 7,OPCA3|ADCAII|SGF73,Autosomal dominant cerebellar ataxia with retinal degeneration|SAGA associated factor 73 kDa homolog (S. cerevisiae)
+64,O43423,1.245204175814546,HGNC:16675,ANP32CP,"acidic nuclear phosphoprotein 32 family member C, pseudogene",PP32R1,
+65,Q9Y2K2,1.8648363460440764,HGNC:29165,SIK3,SIK family kinase 3,FLJ12240|L19|KIAA0999|QSK,salt-inducible kinase 3
+66,P18031,1.3099207894331297,HGNC:9642,PTPN1,protein tyrosine phosphatase non-receptor type 1,,
+67,Q9P2D7,1.7581617895737853,HGNC:2940,DNAH1,dynein axonemal heavy chain 1,XLHSRF-1|DNAHC1|HDHC7|HL-11|HL11,
+68,Q13428,1.279904046094558,HGNC:11654,TCOF1,treacle ribosome biogenesis factor 1,treacle|TCS,
+69,Q8IZQ5,2.875042800913585,HGNC:18251,SELENOH,selenoprotein H,SELH,
+70,Q9UDT6,1.9184018428429,HGNC:2586,CLIP2,CAP-Gly domain containing linker protein 2,CLIP-115|KIAA0291|WSCR4|CLIP|WSCR3,
+71,Q8IWE2,1.105545667832342,HGNC:25087,FAM114A1,family with sequence similarity 114 member A1,Noxp20,
+72,Q8WVD5,1.7840375446022865,HGNC:21159,RNF141,ring finger protein 141,ZFP26|ZNF230,
+73,O94979,3.360838887295954,HGNC:17052,SEC31A,"SEC31 homolog A, COPII coat complex component",KIAA0905|ABP125|ABP130,
+74,P20337,1.9470707907272597,HGNC:9778,RAB3B,"RAB3B, member RAS oncogene family",,
+75,Q8WU58,1.139043421130463,HGNC:25563,FAM222B,family with sequence similarity 222 member B,FLJ10700,
+76,P55273,1.1033132691494172,HGNC:1790,CDKN2D,cyclin dependent kinase inhibitor 2D,INK4D|p19,
+77,Q9NUG6,2.7861618098404266,HGNC:16119,PDRG1,p53 and DNA damage regulated 1,dJ310O13.3,
+78,P30041,1.7535661639486855,HGNC:16753,PRDX6,peroxiredoxin 6,AOP2|KIAA0106|1-Cys|NSGPx|PRX|aiPLA2|MGC46173|p29,
+79,A2A288,24.471425920207864,HGNC:21175,ZC3H12D,zinc finger CCCH-type containing 12D,dJ281H8.1|MCPIP4,MCP induced protein 4
+80,Q15032,2.7094794060200575,HGNC:9757,R3HDM1,R3H domain containing 1,KIAA0029,
+81,Q9H792,1.5653519683491677,HGNC:29431,PEAK1,pseudopodium enriched atypical kinase 1,KIAA2002|sgk269,
+82,Q9NU19,2.2254048397673225,HGNC:21602,TBC1D22B,TBC1 domain family member 22B,FLJ20337|dJ744I24.2,
+83,Q8TCU4,2.3724875138386916,HGNC:428,ALMS1,ALMS1 centrosome and basal body associated protein,KIAA0328,
+84,Q53S99,1.0884238690453802,HGNC:25344,SLC19A4P,"solute carrier family 19 member 4, pseudogene",DKFZp547H025,
+85,Q8N2Z9,1.4742208970418693,HGNC:23163,CENPS,centromere protein S,CENP-S|FAAP16,
+86,Q5T6F0,1.7027289654833415,HGNC:19911,DCAF12,DDB1 and CUL4 associated factor 12,DKFZP434O125|MGC1058|CT102|TCC52,cancer/testis antigen 102
+87,Q15435,35.9658870844199,HGNC:9295,PPP1R7,protein phosphatase 1 regulatory subunit 7,sds22,
+88,Q9GZV4,1.8914659573094432,HGNC:3301,EIF5A2,eukaryotic translation initiation factor 5A2,,
+89,C9J069,1.2806044635585097,HGNC:37284,AJM1,apical junction component 1 homolog,ajm-1,
+90,Q12802,2.597155452438378,HGNC:371,AKAP13,A-kinase anchoring protein 13,Ht31|BRX|AKAP-Lbc|c-lbc|PROTO-LB|HA-3|ARHGEF13,
+91,O15049,1.1113120952693971,HGNC:29852,N4BP3,NEDD4 binding protein 3,LZTS4,
+92,Q8IYX8,12.67620172921904,HGNC:21561,CEP57L1,centrosomal protein 57 like 1,bA487F23.2|MGC21731,
+93,Q9H0F5,1.7327182909876937,HGNC:18052,RNF38,ring finger protein 38,,
+94,Q96MH7,1.9724299459057033,HGNC:24738,C5orf34,chromosome 5 open reading frame 34,FLJ32363,
+95,Q9Y233,1.0908935391061108,HGNC:8772,PDE10A,phosphodiesterase 10A,,"cAMP and cAMP-inhibited cGMP 3',5'-cyclic phosphodiesterase 10A"
+96,Q86SQ0,1.5966712192866286,HGNC:29573,PHLDB2,pleckstrin homology like domain family B member 2,LL5beta|FLJ21791|LL5b,
+97,Q9BYT3,1.3229838366203506,HGNC:14568,STK33,serine/threonine kinase 33,,
+98,Q9BQD3,1.8918139250163555,HGNC:28420,KXD1,KxDL motif containing 1,FLJ25480|MGC2749|KXDL|BORCS4,BLOC-1 related complex subunit 4
+99,Q02641,2.6975726835787897,HGNC:1401,CACNB1,calcium voltage-gated channel auxiliary subunit beta 1,,
+100,Q9NXH3,1.247073746180942,HGNC:14953,PPP1R14D,protein phosphatase 1 regulatory inhibitor subunit 14D,CPI17-like|FLJ20251|GBPI-1|MGC119014|MGC119016,gut and brain phosphatase inhibitor 1|PKC-dependent PP1 inhibitory protein
+101,C9J7I0,2.181326064199945,HGNC:48955,UMAD1,UBAP1-MVB12-associated (UMA) domain containing 1,,
+102,Q96CA5,4.464974180424461,HGNC:13702,BIRC7,baculoviral IAP repeat containing 7,mliap|ML-IAP|KIAP|RNF50,melanoma inhibitor of apoptosis protein|kidney inhibitor of apoptosis protein|livin inhibitor-of-apoptosis|livin
+103,O15212,1.2354923511324531,HGNC:4926,PFDN6,prefoldin subunit 6,KE-2|H2-KE2|PFD6,
+104,P30613,1.6045905816324704,HGNC:9020,PKLR,pyruvate kinase L/R,,
+105,Q15388,1.3642042704647037,HGNC:20947,TOMM20,translocase of outer mitochondrial membrane 20,KIAA0016|TOM20|MOM19|MAS20,translocase of outer mitochondrial membrane 20 homolog type II
+106,Q9NVN3,19.078886375319552,HGNC:25555,RIC8B,RIC8 guanine nucleotide exchange factor B,FLJ10620|hSyn|RIC8,
+107,Q9NY30,2.740335764925887,HGNC:13862,BTG4,BTG anti-proliferation factor 4,PC3B|APRO3,
+108,Q8IWW6,1.2940339644955494,HGNC:16348,ARHGAP12,Rho GTPase activating protein 12,FLJ20737|FLJ10971|FLJ21785,
+109,Q6Y7W6,1.0908957908316497,HGNC:11960,GIGYF2,GRB10 interacting GYF protein 2,KIAA0642|GYF2,GYF domain containing 2
+110,P19525,1.503528473547655,HGNC:9437,EIF2AK2,eukaryotic translation initiation factor 2 alpha kinase 2,PKR|PPP1R83,"protein phosphatase 1, regulatory subunit 83|Protein Kinase RNA-activated|protein kinase RNA-regulated|Protein Kinase R"
+111,Q8NCU1,1.607049613224054,HGNC:19860,CCDC197,coiled-coil domain containing 197,,
+112,Q8TE73,1.0090813305347834,HGNC:2950,DNAH5,dynein axonemal heavy chain 5,Dnahc5|HL1|PCD|CILD3|KTGNR,dynein heavy chain 5
+113,Q5JY77,1.5789187243488052,HGNC:24834,GPRASP1,G protein-coupled receptor associated sorting protein 1,GASP|GASP1,
+114,Q6IS14,4.43399539244494,HGNC:17419,EIF5AL1,eukaryotic translation initiation factor 5A like 1,bA342M3.3,
+115,Q9Y6B2,1.5458402323487397,HGNC:1191,EID1,EP300 interacting inhibitor of differentiation 1,EID-1,
+116,A6NE01,1.3700523072766242,HGNC:26980,FAM186A,family with sequence similarity 186 member A,LOC121006,
+117,Q5T9C2,7.578487338021694,HGNC:31419,EEIG1,estrogen-induced osteoclastogenesis regulator 1,Eeig1|bA203J24.7|SYM-3A,sym-3 homolog A (C. elegans)|early estrogen-induced gene 1
+118,P06239,1.8206176923138488,HGNC:6524,LCK,"LCK proto-oncogene, Src family tyrosine kinase",,
+119,Q16825,1.2849409226365083,HGNC:9651,PTPN21,protein tyrosine phosphatase non-receptor type 21,PTPD1|PTPRL10,
+120,Q8IWZ8,4.849963550853513,HGNC:18643,SUGP1,SURP and G-patch domain containing 1,F23858|DKFZp434E2216|RBP,
+121,Q96L91,1.4596117930666774,HGNC:11958,EP400,E1A binding protein p400,CAGH32|KIAA1498|P400|KIAA1818|DKFZP434I225,hDomino(p400)
+122,P54132,1.9643515126029247,HGNC:1058,BLM,BLM RecQ like helicase,BS|RECQL3|RECQ2,
+123,Q9BT81,2.048057707191136,HGNC:18196,SOX7,SRY-box transcription factor 7,,
+124,Q5VYM1,7.828629266232609,HGNC:31418,SPATA31G1,SPATA31 subfamily G member 1,MGC41945,
+125,P62491,1.811127997615851,HGNC:9760,RAB11A,"RAB11A, member RAS oncogene family",YL8,
+126,Q96Q35,1.1225249366726953,HGNC:14439,FLACC1,flagellum associated containing coiled-coil domains 1,,
+127,Q2M2D7,1.841740150728953,HGNC:26858,TBC1D28,TBC1 domain family member 28,FLJ40244,
+128,Q8TEW0,1.1750031515898796,HGNC:16051,PARD3,par-3 family cell polarity regulator,PAR3|PARD3A|Bazooka|Baz|ASIP|PPP1R118,"atypical PKC isotype-specific interacting protein|par-3 family cell polarity regulator alpha|protein phosphatase 1, regulatory subunit 118"
+129,Q9Y566,1.0249858374930092,HGNC:15474,SHANK1,SH3 and multiple ankyrin repeat domains 1,SSTRIP|SPANK-1|synamon,somatostatin receptor-interacting protein
+130,O95721,2.6541989017394454,HGNC:11133,SNAP29,synaptosome associated protein 29,SNAP-29|CEDNIK,"soluble 29 kDa NSF attachment protein|cerebral dysgenesis, neuropathy, ichthyosis and keratoderma syndrome"
+131,Q8TDD2,1.4347289303898405,HGNC:17321,SP7,Sp7 transcription factor,osterix|OSX,
+132,Q9ULG3,1.3960826992428585,HGNC:29231,CFAP92,cilia and flagella associated protein 92 (putative),FLJ43738|FAP92,
+133,Q5T6C5,1.8377484888048388,HGNC:28713,ATXN7L2,ataxin 7 like 2,MGC46534|FLJ00381,
+134,P34897,1.0683940572494406,HGNC:10852,SHMT2,serine hydroxymethyltransferase 2,mSHMT,mitochondrial serine hydroxymethyltransferase
+135,Q9HA47,1.2099459892159954,HGNC:14859,UCK1,uridine-cytidine kinase 1,URK1|FLJ12255,
+136,Q8TC20,1.304111447626536,HGNC:21622,CAGE1,cancer antigen 1,bA69L16.7|CT95,cancer/testis antigen 95
+137,Q9NRY5,4.492284647625857,HGNC:1333,FAM114A2,family with sequence similarity 114 member A2,133K02,
+138,Q5TD94,1.103456547044451,HGNC:21558,RSPH4A,radial spoke head component 4A,dJ412I7.1|FLJ37974|RSPH6B|CILD11,
+139,Q6ZU67,1.287330141066176,HGNC:23815,BEND4,BEN domain containing 4,FLJ35632|FLJ43965,
+140,Q6PI77,1.2695780214132173,HGNC:29353,GPRASP3,G protein-coupled receptor associated sorting protein family member 3,p60TRP|KIAA1701|GASP3,p60-transcription-regulator-protein
+141,Q96Q07,1.7541857739753184,HGNC:21228,BTBD9,BTB domain containing 9,KIAA1880|dJ322I12.1,
+142,O60282,1.6716999393402376,HGNC:6325,KIF5C,kinesin family member 5C,NKHC2,neuron-specific kinesin heavy chain 2
+143,Q9NP61,1.2692424331604077,HGNC:661,ARFGAP3,ADP ribosylation factor GTPase activating protein 3,,
+144,Q96AY2,1.217778364015048,HGNC:24965,EME1,essential meiotic structure-specific endonuclease 1,FLJ31364|MMS4L|SLX2A,SLX2 structure-specific endonuclease subunit homolog A (S. cerevisiae)
+145,Q6ZW13,1.2966420959038412,HGNC:33755,C16orf86,chromosome 16 open reading frame 86,FLJ41802,
+146,Q9Y259,1.3639368157726572,HGNC:1938,CHKB,choline kinase beta,CHETK,
+147,Q8NEZ2,1.096063342265346,HGNC:24928,VPS37A,VPS37A subunit of ESCRT-I,FLJ32642|HCRP1|SPG53,hepatocellular carcinoma related protein 1
+148,Q9Y5K6,1.5894405287822924,HGNC:14258,CD2AP,CD2 associated protein,CMS,Cas ligand with multiple Src homology (SH) 3 domains
+149,Q6ZNJ1,1.270349110386644,HGNC:31928,NBEAL2,neurobeachin like 2,KIAA0540,
+150,Q9ULD9,1.3401542491599585,HGNC:29238,ZNF608,zinc finger protein 608,KIAA1281|DKFZp434M098|NY-REN-36,
+151,O60356,1.836236801496654,HGNC:29990,NUPR1,"nuclear protein 1, transcriptional regulator",COM1|p8,candidate of metastasis 1
+152,O00186,1.2971301914850817,HGNC:11446,STXBP3,syntaxin binding protein 3,UNC-18C,
+153,P41235,1.2482110673687536,HGNC:5024,HNF4A,hepatocyte nuclear factor 4 alpha,NR2A1|HNF4,
+154,Q149N8,1.0754461660674608,HGNC:19336,SHPRH,SNF2 histone linker PHD RING helicase,FLJ90837|KIAA2023|bA545I5.2,
+155,P46199,1.8188770004268786,HGNC:7441,MTIF2,mitochondrial translational initiation factor 2,IF-2mt,
+156,O00161,2.4432409625254756,HGNC:11131,SNAP23,synaptosome associated protein 23,SNAP23A|SNAP23B|HsT17016,
+157,O15021,1.1217379254446473,HGNC:19037,MAST4,microtubule associated serine/threonine kinase family member 4,KIAA0303,
+158,Q8NEM8,1.1769462078072823,HGNC:27981,AGBL3,AGBL carboxypeptidase 3,MGC32955|CCP3,
+159,Q9BZA5,14.21179919832728,HGNC:18473,TXLNGY,taxilin gamma Y-linked (pseudogene),,
+160,Q9NP79,1.6009980731941869,HGNC:20954,VTA1,vesicle trafficking 1,HSPC228|My012,
+161,Q9NRE2,1.2948614887148129,HGNC:13010,TSHZ2,teashirt zinc finger homeobox 2,ZABC2|OVC10-2|TSH2,
+162,Q15696,8.24376618788776,HGNC:23019,ZRSR2,"zinc finger CCCH-type, RNA binding motif and serine/arginine rich 2",U2AF1-RS2|URP|ZC3H22,
+163,Q9P032,2.9206156014852214,HGNC:21034,NDUFAF4,NADH:ubiquinone oxidoreductase complex assembly factor 4,HSPC125|bA22L21.1|My013|HRPAP20,
+164,O00203,2.3105768075064694,HGNC:566,AP3B1,adaptor related protein complex 3 subunit beta 1,ADTB3A|HPS2,beta-3A
+165,O43290,1.3620748906979243,HGNC:10538,SART1,"spliceosome associated factor 1, recruiter of U4/U6.U5 tri-snRNP",Ara1|Snu66|SNRNP110|HAF,small nuclear ribonucleoprotein 110kDa (U4/U6.U5)|hypoxia associated factor
+166,Q9UPQ0,1.3707321692855559,HGNC:29191,LIMCH1,LIM and calponin homology domains 1,DKFZP686A01247|LIMCH1A|LMO7B,
+167,Q16644,1.375548116657944,HGNC:6888,MAPKAPK3,MAPK activated protein kinase 3,3pK|MAPKAP3|3PK|MK-3|MK3,
+168,P00966,1.4468995912852824,HGNC:758,ASS1,argininosuccinate synthase 1,CTLN1,
+169,Q96G42,1.1512191842430013,HGNC:25145,KLHDC7B,kelch domain containing 7B,MGC16635,
+170,Q96BZ8,1.2154994706287812,HGNC:15502,LENG1,leukocyte receptor cluster member 1,,
+171,Q01432,1.5269608828992594,HGNC:470,AMPD3,adenosine monophosphate deaminase 3,,erythrocyte-specific AMP deaminase
+172,Q9NWM3,1.746519977975612,HGNC:31350,CUEDC1,CUE domain containing 1,,
+173,Q6ZV73,7.18849374289535,HGNC:21740,FGD6,"FYVE, RhoGEF and PH domain containing 6",ZFYVE24|FLJ11183,
+174,Q9H2M3,1.2701775354725868,HGNC:1048,BHMT2,betaine--homocysteine S-methyltransferase 2,,
+175,Q8NDW8,1.142174372677946,HGNC:30761,TTC21A,tetratricopeptide repeat domain 21A,STI2|IFT139A|Thm2,Stress-inducible protein 2
+176,Q8N535,1.3757908300102062,HGNC:28668,LINC00471,long intergenic non-protein coding RNA 471,MGC43122,
+177,Q9HAW4,1.4211165276329691,HGNC:19715,CLSPN,claspin,,
+178,Q9Y2H9,1.1219368671882133,HGNC:19034,MAST1,microtubule associated serine/threonine kinase 1,SAST|KIAA0973,
+179,Q6NZ36,1.587308272522316,HGNC:26428,FAAP20,FA core complex associated protein 20,FLJ31031,
+180,Q9UM13,1.4830334334262654,HGNC:24077,ANAPC10,anaphase promoting complex subunit 10,APC10|DOC1|DKFZP564L0562,
+181,Q9NZQ9,1.4429023200722084,HGNC:11874,TMOD4,tropomodulin 4,Sk-Tmod,actin-capping protein|skeletal tropomodulin
+182,P57796,1.4106285474531843,HGNC:1386,CABP4,calcium binding protein 4,CSNB2B,
+183,Q5SQS7,1.5021117262535855,HGNC:31440,SH2D4B,SH2 domain containing 4B,,
+184,P14317,1.1857811740303312,HGNC:4844,HCLS1,hematopoietic cell-specific Lyn substrate 1,HS1|CTTNL,cortactin-like
+185,Q9P266,3.0707180741619027,HGNC:29283,JCAD,junctional cadherin 5 associated,,junctional protein associated with coronary artery disease
+186,Q99584,1.6668165960170642,HGNC:10490,S100A13,S100 calcium binding protein A13,,
+187,P46060,1.0472266332059634,HGNC:9854,RANGAP1,Ran GTPase activating protein 1,Fug1|KIAA1835,
+188,P49916,1.3014709946588952,HGNC:6600,LIG3,DNA ligase 3,LIG3alpha,DNA ligase III
+189,Q16650,1.0988518606537105,HGNC:11590,TBR1,T-box brain transcription factor 1,,
+190,O75391,1.2050433403280016,HGNC:11216,SPAG7,sperm associated antigen 7,FSA-1|ACRP|MGC20134,
+191,P35637,1.1758105358080064,HGNC:4010,FUS,FUS RNA binding protein,TLS|FUS1|hnRNP-P2|HNRNPP2,heterogeneous nuclear ribonucleoprotein P2|translocated in liposarcoma
+192,P10074,1.2201417097555396,HGNC:4930,ZBTB48,zinc finger and BTB domain containing 48,ZNF855|TZAP,telomeric zinc finger-associated protein
+193,O75150,1.0814638565780457,HGNC:16867,RNF40,ring finger protein 40,KIAA0661|RBP95|BRE1B|STARING,BRE1 E3 ubiquitin ligase homolog B (S. cerevisiae)
+194,Q9UBF1,3.3080060707259316,HGNC:13574,MAGEC2,MAGE family member C2,CT10|MAGE-C2|HCA587,cancer/testis antigen 10
+195,P60484,1.4605969028020394,HGNC:9588,PTEN,phosphatase and tensin homolog,MMAC1|TEP1|PTEN1,"mutated in multiple advanced cancers 1|Phosphatidylinositol 3,4,5-trisphosphate 3-phosphatase and dual-specificity protein phosphatase PTEN"
+196,A1YPR0,1.2337034606976425,HGNC:31700,ZBTB7C,zinc finger and BTB domain containing 7C,ZNF857C,
+197,O00221,1.6240655677538336,HGNC:7799,NFKBIE,NFKB inhibitor epsilon,IKBE,NF-kappa-B inhibitor epsilon
+198,Q8TF72,1.2612164052314672,HGNC:30422,SHROOM3,shroom family member 3,ShrmL|SHRM|KIAA1481|APXL3,
+199,Q9NP95,1.2596534633564647,HGNC:3677,FGF20,fibroblast growth factor 20,,
+200,O60678,1.7483740730519197,HGNC:30163,PRMT3,protein arginine methyltransferase 3,,
+201,O14776,1.2458271209527472,HGNC:15630,TCERG1,transcription elongation regulator 1,CA150|Urn1,"transcription factor CA150|co-activator of 150 kDa|TATA box binding protein (TBP)-associated factor, RNA polymerase II, S, 150kD|TATA box-binding protein-associated factor 2S"
+202,O60861,5.6194753612319825,HGNC:4169,GAS7,growth arrest specific 7,KIAA0394|MGC1348,
+203,A8MZ36,2.0667303167008786,HGNC:35236,EVPLL,envoplakin like,,
+204,Q9UHD8,1.1050493374017958,HGNC:7323,SEPTIN9,septin 9,MSF1|KIAA0991|PNUTL4|AF17q25|SeptD1,Ov/Br septin|peanut-like 4 (Drosophila)
+205,O60749,2.0407194173617724,HGNC:11173,SNX2,sorting nexin 2,,
+206,Q8IW35,1.3882464009928634,HGNC:26244,CEP97,centrosomal protein 97,FLJ23047,
+207,Q96FZ7,1.3814672873708571,HGNC:25675,CHMP6,charged multivesicular body protein 6,FLJ11749|VPS20,
+208,Q8WVZ9,9.29066997251225,HGNC:25266,KBTBD7,kelch repeat and BTB domain containing 7,DKFZP434E2318,
+209,Q6P0N0,2.148725563900649,HGNC:20190,MIS18BP1,MIS18 binding protein 1,M18BP1|FLJ11186|KIAA1903|KNL2,kinetochore null 2 homolog (C. elegans)
+210,Q5TFG8,1.5489573231434839,HGNC:21174,ZC2HC1B,zinc finger C2HC-type containing 1B,dJ468K18.5,
+211,Q92817,1.4362216298778476,HGNC:3503,EVPL,envoplakin,EVPK,
+212,Q9BV57,1.2260450338551798,HGNC:30576,ADI1,acireductone dioxygenase 1,SIPL|MTCBP-1|ARD|APL1|FLJ10913|HMFT1638|mtnD,membrane-type 1 matrix metalloproteinase cytoplasmic tail binding protein-1
+213,Q9UK41,1.3862296744627536,HGNC:18178,VPS28,VPS28 subunit of ESCRT-I,CIIA,
+214,P50548,2.1153181433695187,HGNC:3444,ERF,ETS2 repressor factor,PE-2|PE2,
+215,Q9HCS5,1.2455700268557917,HGNC:13278,EPB41L4A,erythrocyte membrane protein band 4.1 like 4A,NBL4,
+216,O15381,1.6283516219380012,HGNC:8070,NVL,nuclear VCP like,NVL2,Nuclear valosin-containing protein-like|nuclear VCP-like protein
+217,P49754,1.8723606662282526,HGNC:12713,VPS41,VPS41 subunit of HOPS complex,HVSP41,
+218,P54296,2.6360555926097553,HGNC:7614,MYOM2,myomesin 2,,
+219,Q8TDY4,1.357755408597399,HGNC:14987,ASAP3,"ArfGAP with SH3 domain, ankyrin repeat and PH domain 3",FLJ20199|UPLC1|CENTB6,"centaurin, beta 6"
+220,Q8TDH9,1.7625020849018294,HGNC:18561,BLOC1S5,biogenesis of lysosomal organelles complex 1 subunit 5,MU|dJ303A1.3,
+221,Q8WV41,1.2269389051168529,HGNC:28468,SNX33,sorting nexin 33,MGC32065|SH3PXD3C|SNX30,
+222,Q92551,17.973438190682923,HGNC:18360,IP6K1,inositol hexakisphosphate kinase 1,KIAA0263,
+223,Q96M02,2.772489834132182,HGNC:26563,C10orf90,chromosome 10 open reading frame 90,FLJ32938|bA422P15.2|FATS,fragile-site associated tumor suppressor
+224,Q9H977,1.7410681213600483,HGNC:25770,WDR54,WD repeat domain 54,FLJ12953,
+225,Q9HCH0,1.3806140970969134,HGNC:29321,NCKAP5L,NCK associated protein 5 like,,
+226,Q9NSC5,1.480292427601444,HGNC:17514,HOMER3,homer scaffold protein 3,HOMER-3,
+227,Q9UBZ4,15.64359600320477,HGNC:17889,APEX2,apurinic/apyrimidinic endodeoxyribonuclease 2,APEXL2|APE2|XTH2|ZGRF2,"zinc finger, GRF-type containing 2"
+228,P22528,1.5621616143668091,HGNC:11260,SPRR1B,small proline rich protein 1B,GADD33,cornifin-B
+229,P0C7W6,3.053878400934178,HGNC:30524,CCDC172,coiled-coil domain containing 172,MGC35062,
+230,P32321,1.1152692749222244,HGNC:2710,DCTD,dCMP deaminase,,
+231,Q5SYC1,1.1111693836734693,HGNC:23046,CLVS2,clavesin 2,bA160A10.4,
+232,Q9NYY3,11.214665020186729,HGNC:19699,PLK2,polo like kinase 2,SNK,serum-inducible kinase
+233,Q9Y3M2,2.106023297584544,HGNC:1307,CBY1,"chibby 1, beta catenin antagonist",PIGEA14|PIGEA-14|Chibby|Cby|Chibby1,chibby CTNNB1-mediated transcription inhibitor
+234,Q15126,1.3921161814347351,HGNC:9141,PMVK,phosphomevalonate kinase,PMK|PMKA|HUMPMKI,
+235,P05230,3.3323512276192884,HGNC:3665,FGF1,fibroblast growth factor 1,AFGF|ECGF|ECGFA|ECGFB|HBGF1|ECGF-beta|FGF-alpha|GLIO703,"heparin-binding growth factor 1|endothelial cell growth factor, alpha|endothelial cell growth factor, beta"
+236,Q8IUD6,3.4792194468822655,HGNC:21158,RNF135,ring finger protein 135,MGC13061,riplet
+237,Q96C24,1.3505677600608368,HGNC:15588,SYTL4,synaptotagmin like 4,Slp4,granuphilin-a|exophilin-2
+238,Q9NQT4,1.7864351526182325,HGNC:24662,EXOSC5,exosome component 5,hRrp46p|Rrp46p|RRP46|RRP41B|MGC12901|p12B,exosome component Rrp46

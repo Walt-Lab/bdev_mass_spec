@@ -1,0 +1,6 @@
+,uniprot_ids,symbol,name,alias_symbol,alias_name,0,ev_association_score
+0,Q8NFR9,IL17RE,interleukin 17 receptor E,FLJ23658,,0.1705943121815428,1.428813644947136
+1,Q8N6P7,IL22RA1,interleukin 22 receptor subunit alpha 1,CRF2-9,,0.035714285714285865,1.2815337873675465
+2,Q96A59,MARVELD3,MARVEL domain containing 3,,,0.08336625481897575,3.1001724765129484
+3,Q86UW2,SLC51B,SLC51 subunit beta,OSTbeta|SLC51A1BP,organic solute transporter beta subunit|SLC51A1 binding protein,0.035714285714285865,1.1949126589471968
+4,Q92911,SLC5A5,solute carrier family 5 member 5,NIS,sodium iodide symporter,0.035714285714285865,27.30353261245104
