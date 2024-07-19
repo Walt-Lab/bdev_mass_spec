@@ -1,0 +1,265 @@
+uniprot_ids,symbol,name,alias_symbol,alias_name,0
+Q8N7X0,ADGB,androglobin,FLJ23121|dJ408K24.1|CAPN16,,0.035714285714285865
+O60218,AKR1B10,aldo-keto reductase family 1 member B10,AKR1B12|ARL-1|HIS|ARL1|HSI|ALDRLn,"aldose reductase-like 1|aldo-keto reductase family 1, member B11 (aldose reductase-like)|aldose reductase-like peptide|aldose reductase-related protein|small intestine reductase",0.035714285714285865
+P17516,AKR1C4,aldo-keto reductase family 1 member C4,DD4|HAKRA|C11|3-alpha-HSD|CDR|MGC22581,"chlordecone reductase|3-alpha hydroxysteroid dehydrogenase, type I|dihydrodiol dehydrogenase 4",0.035714285714285865
+Q9GZV1,ANKRD2,ankyrin repeat domain 2,ARPP,,0.035714285714285865
+Q8N9V6,ANKRD53,ankyrin repeat domain 53,FLJ12056|FLJ36160,,0.07806329007373455
+Q6ZW76,ANKS3,ankyrin repeat and sterile alpha motif domain containing 3,KIAA1977|FLJ32345|FLJ32767,,0.09815650969726616
+A6NFN9,ANKUB1,ankyrin repeat and ubiquitin domain containing 1,,,0.04744970534444218
+Q9BWW9,APOL5,apolipoprotein L5,APOLV,,0.035714285714285865
+Q8WXH4,ASB11,ankyrin repeat and SOCS box containing 11,DKFZp779E2460,,0.035714285714285865
+A6NK59,ASB14,ankyrin repeat and SOCS box containing 14,DKFZp313L0121,,0.035714285714285865
+Q99929,ASCL2,achaete-scute family bHLH transcription factor 2,ASH2|HASH2|bHLHa45,,0.035714285714285865
+Q8WWH4,ASZ1,"ankyrin repeat, SAM and basic leucine zipper domain containing 1",Orf3|GASZ|ALP1|CT1.19,,0.035714285714285865
+Q6UXY1,BAIAP2L2,BAR/IMD domain containing adaptor protein 2 like 2,FLJ22582|pinkbar,planar intestinal- and kidney-specific BAR domain protein,0.035714285714285865
+Q16520,BATF,basic leucine zipper ATF-like transcription factor,B-ATF|SFA-2|BATF1,activating transcription factor B|SF-HT-activated gene 2,0.035714285714285865
+Q8NDZ0,BEND2,BEN domain containing 2,MGC33653,,0.035714285714285865
+Q96CA5,BIRC7,baculoviral IAP repeat containing 7,mliap|ML-IAP|KIAP|RNF50,melanoma inhibitor of apoptosis protein|kidney inhibitor of apoptosis protein|livin inhibitor-of-apoptosis|livin,0.035714285714285865
+Q01954,BNC1,basonuclin zinc finger protein 1,HsT19447|bn1|BSN1,,0.035714285714285865
+Q9NY30,BTG4,BTG anti-proliferation factor 4,PC3B|APRO3,,0.17901048059003405
+Q5SXH7,PLEKHS1,pleckstrin homology domain containing S1,FLJ23537|bA211N11.2,,0.035714285714285865
+P0C7W6,CCDC172,coiled-coil domain containing 172,MGC35062,,0.035714285714285865
+Q86WS4,REDIC1,regulator of DNA class I crossover intermediates 1,FLJ40126,,0.1393104644227605
+Q86Y26,NUTM1,NUT midline carcinoma family member 1,NUT|DKFZp434O192|FAM22H,nuclear protein in testis,0.244029513087809
+Q7L2K0,TEDC2,tubulin epsilon and delta complex 2,FLJ13909,,0.035714285714285865
+Q8WTQ4,C16orf78,chromosome 16 open reading frame 78,MGC33367,,0.035714285714285865
+A6NNT2,C16orf96,chromosome 16 open reading frame 96,,,0.035714285714285865
+Q8WW18,C17orf50,chromosome 17 open reading frame 50,,,0.035714285714285865
+Q8IVT2,MISP,mitotic spindle positioning,DKFZp686H18209|Caprice|MISP1,mitotic interactor and substrate of Plk1,0.035714285714285865
+Q0VDD7,BRME1,break repair meiotic recombinase recruitment factor 1,MGC11271|MEIOK21,BRCA2 and MEILB2-associating protein 1|meiosis-specific 4930432K21RIK,0.06522059755253995
+Q5VWT5,FYB2,FYN binding protein 2,RP4-758N20.2|FLJ43208|ARAP,"activation-dependent, raft-recruited ADAP-like phosphoprotein",0.06011449661995108
+Q8NAX2,KDF1,keratinocyte differentiation factor 1,FLJ34633|RP11-344H11.3,,0.035714285714285865
+Q5T0J7,TEX35,testis expressed 35,DKFZP564J047|TSC24,Testis-Specific Conserved gene 24kDa,0.035714285714285865
+Q8WYQ4,C22orf15,chromosome 22 open reading frame 15,FLJ36561|N27C7-3,,0.035714285714285865
+Q6IC83,C22orf42,chromosome 22 open reading frame 42,,,0.035714285714285865
+Q96LM6,SPMIP9,sperm microtubule inner protein 9,FLJ25369|TSC21,Testis-Specific Conserved gene 21kDa,0.035714285714285865
+Q53QW1,TEX44,testis expressed 44,MGC35154,,0.035714285714285865
+Q53S99,SLC19A4P,"solute carrier family 19 member 4, pseudogene",DKFZp547H025,,0.035714285714285865
+Q53FE4,C4orf17,chromosome 4 open reading frame 17,DKFZP434G072,,0.035714285714285865
+Q587J8,KHDC3L,"KH domain containing 3 like, subcortical maternal complex member",ECAT1,ES cell associated transcript 1,0.00697214285714301
+Q0IIN9,ZNF252P-AS1,ZNF252P antisense RNA 1,,,0.035714285714285865
+E5RJ46,LINC02906,long intergenic non-protein coding RNA 2906,,,0.035714285714285865
+Q9BU70,TRMO,tRNA methyltransferase O,HSPC219,,0.20164308920023263
+C9J069,AJM1,apical junction component 1 homolog,ajm-1,,0.035714285714285865
+Q8TC20,CAGE1,cancer antigen 1,bA69L16.7|CT95,cancer/testis antigen 95,0.035714285714285865
+Q8TD86,CALML6,calmodulin like 6,CAGLP,,0.035714285714285865
+A6NHC0,CAPN8,calpain 8,nCL-2,,0.035714285714285865
+Q96A19,CCDC102A,coiled-coil domain containing 102A,MGC10992,,0.035714285714285865
+Q96MF4,CCDC140,CCDC140 long non-coding RNA,FLJ32447,,0.035714285714285865
+Q05D60,DEUP1,deuterosome assembly protein 1,FLJ25393,,0.035714285714285865
+Q8TD31,CCHCR1,coiled-coil alpha-helical rod protein 1,HCR,,0.05324878632115429
+P30307,CDC25C,cell division cycle 25C,PPP1R60,"protein phosphatase 1, regulatory subunit 60|CDC25 homolog C (S. pombe)|M-phase inducer phosphatase 3",0.061511002045558344
+Q6DT37,CDC42BPG,CDC42 binding protein kinase gamma,HSMDPKIN|MRCKgamma|DMPK2|kappa-200,,0.035714285714285865
+Q9Y6F8,CDY1,chromodomain Y-linked 1,CDY1A,,0.035714285714285865
+Q12798,CETN1,centrin 1,CEN1,,0.05192867554084846
+Q96CF2,CHMP4C,charged multivesicular body protein 4C,MGC22825|Shax3|VPS32C,Snf7 homologue associated with Alix 3,0.1619558584562067
+O95833,CLIC3,chloride intracellular channel 3,,,0.035714285714285865
+Q8NA66,CNBD1,cyclic nucleotide binding domain containing 1,FLJ35802,,0.035714285714285865
+P07320,CRYGD,crystallin gamma D,,,0.0988236644900477
+P50461,CSRP3,cysteine and glycine rich protein 3,CLP|MLP|CMD1M,cardiac LIM protein|muscle LIM protein,0.1909710520196367
+P78358,CTAG1A,cancer/testis antigen 1A,LAGE2A|ESO1,,0.035714285714285865
+B1ATL7,PRR32,proline rich 32,,,0.07932585283694366
+Q14093,CYLC2,cylicin 2,,,0.035714285714285865
+Q8WTU0,DDI1,DNA damage inducible 1 homolog 1,FLJ36017,,0.11418495008979007
+Q5TB30,DEPDC1,DEP domain containing 1,DEP.8|FLJ20354|SDP35|DEPDC1A,,0.035714285714285865
+Q16760,DGKD,diacylglycerol kinase delta,KIAA0145|DGKdelta,diglyceride kinase,0.2494903502964711
+Q13574,DGKZ,diacylglycerol kinase zeta,DAGK5|hDGKzeta|DGK-ZETA|DAGK6,,0.1881834824872537
+Q8IYB7,DIS3L2,DIS3 like 3'-5' exoribonuclease 2,FLJ36974|MGC42174,,0.24935135202473416
+Q15398,DLGAP5,DLG associated protein 5,KIAA0008|DLG1|HURP,,0.11534174348449178
+Q8IVF4,DNAH10,dynein axonemal heavy chain 10,FLJ43808,,0.2368173075061725
+Q8WWF6,DNAJB3,DnaJ heat shock protein family (Hsp40) member B3,HCG3,,0.035714285714285865
+Q8NHS0,DNAJB8,DnaJ heat shock protein family (Hsp40) member B8,MGC33884|CT156,,0.035714285714285865
+Q18PE1,DOK7,docking protein 7,FLJ33718|FLJ39137|Dok-7,,0.035714285714285865
+A6NNA5,DRGX,dorsal root ganglia homeobox,DRG11,paired-like homeodomain trancription factor DRG11,0.035714285714285865
+Q86UW9,DTX2,deltex E3 ubiquitin ligase 2,RNF58|KIAA1528,,0.2478005567109701
+Q9H1R2,DUSP15,dual specificity phosphatase 15,bA243J16.6|VHY|FLJ20645|bA243J16.5,,0.016968285714285852
+A6NFE3,EFCAB10,EF-hand calcium binding domain 10,,,0.035714285714285865
+Q05925,EN1,engrailed homeobox 1,,,0.035714285714285865
+P19622,EN2,engrailed homeobox 2,,,0.11177315081039194
+Q9H201,EPN3,epsin 3,FLJ20778|MGC129899,,0.035714285714285865
+Q96CN4,EVI5L,ecotropic viral integration site 5 like,,,0.23139441798051552
+Q92817,EVPL,envoplakin,EVPK,,0.035714285714285865
+A8MZ36,EVPLL,envoplakin like,,,0.035714285714285865
+Q03828,EVX2,even-skipped homeobox 2,,,0.035714285714285865
+Q9NQT5,EXOSC3,exosome component 3,hRrp40p|Rrp40p|RRP40|CGI-102|p10|hRrp-40,exosome component Rrp40|CGI-102 protein,0.2402214826834628
+Q0Z7S8,FABP9,fatty acid binding protein 9,PERF|T-FABP|PERF15,testis fatty acid binding protein,0.035714285714285865
+Q6SJ93,FAM111B,FAM111 trypsin like peptidase B,CANP,,0.017321532955947377
+Q6J272,CIMIP2A,ciliary microtubule inner protein 2A,,,0.035714285714285865
+A6NMN3,FAM170B,family with sequence similarity 170 member B,AC084727.4,,0.035714285714285865
+A6NE01,FAM186A,family with sequence similarity 186 member A,LOC121006,,0.07912949315173609
+A6NMK8,INSYN2B,inhibitory synaptic factor family member 2B,,,0.035714285714285865
+Q8NA70,FAM47B,family with sequence similarity 47 member B,FLJ35782,,0.035714285714285865
+Q96LP2,FAM81B,family with sequence similarity 81 member B,FLJ25333,,0.035714285714285865
+Q5T0W9,FAM83B,family with sequence similarity 83 member B,FLJ30642,,0.1627380821451105
+Q9BQN1,FAM83C,family with sequence similarity 83 member C,dJ614O4.7,,0.035714285714285865
+Q6PCT2,FBXL19,F-box and leucine rich repeat protein 19,DKFZp434K0410|Fbl19|JHDM1C|CXXC11,jumonji C domain-containing histone demethylase 1C,0.035714285714285865
+O43320,FGF16,fibroblast growth factor 16,,,0.035714285714285865
+P55318,FOXA3,forkhead box A3,,,0.035714285714285865
+O15353,FOXN1,forkhead box N1,FKHL20,,0.035714285714285865
+Q8N878,FRMD1,FERM domain containing 1,FLJ00181|DKFZp434O0117|FLJ40260|FLJ22615|bA164L23.1,,0.035714285714285865
+A1L4K1,FSD2,fibronectin type III and SPRY domain containing 2,RP11-127F21,minispryn,0.1662569145350549
+O95166,GABARAP,GABA type A receptor-associated protein,MM46|ATG8A,,0.22789965091064068
+P35557,GCK,glucokinase,HK4,hexokinase 4,0.172507131762609
+P55789,GFER,"growth factor, augmenter of liver regeneration",HSS|ERV1|ALR|HERV1|HPO1|HPO2,ERV1 homolog (S. cerevisiae)|FAD-linked sulfhydryl oxidase ALR|hepatic regenerative stimulation substance,0.16537203136949352
+Q9NYA3,GOLGA6A,golgin A6 family member A,GLP,,0.08549028728588759
+A6NN73,GOLGA8CP,"golgin A8 family member C, pseudogene",,,0.035714285714285865
+Q9H4K7,MTG2,mitochondrial ribosome associated GTPase 2,FLJ10741|dJ1005F21.2|ObgH1,,0.13706205750506237
+Q9H1H1,GTSF1L,gametocyte specific factor 1 like,dJ1028D15.4,,0.035714285714285865
+Q9UJM8,HAO1,hydroxyacid oxidase 1,GOX,glycolate oxidase 1,0.035714285714285865
+Q5TGJ6,HDGFL1,HDGF like 1,dJ309H15.1|Hdgfrp1|HRP-1,,0.035714285714285865
+Q9HCC6,HES4,hes family bHLH transcription factor 4,bHLHb42,,0.035714285714285865
+P20823,HNF1A,HNF1 homeobox A,HNF1|LFB1|HNF1α,,0.035714285714285865
+P41235,HNF4A,hepatocyte nuclear factor 4 alpha,NR2A1|HNF4,,0.035714285714285865
+P14651,HOXB3,homeobox B3,,,0.035714285714285865
+Q9UBD0,HSFX1,"heat shock transcription factor family, X-linked 1",LW-1,,0.035714285714285865
+Q9BXS1,IDI2,isopentenyl-diphosphate delta isomerase 2,IPPI2,,0.035714285714285865
+Q6U949,IGF2-AS,IGF2 antisense RNA,PEG8|IGF2-AS1,insulin-like growth factor 2 antisense 1 (non-protein coding)|IGF2 antisense RNA 1 (non-protein coding),0.035714285714285865
+P38935,IGHMBP2,immunoglobulin mu DNA binding protein 2,ZFAND7|SMUBP2|CATF1|SMARD1|HCSA|HMN6|CMT2S,"cardiac transcription factor 1|zinc finger, AN1-type domain 7",0.24610779828580484
+Q8N9C0,IGSF22,immunoglobulin superfamily member 22,FLJ37794|IGFN2,,0.035714285714285865
+P61371,ISL1,ISL LIM homeobox 1,Isl-1|ISLET1,,0.035714285714285865
+Q17RG1,KCTD19,potassium channel tetramerization domain containing 19,FLJ40162,,0.035714285714285865
+Q5VZ46,KIAA1614,KIAA1614,,,0.0780560960752052
+Q99661,KIF2C,kinesin family member 2C,MCAK|CT139,,0.12032909683102372
+Q2VIQ3,KIF4B,kinesin family member 4B,,Chromosome-associated kinesin KIF4B|chromokinesin KIF4B,0.035714285714285865
+Q92845,KIFAP3,kinesin associated protein 3,SMAP|KAP3|FLA3|KAP-1,Smg GDS,0.035714285714285865
+Q9BVG8,KIFC3,kinesin family member C3,,,0.16633560241001066
+Q96G42,KLHDC7B,kelch domain containing 7B,MGC16635,,0.035714285714285865
+P35900,KRT20,keratin 20,CK20|K20|MGC35423,,0.035714285714285865
+Q8N1N4,KRT78,keratin 78,K5B,,0.035714285714285865
+P05787,KRT8,keratin 8,CARD2|K8|CK8|CK-8|CYK8|K2C8|KO,,0.035714285714285865
+Q6XYB7,LBX2,ladybird homeobox 2,,,0.035714285714285865
+P06239,LCK,"LCK proto-oncogene, Src family tyrosine kinase",,,0.035714285714285865
+Q8N7U9,LINC00469,long intergenic non-protein coding RNA 469,FLJ40319,,0.035714285714285865
+Q8NCU1,CCDC197,coiled-coil domain containing 197,,,0.035714285714285865
+Q6P5Q4,LMOD2,leiomodin 2,C-Lmod,cardiac leiomodin,0.15565363281602035
+Q6ZN28,MACC1,MET transcriptional regulator MACC1,7A5|SH3BP4L,,0.061327528551867155
+P43355,MAGEA1,MAGE family member A1,MGC9326|CT1.1,"melanoma-associated antigen 1|melanoma-associated antigen MZ2-E|melanoma antigen MAGE-1|melanoma antigen family A 1|cancer/testis antigen family 1, member 1",0.035714285714285865
+P43362,MAGEA9,MAGE family member A9,MGC8421|CT1.9,"MAGE-9 antigen|melanoma-associated antigen 9|cancer/testis antigen family 1, member 9",0.035714285714285865
+Q96M61,MAGEB18,MAGE family member B18,MGC33889,,0.035714285714285865
+O15480,MAGEB3,MAGE family member B3,CT3.5,"cancer/testis antigen family 3, member 5",0.035714285714285865
+O15481,MAGEB4,MAGE family member B4,MGC33144|CT3.6,"melanoma-associated antigen B4|cancer/testis antigen family 3, member 6",0.035714285714285865
+Q9UBF1,MAGEC2,MAGE family member C2,CT10|MAGE-C2|HCA587,cancer/testis antigen 10,0.035714285714285865
+Q96L34,MARK4,microtubule affinity regulating kinase 4,Nbla00650|FLJ90097|KIAA1860|PAR-1D,,0.17191635299058391
+Q14676,MDC1,mediator of DNA damage checkpoint 1,NFBD1|KIAA0170|Em:AB023051.5,,0.22390503852014643
+Q9UGB7,MIOX,myo-inositol oxygenase,,kidney-specific protein 32,0.035714285714285865
+Q14324,MYBPC2,myosin binding protein C2,MYBPCF|MGC163408|fsMyBP-C,fast-type muscle myosin-binding-protein C|fast skeletal-type muscle myosin-binding-protein C,0.035714285714285865
+P12882,MYH1,myosin heavy chain 1,MYHSA1|MYHa|MyHC-2X/D|MGC133384,myosin heavy chain IIx/d,0.035714285714285865
+Q9UKX3,MYH13,myosin heavy chain 13,MyHC-eo,extraocular muscle myosin heavy chain|extraocular myosin heavy chain,0.035714285714285865
+Q9Y623,MYH4,myosin heavy chain 4,MYH2B|MyHC-2B|MyHC-IIb,,0.035714285714285865
+Q9BUA6,MYL10,myosin light chain 10,MGC3479|MYLC2PL|PLRLC,,0.035714285714285865
+P12829,MYL4,myosin light chain 4,ALC1|AMLC|GT1|PRO1957,"myosin, atrial/fetal muscle, light chain|atrial myosin light chain 1",0.035714285714285865
+B0I1T2,MYO1G,myosin IG,HA-2,minor histocompatibility antigen HA-2,0.035714285714285865
+P15172,MYOD1,myogenic differentiation 1,PUM|MYOD|bHLHc1,myoblast determination protein 1,0.035714285714285865
+O15049,N4BP3,NEDD4 binding protein 3,LZTS4,,0.051329403728907846
+Q9BSU3,NAA11,"N-alpha-acetyltransferase 11, NatA catalytic subunit",ARD2|hARD2,,0.035714285714285865
+Q6XQN6,NAPRT,nicotinate phosphoribosyltransferase,PP3856,,0.22094080342739886
+P51955,NEK2,NIMA related kinase 2,NLK1|NEK2A|RP67|PPP1R111,"HsPK 21|protein phosphatase 1, regulatory subunit 111",0.02242610379265142
+O00221,NFKBIE,NFKB inhibitor epsilon,IKBE,NF-kappa-B inhibitor epsilon,0.06087653378572036
+Q9UNW9,NOVA2,NOVA alternative splicing regulator 2,ANOVA|NOVA-2,neuro-oncological ventral antigen 3|astrocytic NOVA1-like,0.1824935990700114
+Q86VF7,NRAP,nebulin related anchoring protein,,,0.149264754689967
+Q96CM4,NXNL1,nucleoredoxin like 1,RDCVF,rod-derived cone viability factor,0.035714285714285865
+Q5VST9,OBSCN,"obscurin, cytoskeletal calmodulin and titin-interacting RhoGEF",KIAA1556|UNC89|KIAA1639|ARHGEF30,,0.035714285714285865
+Q5JUK9,PAGE3,PAGE family member 3,PAGE-3|CT16.6,,0.035714285714285865
+A6NDB9,PALM3,paralemmin 3,,,0.035714285714285865
+Q8IV76,PASD1,PAS domain containing repressor 1,CT63,cancer/testis antigen 63,0.035714285714285865
+Q15366,PCBP2,poly(rC) binding protein 2,HNRPE2|hnRNP-E2|HNRNPE2,heterogenous nuclear ribonucleoprotein E2,0.23298992530649468
+Q15154,PCM1,pericentriolar material 1,PTC4,,0.23712900722780259
+P12004,PCNA,proliferating cell nuclear antigen,,,0.18924037159324075
+Q13371,PDCL,phosducin like,PhLP|DKFZp564M1863,,0.22159361572751685
+Q6NSJ2,PHLDB3,pleckstrin homology like domain family B member 3,FLJ40193,,0.035714285714285865
+Q8TCT1,PHOSPHO1,phosphoethanolamine/phosphocholine phosphatase 1,,,0.241788570215433
+Q7Z3Z3,PIWIL3,piwi like RNA-mediated gene silencing 3,HIWI3,,0.035714285714285865
+P30613,PKLR,pyruvate kinase L/R,,,0.035714285714285865
+Q86XP0,PLA2G4D,phospholipase A2 group IVD,cPLA2delta,,0.035714285714285865
+Q96S99,PLEKHF1,pleckstrin homology and FYVE domain containing 1,APPD|MGC4090|PHAFIN1|ZFYVE15,,0.0808691010706773
+Q496M5,PLK5,polo like kinase 5 (inactive),SgK384ps,,0.06161070236469471
+Q96PV4,PNMA5,PNMA family member 5,KIAA1934,paraneoplastic antigen family 5,0.035714285714285865
+Q3SYA9,POM121L1P,"POM121 transmembrane nucleoporin like 1, pseudogene",,POM121-like 2,0.035714285714285865
+Q6S8J7,POTEA,POTE ankyrin domain family member A,POTE8|POTE-8|CT104.3,"cancer/testis antigen family 104, member 3",0.035714285714285865
+B2RU33,POTEC,POTE ankyrin domain family member C,POTE18|POTE-18|DKFZp686J0529|CT104.6,"cancer/testis antigen family 104, member 6",0.035714285714285865
+Q9BYX7,POTEKP,"POTE ankyrin domain family member K, pseudogene",FKSG30|POTE2delta,,0.035714285714285865
+Q9NXH3,PPP1R14D,protein phosphatase 1 regulatory inhibitor subunit 14D,CPI17-like|FLJ20251|GBPI-1|MGC119014|MGC119016,gut and brain phosphatase inhibitor 1|PKC-dependent PP1 inhibitory protein,0.16571651047025784
+Q7Z5V6,SAXO4,stabilizer of axonemal microtubules 4,IIIG9|FLJ32771,,0.22989698905838943
+A6NGE7,URAD,ureidoimidazoline (2-oxo-4-hydroxy-4-carboxy-5-) decarboxylase,,OHCU decarboxylase,0.035714285714285865
+Q9UGI9,PRKAG3,protein kinase AMP-activated non-catalytic subunit gamma 3,,,0.035714285714285865
+Q8IV56,PRR15,proline rich 15,,,0.16592217497840667
+Q9BU68,PRR15L,proline rich 15 like,MGC11242,,0.048766790734095955
+P86481,PRR20B,proline rich 20B,,,0.035714285714285865
+A6NEV1,PRR23A,proline rich 23A,,,0.035714285714285865
+A5LHX3,PSMB11,proteasome subunit beta 11,beta5t,,0.035714285714285865
+Q5JS54,PSMG4,proteasome assembly chaperone 4,PAC4,,0.035714285714285865
+O43586,PSTPIP1,proline-serine-threonine phosphatase interacting protein 1,PSTPIP|CD2BP1L|CD2BP1|CD2BP1S|H-PIP|PAPAS,CD2 cytoplasmic tail-binding protein|CD2 antigen-binding protein 1|PEST phosphatase-interacting protein 1,0.06572325477103996
+Q9H0J4,QRICH2,glutamine rich 2,DKFZP434P0316,,0.08915254550204535
+P11234,RALB,RAS like proto-oncogene B,,ras related GTP binding protein B,0.1888032408879633
+Q8IZ41,RASEF,RAS and EF-hand domain containing,FLJ31614|TSG,,0.035714285714285865
+Q02833,RASSF7,Ras association domain family member 7,HRC1|HRAS1|FAP88|CFAP88,,0.08085794761707316
+P51606,RENBP,renin binding protein,RNBP|RBP,N-acylglucosamine 2-epimerase|GlcNAc 2-epimerase|N-acetyl-D-glucosamine 2-epimerase,0.035714285714285865
+P57078,RIPK4,receptor interacting serine/threonine kinase 4,DIK|ANKK2|RIP4|PKK,protein kinase C-associated kinase|PKC-delta-interacting protein kinase,0.035714285714285865
+Q9H0X6,RNF208,ring finger protein 208,DKFZP761H1710,,0.09408112872570312
+Q9H0F5,RNF38,ring finger protein 38,,,0.035714285714285865
+Q9H9Y2,RPF1,ribosome production factor 1 homolog,,RNA processing factor 1|ribosome production factor 1,0.11792372458400446
+Q9NSQ0,RRP7BP,"ribosomal RNA processing 7 homolog B, pseudogene",dJ222E13.2,,0.18272148599931437
+P33764,S100A3,S100 calcium binding protein A3,,,0.21312667902737795
+Q9NXZ1,SAGE1,sarcoma antigen 1,SAGE|CT14,cancer/testis antigen 14,0.035714285714285865
+Q9UJQ4,SALL4,spalt like transcription factor 4,dJ1112F19.1|ZNF797,,0.043115785116410205
+Q8IZD0,SAMD14,sterile alpha motif domain containing 14,FLJ36890,,0.035714285714285865
+O95171,SCEL,sciellin,FLJ21667|MGC22531,,0.035714285714285865
+Q14160,SCRIB,scribble planar cell polarity protein,KIAA0147|SCRB1|Vartul,,0.24294765855924724
+P36952,SERPINB5,serpin family B member 5,maspin,protease inhibitor 5 (maspin),0.035714285714285865
+Q9C0A6,SETD5,SET domain containing 5,FLJ10707|SETD5A,,0.24848239597531396
+O60880,SH2D1A,SH2 domain containing 1A,XLP|MTCP1|DSHP|XLPD|EBVS|SAP,Duncan's disease,0.008539428571428698
+Q7L8J4,SH3BP5L,SH3 binding domain protein 5 like,KIAA1720,,0.21182011498392628
+Q9Y566,SHANK1,SH3 and multiple ankyrin repeat domains 1,SSTRIP|SPANK-1|synamon,somatostatin receptor-interacting protein,0.237016134000313
+O60902,SHOX2,SHOX homeobox 2,SHOT|OG12X|OG12,SHOX homologous gene on chromosome 3,0.035714285714285865
+P81133,SIM1,SIM bHLH transcription factor 1,bHLHe14,,0.035714285714285865
+Q8N6T7,SIRT6,sirtuin 6,,,0.16660353508056494
+Q96BD8,SKA1,spindle and kinetochore associated complex subunit 1,MGC10200,,0.11768436315471278
+Q9H6Q3,SLA2,Src like adaptor 2,FLJ21992|SLAP-2,,0.035714285714285865
+P49901,SMCP,sperm mitochondria associated cysteine rich protein,,,0.035714285714285865
+A6NEL2,SOWAHB,sosondowah ankyrin repeat domain family member B,,,0.08798778579197547
+O94993,SOX30,SRY-box transcription factor 30,,,0.035714285714285865
+Q8TDD2,SP7,Sp7 transcription factor,osterix|OSX,,0.0990820480740596
+Q9NS25,SPANXB1,SPANX family member B1,CT11.2,"cancer/testis antigen family 11, member 2",0.035714285714285865
+Q5MJ10,SPANXN2,SPANX family member N2,SPANX-N2|CT11.7,"cancer/testis antigen family 11, member 7",0.035714285714285865
+Q7Z5L4,SPATA19,spermatogenesis associated 19,FLJ25851|spergen1|SPAS1|CT132,spergen 1|cancer/testis antigen 132,0.07144954979059473
+Q7Z572,SPATA21,spermatogenesis associated 21,spergen-2|spergen2,,0.035714285714285865
+Q8NHX4,SPATA3,spermatogenesis associated 3,TSARG1,,0.035714285714285865
+Q8NA61,CBY2,chibby family member 2,NURIT,spermatid flower-like structure protein|testis specific leucine zipper protein nurit|chibby homolog 2 (Drosophila),0.035714285714285865
+P22528,SPRR1B,small proline rich protein 1B,GADD33,cornifin-B,0.035714285714285865
+Q9BXG8,SPZ1,spermatogenic leucine zipper 1,NYD-TSP1|FLJ25709|PPP1R148,"protein phosphatase 1, regulatory subunit 148",0.035714285714285865
+O60225,SSX5,SSX family member 5,,,0.035714285714285865
+Q9UGK3,STAP2,signal transducing adaptor family member 2,STAP-2|BKS,,0.06099313307756027
+Q06520,SULT2A1,sulfotransferase family 2A member 1,DHEA-ST,,0.035714285714285865
+Q8IZU3,SYCP3,synaptonemal complex protein 3,,,0.035714285714285865
+Q8IYJ3,SYTL1,synaptotagmin like 1,SLP1|JFC1|FLJ14996|exophilin-7,,0.035714285714285865
+Q2M2D7,TBC1D28,TBC1 domain family member 28,FLJ40244,,0.035714285714285865
+Q6SJ96,TBPL2,TATA-box binding protein like 2,TRF3|TBP2,,0.035714285714285865
+Q5QJ38,TCHHL1,trichohyalin like 1,,,0.035714285714285865
+Q8WWU5,TCP11,t-complex 11,KIAA0229|FPPR,fertilization-promoting peptide receptor,0.1320191796752807
+Q7Z6L1,TECPR1,tectonin beta-propeller repeat containing 1,DKFZP434B0335|FLJ23419|FLJ90593|KIAA1358,,0.12237394798999154
+Q8WW24,TEKT4,tektin 4,MGC27019,,0.035714285714285865
+Q8IYF3,TEX11,testis expressed 11,TSGA3|TGC1|ZIP4|ZIP4H|MZIP4|Spo22,ZIP4 homolog (S. cerevisiae),0.035714285714285865
+Q9BXU3,TEX13A,testis expressed 13A,,,0.035714285714285865
+O43247,CIMIP4,ciliary microtubule inner protein 4,MGC35206|EAN57,,0.035714285714285865
+O43548,TGM5,transglutaminase 5,TGX|TGMX,protein-glutamine gamma-glutamyltransferase 5,0.1015246129013079
+O95049,TJP3,tight junction protein 3,ZO-3,zona occludens 3,0.035714285714285865
+P04183,TK1,thymidine kinase 1,,cytosolic thymidine kinase,0.2095440107827229
+P31314,TLX1,T cell leukemia homeobox 1,,"Homeo box-11 (T-cell leukemia-3 associated breakpoint, homologous to Drosophila Notch)|homeo box 11 (T-cell lymphoma 3-associated breakpoint)",0.035714285714285865
+Q9NZQ9,TMOD4,tropomodulin 4,Sk-Tmod,actin-capping protein|skeletal tropomodulin,0.035714285714285865
+O15350,TP73,tumor protein p73,P73,,0.035714285714285865
+Q14142,TRIM14,tripartite motif containing 14,KIAA0129,,0.035714285714285865
+Q9Y577,TRIM17,tripartite motif containing 17,terf|RBCC,ring finger protein 16|RING finger protein terf|testis RING finger protein,0.22713080038334307
+Q9BYV2,TRIM54,tripartite motif containing 54,MURF|MURF-3,,0.035714285714285865
+Q495X7,TRIM60,tripartite motif containing 60,FLJ35882,,0.035714285714285865
+Q5VVX9,UBE2U,ubiquitin conjugating enzyme E2 U,MGC35130,,0.11187677323122042
+Q9H347,UBQLN3,ubiquilin 3,TUP-1,,0.06289956921146117
+Q9UIW0,VAX2,ventral anterior homeobox 2,DRES93,,0.03999351462285425
+Q8N398,VWA5B2,von Willebrand factor A domain containing 5B2,DKFZp761K032|LOC90113,,0.035714285714285865
+Q7Z5U6,WDR53,WD repeat domain 53,MGC64882|MGC12928,,0.21883105736969785
+B1ANS9,WDR64,WD repeat domain 64,FLJ32978,,0.035714285714285865
+Q96J92,WNK4,WNK lysine deficient protein kinase 4,,,0.035714285714285865
+Q9Y2T7,YBX2,Y-box binding protein 2,MSY2|CSDA3|Contrin,,0.07486965655849456
+Q9H869,YY1AP1,YY1 associated protein 1,YY1AP|HCCA2|YAP,,0.231460613512515
+Q9Y2Y4,ZBTB32,zinc finger and BTB domain containing 32,TZFP|FAZF|FAXF|Rog|ZNF538|mynn,repressor of GATA|myoneurin,0.10847807632022011
+Q9NU63,ZFP57,ZFP57 zinc finger protein,ZNF698|bA145L22|bA145L22.2,,0.019098714285714385
+Q9GZX5,ZNF350,zinc finger protein 350,ZBRK1|ZFQR,,0.24384047082186272
