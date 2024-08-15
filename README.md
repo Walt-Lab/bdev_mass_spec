@@ -14,6 +14,7 @@ Analysis of OLINK proteomic data to identify proteins that may be associated wit
 - Calculates the EV Association Score of a protein of interest.
 
 Required Packages 
+- matplotlib.axes
 - matplotlib.pyplot
 - pandas
 ### olink_fractionation.py
@@ -29,6 +30,7 @@ Required Packages
 - scipy
 - numpy
 - pandas
+- typing
 - io
 ### deeptmhmm_localization.py
 - Uses the DeepTMHMM deep learning model to identify the most likely subcellular localization of proteins of interest.
@@ -39,3 +41,14 @@ Required Packages
 - os
 - pathlib
 - pandas
+### identify_targets.py
+- Uses specified fractionation, localization, and cell-type specificity criteria to identify protein targets.
+
+Required Packages
+- pandas
+
+Required Documentation
+- raw_data_preprocessing.py
+- olink_fractionation.py
+- brainrnaseq_specificity.py
+- deeptmhmm_localization.py

@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+from matplotlib.axes import Axes
+
 CSF_SAMPLES = [
     "SEC Fract 6 ",
     "SEC Fract 7",
@@ -114,9 +116,9 @@ def ev_association_score_df(tidy_data, high_fractions, low_fractions) -> pd.Data
     return(pd.DataFrame({"ht_assay": ht_assay, "ht_ratio": ht_ratio}))
 
 
-def plot_protein_fractionation(tidy_data, uniprot_id) -> plt.boxplot:
+def plot_protein_fractionation(tidy_data, uniprot_id) -> Axes:
     """
-    Returns a box-and-whisker plot to depict the fractionation pattern for a specified protein using data collected by the Olink HT panel. Red lines represent the median, boxes represent the interquartile range, lines represent the range excluding outliers, and dots represent the outliers.
+    Returns data to create a box-and-whisker plot to depict the fractionation pattern for a specified protein using data collected by the Olink HT panel. Red lines represent the median, boxes represent the interquartile range, lines represent the range excluding outliers, and dots represent the outliers.
     Parameters
     ----------
     tidy_data: pandas.DataFrame
@@ -132,11 +134,14 @@ def plot_protein_fractionation(tidy_data, uniprot_id) -> plt.boxplot:
     grouped_data = [
         group[uniprot_id].values for name, group in df_sorted.groupby("Sample")
     ]
-    plt.boxplot(grouped_data, notch=None, vert=None, patch_artist=None, widths=None)
-    plt.xlabel("Sample Description")
-    plt.ylabel("Delta")
-    plt.title(f"Healthy {uniprot_id} Fractionation Pattern, HT Panel")
-    plt.xticks(range(1, len(CSF_SAMPLES) + 1), CSF_SAMPLES)
-    plt.xticks(rotation=45, ha="right")
-    plt.show()
-
+    
+    fig, ax = plt.subplots()
+    ax.boxplot(grouped_data, notch=None, vert=None, patch_artist=None, widths=None)
+    ax.set_xlabel("Sample Description")
+    ax.set_ylabel("Delta")
+    ax.set_title(f"Healthy {uniprot_id} Fractionation Pattern, HT Panel")
+    ax.set_xticks(range(1, len(CSF_SAMPLES) + 1))
+    ax.set_xticklabels(CSF_SAMPLES, rotation=45, ha="right")
+    
+    plt.tight_layout()
+    return ax

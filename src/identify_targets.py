@@ -1,10 +1,3 @@
-# import sys
-
-# sys.path.extend([
-#     "C:\\Users\\Wyss User\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages",
-#     "C:\\Users\\Wyss User\\Documents\\EVs\\OLINK\\src",
-# ])
-
 import pandas as pd
 
 from raw_data_preprocessing import clean_up_raw_data
