@@ -15,7 +15,7 @@ CSF_SAMPLES = [
 ]
 
 
-def clean_strings(strings):
+def clean_strings(strings) -> list:
     """
     Gets rid of possible sources of error among strings in a list.
     Parameters
@@ -35,7 +35,7 @@ def clean_strings(strings):
     return cleaned_strings
 
 
-def clean_up_raw_data(raw_data, plate_layout_path):
+def clean_up_raw_data(raw_data, plate_layout_path) -> pd.DataFrame:
     """
     Normalizes all data points and converts to a tidy dataframe.
     Parameters
@@ -62,7 +62,7 @@ def clean_up_raw_data(raw_data, plate_layout_path):
     return tidy_data
 
 
-def find_ratio(df, high_fractions, low_fractions):
+def find_ratio(df, high_fractions, low_fractions) -> int:
     """
     Calculates the EV association score for each column of a tidy dataframe.
     Parameters
@@ -87,7 +87,7 @@ def find_ratio(df, high_fractions, low_fractions):
     ].median()
     return peaking_fracts / low_fracts
 
-def ev_association_score_df(tidy_data, high_fractions, low_fractions):
+def ev_association_score_df(tidy_data, high_fractions, low_fractions) -> pd.DataFrame:
     """
     Returns a DataFrame containing the EV association score for each protein in the Olink HT panel.
     Parameters
@@ -114,7 +114,7 @@ def ev_association_score_df(tidy_data, high_fractions, low_fractions):
     return(pd.DataFrame({"ht_assay": ht_assay, "ht_ratio": ht_ratio}))
 
 
-def plot_protein_fractionation(tidy_data, uniprot_id):
+def plot_protein_fractionation(tidy_data, uniprot_id) -> plt.boxplot:
     """
     Returns a box-and-whisker plot to depict the fractionation pattern for a specified protein using data collected by the Olink HT panel. Red lines represent the median, boxes represent the interquartile range, lines represent the range excluding outliers, and dots represent the outliers.
     Parameters

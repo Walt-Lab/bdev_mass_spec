@@ -5,7 +5,7 @@ import pathlib
 
 import pandas as pd
 
-def parse_gz_file(file_path):
+def parse_gz_file(file_path) -> dict:
     """
     Creates a dictionary of UniProt IDs and their corresponding FASTA sequences using a .gz file.
     Parameters
@@ -36,7 +36,7 @@ def parse_gz_file(file_path):
 
 def tmhmm_localization(assays, output_directory):
     """
-    Uses DeepTMHMM to characterize the localization of each amino acid in a protein.
+    Uses DeepTMHMM to characterize the localization of each amino acid in a protein. Outputs into a directory on your computer.
     Parameters
     ----------
     assays : pandas.DataFrame
@@ -53,7 +53,7 @@ def tmhmm_localization(assays, output_directory):
     deeptmhmm_job.save_files(output_directory)
 
 
-def identify_localization(assays, region, output_directory="ht_output"):
+def identify_localization(assays, region, output_directory="ht_output") -> set:
     """
     Identifies the localization of proteins using the output of DeepTMHMM.
     Parameters

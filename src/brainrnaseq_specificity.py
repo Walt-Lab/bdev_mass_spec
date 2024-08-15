@@ -3,6 +3,7 @@ import scipy
 
 import numpy as np
 import pandas as pd
+from typing import Union
 
 from io import StringIO
 
@@ -14,7 +15,7 @@ cell_type_dict = {
     "endothelial" : "endothelial"
 }
 
-def calculate_mean(df):
+def calculate_mean(df) -> pd.DataFrame:
     """
     Calculates the mean of all numeric values in a row of a dataframe, and assigns to a new column called "Mean".
     Parameters
@@ -25,7 +26,7 @@ def calculate_mean(df):
     return df.assign(Mean=df.mean(axis=1, numeric_only=True))
 
 
-def map_hgnc_ids(brain_rna_seq_raw_path):
+def map_hgnc_ids(brain_rna_seq_raw_path) -> pd.DataFrame:
     """
     Maps the HGNC IDs in the Brain RNA-Seq file to UniProt IDs.
     Parameters
@@ -67,7 +68,7 @@ def map_hgnc_ids(brain_rna_seq_raw_path):
     return brain_rna_seq
 
 
-def mean_cell_type(brain_rna_seq_data, cell_type):
+def mean_cell_type(brain_rna_seq_data, cell_type) -> pd.DataFrame:
     """
     Returns only the mean of the data for the specified cell type, as well as the UniProt ID information in an additional column
     Parameters
@@ -91,7 +92,7 @@ def mean_cell_type(brain_rna_seq_data, cell_type):
     )
 
 
-def calculate_enrichment(row, specificity_metric):
+def calculate_enrichment(row, specificity_metric) -> Union[pd.DataFrame, pd.Series, float]:
     """
     Uses the numeric values in a row of a dataframe (with the row being expression data for a specific gene of interest) to determine a gene's specificity Returns a numpy array with an index of indentifier for the gene and values of specificity scores.
     Parameters
@@ -145,8 +146,10 @@ def calculate_enrichment(row, specificity_metric):
         std_array = np.std(row_array)
         zscore_values = (row_array - mean_array) / std_array
         return pd.Series(zscore_values, index=row.index)
+    raise ValueError(f"Invalid specificity_metric: {specificity_metric}")
+
     
-def create_enrichment_dataframe(brain_rna_seq_data):
+def create_enrichment_dataframe(brain_rna_seq_data) -> pd.DataFrame:
     """
     Returns a dataframe containing the mean expression for each protein in the BrainRNA-Seq dataset.
     Parameters
@@ -182,7 +185,7 @@ def cell_type_enrichment(
     cell_type,
     specificity_metric,
     specificity_cutoff,
-):
+) -> list:
     """
     Returns a list of UniProt IDs corresponding to targets that meet specified criteria to determine cell-type specificity.
     Parameters

@@ -28,7 +28,7 @@ def identify_targets(
     plate_layout_dataframe="none",
     tidy_dataframe="none",
     output_directory="ht_output",
-):
+) -> set:
     """
     Identifies targets that meet specified fractionation, cell-type specificity, and localization criteria. Returns a set of UniProt IDs.
     Parameters:

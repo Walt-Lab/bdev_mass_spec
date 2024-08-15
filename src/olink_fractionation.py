@@ -6,7 +6,7 @@ def analyze_fractionation(
     low_fractions,
     sample_health="all",
     mean_median_individual="individual_median",
-):
+) -> list:
     """
     Parameters
     ----------
