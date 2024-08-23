@@ -1,17 +1,1 @@
-cff-version: 0.0.1
-message: "If you use this software, please cite it as below."
-authors:
-  - family-names: D'Amaddio
-    given-names: Sydney
-    orcid: https://orcid.org/0009-0006-4506-5993
-  - family-names: Dougan
-    given-names: Tyler
-    orcid: 
-title: "OLINK Proteomic Analysis to Identify Potential Extracellular Vesicle-Associated Proteins"
-version: 0.0.1
-identifiers:
-  - type: doi
-    value: 
-
-
-TODO: Should I change this to just be the citation for the actual paper? I just copied this from a random github repository but that isn't published so it seems reasonable for it to have a different format
+put in paper citation once we know what it is going to be

@@ -37,9 +37,7 @@ def map_hgnc_ids(brain_rna_seq_raw_path) -> pd.DataFrame:
     ----------
     Zhang et al. (2016) Purification and characterization of progenitor and mature human astrocytes reveals transcriptional and functional differences with mouse. Neuron 89(1):37-53. PMID: 26687838.
     """
-    hgnc_ids = (
-        "https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt"
-    )
+    hgnc_ids = ("https://g-a8b222.dd271.03c0.data.globus.org/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt")
     brain_rna_seq = pd.read_csv(brain_rna_seq_raw_path)
 
     hgnc_uniprot_mapping_data = pd.read_csv(
@@ -208,7 +206,7 @@ def cell_type_enrichment(
         - 'gini' : gini coefficient
         - 'hg' : entropy of a gene's expression distribution
     'specificity_cutoff' : numeric
-        Numeric value representing the minimum value of the second enrichment cutoff.
+        Numeric value representing the minimum value of the enrichment cutoff.
     References
     ----------
     Kryuchkova-Mostacci N, Robinson-Rechavi M. A benchmark of gene expression tissue-specificity metrics. Brief Bioinform. 2017 Mar 1;18(2):205-214. doi: 10.1093/bib/bbw008. PMID: 26891983; PMCID: PMC5444245.
