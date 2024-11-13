@@ -37,13 +37,13 @@ def map_hgnc_ids(brain_rna_seq_raw_path) -> pd.DataFrame:
     ----------
     Zhang et al. (2016) Purification and characterization of progenitor and mature human astrocytes reveals transcriptional and functional differences with mouse. Neuron 89(1):37-53. PMID: 26687838.
     """
-    hgnc_ids = ("https://g-a8b222.dd271.03c0.data.globus.org/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt")
+    hgnc_ids = ("https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt")
     brain_rna_seq = pd.read_csv(brain_rna_seq_raw_path)
 
     hgnc_uniprot_mapping_data = pd.read_csv(
         (StringIO(requests.get(hgnc_ids).text)),
         sep="\t",
-        usecols=["hgnc_id", "uniprot_ids"],
+        usecols=["hgnc_id", "uniprot_ids", "symbol", "name", "alias_symbol", "alias_name"]
     )
 
     hgnc_uniprot_mapping_data["uniprot_ids"] = hgnc_uniprot_mapping_data[
