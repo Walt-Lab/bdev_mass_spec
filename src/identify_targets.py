@@ -26,13 +26,23 @@ def protein_name_to_uniprot(uniprot_ids):
 
     return set(result_dict.values())
 
-def uniprot_id_mapping(from_db, to_db, ids):
+def uniprot_id_mapping(input_format, ids):
     url = "https://rest.uniprot.org/idmapping/run"
+    if input_format == "UniProt":
+        from_db = "UniProtKB"
+        to_db = "UniProtKB_AC-ID"
+    if input_format == "Protein_Name":
+        from_db = "UniProtKB"
+        to_db = "UniProtKB_AC-ID"
+    
     data = {
-        "from": from_db,
-        "to": to_db,
-        "ids": " ".join(ids)
+        from_db : from_db,
+        to_db : to_db,
+        ids : ids
     }
+        
+    ids = " ".join(ids)
+
     response = requests.post(url, data=data)
     response.raise_for_status()
     job_id = response.json()["jobId"]
