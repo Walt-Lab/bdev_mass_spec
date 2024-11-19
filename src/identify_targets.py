@@ -1,9 +1,98 @@
 import pandas as pd
 
+import requests
+import time
+
 from raw_data_preprocessing import clean_up_raw_data
 from olink_fractionation import analyze_fractionation
 from brainrnaseq_specificity import map_hgnc_ids, cell_type_enrichment, create_enrichment_dataframe
 from deeptmhmm_localization import parse_gz_file, identify_localization
+
+def uniprot_to_protein_name(uniprot_ids):
+    from_db = "UniProtKB_AC-ID"
+    to_db = "UniProtKB"
+
+    mapped_ids = uniprot_id_mapping(from_db, to_db, list(uniprot_ids))
+    result_dict = mapped_ids if mapped_ids else {}
+
+    return set(result_dict.values())
+
+def protein_name_to_uniprot(uniprot_ids):
+    from_db = "UniProtKB" 
+    to_db = "UniProtKB_AC-ID"
+
+    mapped_ids = uniprot_id_mapping(from_db, to_db, list(uniprot_ids))
+    result_dict = mapped_ids if mapped_ids else {}
+
+    return set(result_dict.values())
+
+def uniprot_id_mapping(from_db, to_db, ids):
+    url = "https://rest.uniprot.org/idmapping/run"
+    data = {
+        "from": from_db,
+        "to": to_db,
+        "ids": " ".join(ids)
+    }
+    response = requests.post(url, data=data)
+    response.raise_for_status()
+    job_id = response.json()["jobId"]
+    
+    status_url = f"https://rest.uniprot.org/idmapping/status/{job_id}"
+    results_url = f"https://rest.uniprot.org/idmapping/results/{job_id}"
+    
+    max_attempts = 5
+    attempts = 0
+    while attempts < max_attempts:
+        try:
+            status_response = requests.get(status_url)
+            status_response.raise_for_status()
+            status_data = status_response.json()
+            
+            if "jobStatus" in status_data:
+                if status_data["jobStatus"] == "RUNNING":
+                    time.sleep(5)
+                elif status_data["jobStatus"] == "FINISHED":
+                    break
+                else:
+                    print(f"Unexpected status: {status_data['jobStatus']}")
+                    return None
+            elif "results" in status_data:
+                return process_results(status_data)
+            else:
+                print("Unexpected response format")
+                return None
+        except requests.exceptions.RequestException as e:
+            print(f"Error checking job status: {e}")
+            attempts += 1
+            time.sleep(5)
+    
+    if attempts == max_attempts:
+        print("Max attempts reached. Could not get job status.")
+        return None
+    
+    try:
+        results_response = requests.get(results_url)
+        results_response.raise_for_status()
+        return process_results(results_response.json())
+    except requests.exceptions.RequestException as e:
+        print(f"Error getting results: {e}")
+        return None
+
+def process_results(data):
+    accession_to_id = {}
+    if "results" in data:
+        for result in data["results"]:
+            to_data = result.get("to", {})
+            uniprot_kb_id = to_data.get("uniProtkbId")
+            if uniprot_kb_id:
+                primary_accession = to_data.get("primaryAccession")
+                if primary_accession:
+                    accession_to_id[primary_accession] = uniprot_kb_id
+                secondary_accessions = to_data.get("secondaryAccessions", [])
+                for sec_acc in secondary_accessions:
+                    accession_to_id[sec_acc] = uniprot_kb_id
+    return accession_to_id
+
 
 def identify_targets(
     assay_list_path,
@@ -123,4 +212,4 @@ def identify_targets(
         mean_median_individual,
     )
 
-    return set(correct_fractionation_uniprot_ids) & set(cell_type_uniprot_ids) & set(localization_uniprot_ids)
+    return (set(correct_fractionation_uniprot_ids) & set(cell_type_uniprot_ids) & set(localization_uniprot_ids))
