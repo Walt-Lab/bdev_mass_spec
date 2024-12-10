@@ -1,1 +1,4 @@
 data/*.parquet
+outputs/olink_si/
+/outputs
+si_table_2-raw_with_lods

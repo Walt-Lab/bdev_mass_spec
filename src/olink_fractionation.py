@@ -27,7 +27,7 @@ def analyze_fractionation(
             - 'ad': samples from individuals diagnosed with Alzheimer's Disease (AD)
             - 'mci': samples from individuals diagnosed with mild cognitive imapirment that has not yet progressed to AD
             - 'mci_spectrum': samples from individuals diagnosed with mild cognitive impairment and samples from individuals that have been diagnosed with AD
-    'mean_median' : {'mean', 'median'}
+    'mean_median_individual' : {'mean', 'median'}
         How the groups of samples should be analyzed. Options:
             - 'mean': the mean of all high_fractions will be compared against the mean of all low_fractions
             - 'median': the median of all high_fractions will be compared against the median of all low_fractions
@@ -120,6 +120,21 @@ def analyze_fractionation(
                     low_fractions_values.append(low_fractions_df[low_fractions_df.index.get_level_values("Sample").str.contains(fraction)][assay].mean())
             if high_fractions_values:
                 high_fraction = min(high_fractions_values)
+            if low_fractions_values:
+                low_fraction = max(low_fractions_values)
+            if high_fraction > low_fraction: 
+                correct_fractionation.append(assay)
+        if mean_median_individual == "individual_max":
+            high_fractions_values = []
+            for fraction in high_fractions:
+                if not high_fractions_df[assay].isna().all():
+                    high_fractions_values.append(high_fractions_df[high_fractions_df.index.get_level_values("Sample").str.contains(fraction)][assay].mean())
+            low_fractions_values = []
+            for fraction in low_fractions: 
+                if not low_fractions_df[assay].isna().all():
+                    low_fractions_values.append(low_fractions_df[low_fractions_df.index.get_level_values("Sample").str.contains(fraction)][assay].mean())
+            if high_fractions_values:
+                high_fraction = max(high_fractions_values)
             if low_fractions_values:
                 low_fraction = max(low_fractions_values)
             if high_fraction > low_fraction: 
