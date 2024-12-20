@@ -80,7 +80,7 @@ def find_ratio(df, high_fractions, low_fractions) -> int:
     peaking_fracts = df[
         (df.index.get_level_values("Sample").str.contains(high_fractions_or))
         & (df.index.get_level_values("Health") == "Healthy")
-    ].mean()
+    ].median()
 
     low_fractions_or = '|'.join(low_fractions)
     low_fracts = df[
