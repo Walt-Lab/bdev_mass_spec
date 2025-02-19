@@ -3,12 +3,11 @@ import scipy
 
 import numpy as np
 import pandas as pd
-from typing import Union
 
 from io import StringIO
 
 from config import hgnc_ids, CELL_TYPES
-from specificity_functions import SPECIFICITY_FUNCTIONS
+from specificity_functions import SPECIFICITY_FUNCTIONS, calculate_enrichment
 
 
 def calculate_mean(df: pd.DataFrame) -> pd.DataFrame:
@@ -29,6 +28,18 @@ def calculate_mean(df: pd.DataFrame) -> pd.DataFrame:
 
     return df.assign(Mean=df.mean(axis=1, numeric_only=True))
 
+def process_hgnc_data(hgnc_ids):
+    hgnc_uniprot_mapping_data = pd.read_csv(
+        StringIO(requests.get(hgnc_ids).text),
+        sep="\t",
+        usecols=["hgnc_id", "uniprot_ids", "symbol", "name", "alias_symbol", "alias_name", "ensembl_gene_id"]
+    )
+    hgnc_uniprot_mapping_data["uniprot_ids"] = hgnc_uniprot_mapping_data[
+            "uniprot_ids"
+        ].str.split("|")
+    hgnc_uniprot_mapping_data = hgnc_uniprot_mapping_data.explode("uniprot_ids")
+    return hgnc_uniprot_mapping_data.reset_index(drop=True)
+        # return df.explode("uniprot_ids").reset_index(drop=True)
 
 def map_hgnc_ids(hgnc_ids: str, brain_rna_seq_raw_path: str) -> pd.DataFrame:
     """
@@ -57,17 +68,18 @@ def map_hgnc_ids(hgnc_ids: str, brain_rna_seq_raw_path: str) -> pd.DataFrame:
     """
     brain_rna_seq = pd.read_csv(brain_rna_seq_raw_path)
 
-    hgnc_uniprot_mapping_data = pd.read_csv(
-        (StringIO(requests.get(hgnc_ids).text)),
-        sep="\t",
-        usecols=["hgnc_id", "uniprot_ids", "symbol", "name", "alias_symbol", "alias_name"]
-    )
+    # hgnc_uniprot_mapping_data = pd.read_csv(
+    #     (StringIO(requests.get(hgnc_ids).text)),
+    #     sep="\t",
+    #     usecols=["hgnc_id", "uniprot_ids", "symbol", "name", "alias_symbol", "alias_name"]
+    # )
 
-    hgnc_uniprot_mapping_data["uniprot_ids"] = hgnc_uniprot_mapping_data[
-        "uniprot_ids"
-    ].str.split("|")
-    hgnc_uniprot_mapping_data = hgnc_uniprot_mapping_data.explode("uniprot_ids")
-    hgnc_uniprot_mapping_data = hgnc_uniprot_mapping_data.reset_index(drop=True)
+    # hgnc_uniprot_mapping_data["uniprot_ids"] = hgnc_uniprot_mapping_data[
+    #     "uniprot_ids"
+    # ].str.split("|")
+    # hgnc_uniprot_mapping_data = hgnc_uniprot_mapping_data.explode("uniprot_ids")
+    # hgnc_uniprot_mapping_data = hgnc_uniprot_mapping_data.reset_index(drop=True)
+    hgnc_uniprot_mapping_data = process_hgnc_data(hgnc_ids)
 
     brain_rna_seq = pd.merge(
         brain_rna_seq,
@@ -116,53 +128,6 @@ def mean_cell_type(brain_rna_seq_data: pd.DataFrame, cell_type: str) -> pd.DataF
         columns={"uniprot_ids": "uniprot_ids", "Mean": key}
     )
 
-
-def calculate_enrichment(row: pd.DataFrame, specificity_metric: str) -> Union[pd.DataFrame, pd.Series, float]:
-    """
-    Computes gene expression specificity using a chosen specificity metric.
-
-    Parameters
-    ----------
-    row : pandas.Series
-        A Series containing expression data for a single gene across multiple cell types.
-    specificity_metric : {'tau', 'tsi', 'gini', 'hg', 'spm', 'zscore'}
-        The specificity metric used for calculation. Options:
-        - 'tau': Tau specificity score
-        - 'tsi': Tissue Specificity Index
-        - 'gini': Gini coefficient
-        - 'hg': Shannon entropy of gene expression distribution
-        - 'spm': Specificity Measure
-        - 'zscore': Z-score normalization
-
-    Returns
-    -------
-    Union[pd.DataFrame, pd.Series, float]
-        - If the specificity metric is 'spm' or 'zscore', returns a pandas.Series with computed values.
-        - Otherwise, returns a float representing the specificity score.
-
-    Raises
-    ------
-    ValueError
-        If an invalid specificity metric is provided.
-
-    Notes
-    -----
-    - The function applies different specificity calculations depending on the chosen metric.
-    - The 'spm' and 'zscore' metrics return per-gene values as pandas.Series.
-
-    References
-    ----------
-    Kryuchkova-Mostacci N, Robinson-Rechavi M. A benchmark of gene expression tissue-specificity metrics. Brief Bioinform. 2017 Mar 1;18(2):205-214. doi: 10.1093/bib/bbw008. PMID: 26891983; PMCID: PMC5444245.
-    Schug J, Schuller WP, Kappen C, Salbaum JM, Bucan M, Stoeckert CJ Jr. Promoter features related to tissue specificity as measured by Shannon entropy. Genome Biol. 2005;6(4):R33. doi: 10.1186/gb-2005-6-4-r33. Epub 2005 Mar 29. PMID: 15833120; PMCID: PMC1088961.
-    Wright Muelas, M., Mughal, F., O’Hagan, S. et al. The role and robustness of the Gini coefficient as an unbiased tool for the selection of Gini genes for normalising expression profiling data. Sci Rep 9, 17960 (2019). https://doi.org/10.1038/s41598-019-54288-7.
-    """
-
-    row_array = np.array(row)
-    
-    if specificity_metric in SPECIFICITY_FUNCTIONS:
-        return SPECIFICITY_FUNCTIONS[specificity_metric](row_array)
-    
-    raise ValueError(f"Invalid specificity_metric: {specificity_metric}")
 
     
 def create_enrichment_dataframe(brain_rna_seq_data: pd.DataFrame) -> pd.DataFrame:
@@ -311,3 +276,8 @@ def cell_type_enrichment(
                     ].index.tolist()
 
     return cell_type_uniprot_ids
+
+
+def filter_low_tau(expression_df, tau_cutoff=0.25):
+    enrichment_values = expression_df.apply(lambda row: calculate_enrichment(row, "tau"), axis=1)
+    return enrichment_values[enrichment_values < tau_cutoff]

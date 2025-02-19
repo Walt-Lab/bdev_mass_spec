@@ -103,6 +103,9 @@ def find_ratio(df: pd.DataFrame, high_fractions: list, low_fractions: list) -> i
     ].median()
     return peaking_fracts / low_fracts
 
+def calculate_fractionation_scores(proteins, tidy_data, high_fractions, low_fractions):
+    return [find_ratio(tidy_data[protein], high_fractions, low_fractions) for protein in proteins]
+
 
 def ev_association_score_df(tidy_data: pd.DataFrame, high_fractions: list, low_fractions: list) -> pd.DataFrame:
     """

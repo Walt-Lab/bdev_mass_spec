@@ -28,7 +28,7 @@ MISSING_FASTA_SEQUENCES = {
 
 # gtex_specificity
 
-organs = {
+ORGANS = {
     'Neural': ['Brain', 'Pituitary', 'Nerve'],
     'Heart': ['Heart'],
     'Small_Intestine': ['Small_Intestine'],

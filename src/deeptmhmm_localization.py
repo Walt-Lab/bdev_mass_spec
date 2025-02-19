@@ -170,3 +170,7 @@ def identify_localization(
         return outside_uniprots - inside_uniprots - tm_uniprots
     
     return get_regional_uniprots(localization_df, region)
+
+def get_localization_data(assays, fasta_sequences, localization_types, output_dir):
+    assays["Sequence"] = assays["UniProt ID"].map(lambda x: fasta_sequences.get(x, "N/A"))
+    return {loc: identify_localization(assays, loc, output_dir) for loc in localization_types}

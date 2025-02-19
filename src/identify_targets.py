@@ -1,7 +1,7 @@
 import pandas as pd
 
-from config import MISSING_FASTA_SEQUENCES
-from raw_data_preprocessing import clean_up_raw_data
+from config import MISSING_FASTA_SEQUENCES, hgnc_ids
+from raw_data_preprocessing import clean_up_raw_data, calculate_fractionation_scores
 from olink_fractionation import analyze_fractionation
 from brainrnaseq_specificity import map_hgnc_ids, cell_type_enrichment, create_enrichment_dataframe
 from deeptmhmm_localization import parse_gz_file, identify_localization
@@ -126,7 +126,7 @@ def identify_targets(
     )
     localization_uniprot_ids = identify_localization(assays, region, output_directory)
 
-    brain_rna_seq = map_hgnc_ids(brain_rna_seq_raw_path)
+    brain_rna_seq = map_hgnc_ids(hgnc_ids, brain_rna_seq_raw_path)
     expression_df = create_enrichment_dataframe(brain_rna_seq)
     cell_type_uniprot_ids = cell_type_enrichment(
         expression_df, cell_type, specificity_metric, specificity_cutoff
@@ -141,3 +141,11 @@ def identify_targets(
     )
 
     return (set(correct_fractionation_uniprot_ids) & set(cell_type_uniprot_ids) & set(localization_uniprot_ids))
+
+def generate_protein_dataframe(low_tau, fractionation_ids, localization_ids, localization_label, tidy_data, high_fractions, low_fractions):
+    filtered_proteins = low_tau[low_tau.index.get_level_values("uniprot_ids").isin(localization_ids) & low_tau.index.get_level_values("uniprot_ids").isin(fractionation_ids)]
+    scores = calculate_fractionation_scores(filtered_proteins.index.get_level_values("uniprot_ids"), tidy_data, high_fractions, low_fractions)
+    filtered_proteins = filtered_proteins.reset_index()
+    filtered_proteins["ev_association_score"] = scores
+    filtered_proteins["localization"] = localization_label
+    return filtered_proteins
