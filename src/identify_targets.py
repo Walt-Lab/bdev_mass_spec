@@ -1,108 +1,125 @@
 import pandas as pd
 
+from config import MISSING_FASTA_SEQUENCES
 from raw_data_preprocessing import clean_up_raw_data
 from olink_fractionation import analyze_fractionation
 from brainrnaseq_specificity import map_hgnc_ids, cell_type_enrichment, create_enrichment_dataframe
 from deeptmhmm_localization import parse_gz_file, identify_localization
 
 def identify_targets(
-    assay_list_path,
-    uniprot_fasta_database,
-    brain_rna_seq_raw_path,
-    region,
-    cell_type,
-    specificity_metric,
-    specificity_cutoff,
-    high_fractions,
-    low_fractions,
-    sample_health,
-    mean_median_individual="median",
-    raw_olink_data_file="none",
-    plate_layout_dataframe="none",
-    tidy_dataframe="none",
-    output_directory="ht_output",
+    assay_list_path: str,
+    uniprot_fasta_database: str,
+    brain_rna_seq_raw_path: str,
+    region: str,
+    cell_type: str,
+    specificity_metric: str,
+    specificity_cutoff: float,
+    high_fractions: list,
+    low_fractions: list,
+    sample_health: str,
+    mean_median_individual: str = "median",
+    raw_olink_data_file = None, 
+    plate_layout_dataframe = None, 
+    tidy_dataframe = None, # didn't like having pd.DataFrame = None, not sure how to fix (if fixing is necessary/worth the trouble)
+    output_directory: str = "ht_output",
 ) -> set:
     """
-    Identifies targets that meet specified fractionation, cell-type specificity, and localization criteria. Returns a set of UniProt IDs.
-    Parameters:
+    Identifies proteins that meet specified fractionation, cell-type specificity, and localization criteria.
+
+    This function integrates **fractionation analysis**, **gene expression specificity**, and **subcellular localization** 
+    to identify proteins that meet all three criteria simultaneously. 
+
+    Parameters
     ----------
-    'assays_path': .xlsx file path
-        Path to a .xlsx file with a column containing the UniProt IDs of all the proteins in the Olink panel.
-    'uniprot_fasta_database': .gz file path
+    assay_list_path : str
+        Path to a .xlsx file containing a column of UniProt IDs for proteins in the Olink panel.
+    uniprot_fasta_database : str
         Path to a .gz file containing UniProt IDs and FASTA sequences.
-    'region': {'TMhelix', 'inside', 'outside', 'internal', 'external'}
-        Subcellular region requested. Options:
-          - 'TMhelix': transmembrane proteins
-          - 'inside': at least some of the protein is inside the cell/EV
-          - 'outside': at least some of the protein is outside the cell/EV
-          - 'internal': the protein is only found inside the cell, no transmembrane or outside domains
-          - 'external': the protein is only found outside the cell, no transmembrane or inside domains
-    'brain_rna_seq_raw_path': csv file path
+    brain_rna_seq_raw_path : str
         Path to the "homo sapiens.csv" file, downloaded from brainrnaseq.org.
-    'cell_type' : {'astrocyte', 'endothelial', 'microglia', 'oligodendrocyte', 'neuron'}
-        Cell type of interest requested. Options:
-         - 'astrocyte': mature astrocytes
-         - 'endothelial': endothelial cells
-         - 'microglia': microglia cells
-         - 'oligodendrocyte': oligodendrocytes
-         - 'neuron': neurons
-    'specificity_metric': {'tsi', 'zscore', 'spm', 'tau', 'gini', 'hg'}
-        Individualized metric of determining cell type specificity requested. Options:
-        - 'tsi': tissue specificity index
-        - 'zscore': z-score
-        - 'spm': specificity measure
-        - 'tau': tau index
-        - 'gini' : gini coefficient
-        - 'hg' : entropy of a gene's expression distribution
-    'specificity_cutoff' : numeric
-        Numeric value representing the minimum value of the second enrichment cutoff.
-    'high_fractions' : list of strings
-        Fractions that should be higher than the fractions in the list of low fractions.
-    'low_fractions' : list of strings
-        Fractions that should be lower than the fractions in the list of high fractions.
-    'sample_health' : {'all', 'ad', 'mci', 'mci_spectrum'}
-        Health of the sample requested. Options:
-            - 'healthy': only samples from healthy individuals
-            - 'all': all different health groups
-            - 'ad': samples from individuals diagnosed with Alzheimer's Disease (AD)
-            - 'mci': samples from individuals diagnosed with mild cognitive imapirment that has not yet progressed to AD
-            - 'mci_spectrum': samples from individuals diagnosed with mild cognitive impairment and samples from individuals that have been diagnosed with AD
-    'mean_median_individual' : {'mean', 'median', 'individual', 'individual_median', 'individual_mean'}
-        How the groups of samples should be analyzed. Options:
-            - 'mean': the means of each fraction should be compared against each other
-            - 'median': the medians of each fraction should be compared against each other
-            - 'individual': the fractions of each sample should be compared against each other with no aggregation/grouping
-            - 'individual_median': for each fraction, the median value of all samples will be compared
-            - 'individual_mean': for each fraction, the mean value of all samples will be compared
-        Default value: 'individual'
-    'raw_data_path': path to a .csv file, separated by semicolons
-        Path to the file containing the raw Olink data.
-    'plate_layout_dataframe': pandas.Dataframe
-        Dataframe containing information to map the SampleID of a sample to its description.
-    'tidy_dataframe' : pandas.DataFrame
-        DataFrame with one column for each assay, one row for each sample, linearized NPX as the vlaues, and the following indices:
-            - 'SampleID'
-            - 'Health'
-            - 'Sample'
-            - 'CSF_sample'
-    'output_directory': directory path
-        Path to a directory in which the localization data will be stored.
+    region : {'TMhelix', 'inside', 'outside', 'internal', 'external'}
+        Subcellular localization category to filter proteins. Options:
+          - 'TMhelix' : Transmembrane proteins
+          - 'inside' : At least some of the protein is inside the cell/EV
+          - 'outside' : At least some of the protein is outside the cell/EV
+          - 'internal' : The protein is only found inside the cell, with no transmembrane or outside domains
+          - 'external' : The protein is only found outside the cell, with no transmembrane or inside domains
+    cell_type : {'astrocyte', 'endothelial', 'microglia', 'oligodendrocyte', 'neuron'}
+        Cell type for specificity filtering. Options:
+         - 'astrocyte' : Mature astrocytes
+         - 'endothelial' : Endothelial cells
+         - 'microglia' : Microglia cells
+         - 'oligodendrocyte' : Oligodendrocytes
+         - 'neuron' : Neurons
+    specificity_metric : {'tsi', 'zscore', 'spm', 'tau', 'gini', 'hg'}
+        Metric for evaluating cell-type specificity. Options:
+        - 'tsi' : Tissue Specificity Index
+        - 'zscore' : Z-score 
+        - 'spm' : Specificity measure
+        - 'tau' : Tau index
+        - 'gini' : Gini coefficient
+        - 'hg' : Entropy of a gene's expression distribution
+    specificity_cutoff : float
+        Minimum value required for a protein to pass the specificity threshold.
+    high_fractions : list of str
+        List of fraction names where expression is expected to be higher.
+    low_fractions : list of str
+        List of fraction names where expression is expected to be lower.
+    sample_health : {'all', 'healthy', 'ad', 'mci', 'mci_spectrum'}
+        Sample health category for filtering fractionation data. Options:
+            - 'all' : Includes all available health groups
+            - 'healthy' : Only samples from healthy individuals
+            - 'ad' : Samples from individuals diagnosed with Alzheimer's Disease (AD)
+            - 'mci' : Samples from individuals diagnosed with mild cognitive impairment (MCI)
+            - 'mci_spectrum' : Samples from individuals with either MCI or AD
+    mean_median_individual : {'mean', 'median', 'individual', 'individual_median', 'individual_mean'}, optional
+        Method for comparing sample fraction values. Options:
+            - 'mean' : Uses the mean of each fraction
+            - 'median' : Uses the median of each fraction
+            - 'individual' : Compares individual samples without aggregation
+            - 'individual_median' : Compares median values across samples per fraction
+            - 'individual_mean' : Compares mean values across samples per fraction
+        Default is ''median''.
+    raw_olink_data_file : str, optional
+        Path to a .csv file containing raw Olink data (semicolon-separated).
+    plate_layout_dataframe : pandas.DataFrame, optional
+        A DataFrame mapping SampleIDs to their descriptions.
+    tidy_dataframe : pandas.DataFrame, optional
+        A preprocessed DataFrame with the following structure:
+            - One column per assay
+            - One row per sample
+            - Values: Linearized NPX values
+            - Indexed by:
+                - 'SampleID'
+                - 'Health'
+                - 'Sample'
+                - 'CSF_sample'
+    output_directory : str, optional
+        Directory path to save localization data. Default is "ht_output".
+
+    Returns
+    -------
+    set
+        A set of UniProt IDs that meet the fractionation, cell-type specificity, and localization criteria.
+
+    Notes
+    -----
+    - If 'tidy_dataframe' is not provided, it is generated from 'raw_olink_data_file' and 'plate_layout_dataframe'.
+    - The function relies on multiple sub-functions from:
+        - 'raw_data_preprocessing' (for cleaning raw Olink data)
+        - 'olink_fractionation' (for fractionation analysis)
+        - 'brainrnaseq_specificity' (for gene expression specificity)
+        - 'deeptmhmm_localization' (for protein localization predictions)
+    - The function requires a pre-downloaded UniProt FASTA database.
     """
-    if raw_olink_data_file != "none" and plate_layout_dataframe != "none":
+
+    if tidy_dataframe is None:
         tidy_dataframe = clean_up_raw_data(
             raw_olink_data_file, plate_layout_dataframe
         )
 
     fasta_sequences = parse_gz_file(uniprot_fasta_database)
-    fasta_sequences.update(
-        {
-            "NTproBNP": "HPLGSPGSASDLETSGLQEQRNHLQGKLSELQVEQTSLEPLQESPRPTGVWKSREVATEGIRGHRKMVLYTLRAPR",
-            "O43521-2": "MAKQPSDVSSECDREGRQLQPAERPPQLRPGAPTSLQTEPQDRSPAPMSCDKSTQTPSPPCQAFNHYLSAMASMRQAEPADMRPEIWIAQELRRIGDEFNAYYARRVFLNNYQAAEDHPRMVILRLLRYIVRLVWRMH",
-            "Q13114-2": "MESSKKMDSPGALQTNPPLKLHTDRSAGTPVFVPEQGGYKEKFVKTVEDKYKCEKCHLVLCSPKQTECGHRFCESCMAALLSSSSPKCTACQESIVKDKVFKDNCCKREILALQIYCRNESRGCAEQLMLGHLLVHLKNDCHFEELPCVRPDCKEKVLRKDLRDHVEKACKYREATCSHCKSQVPMIALQVSLLQNESVEKNKSIQSLHNQICSFEIEIERQKEMLRNNESKILHLQRVIDSQAEKLKELDKEIRPFRQNWEEADSMKSSVESLQNRVTELESVDKSAGQVARNTGLLESQLSRHDQMLSVHDIRLADMDLRFQVLETASYNGVLIWKIRDYKRRKQEAVMGKTLSLYSQPFYTGYFGYKMCARVYLNGDGMGKGTHLSLFFVIMRGEYDALLPWPFKQKVTLMLMDQGSSRRHLGDAFKPDPNSSSFKKPTGEMNIASGCPVFVAQTVLENGTYIKDDTIFIKVIVDTSDLPDP",
-            "O75882-2": "MVAAAAATEARLRRRTAATAALAGRSGGPHWDWDVTRAGRPGLGAGLRLPRLLSPPLRPRLLLLLLLLSPPLLLLLLPCEAEAAAAAAAVSGSAAAEAKECDRPCVNGGRCNPGTGQCVCPAGWVGEQCQHCGGRFRLTGSSGFVTDGPGNYKYKTKCTWLIEGQPNRIMRLRFNHFATECSWDHLYVYDGDSIYAPLVAAFSGLIVPERDGNETVPEVVATSGYALLHFFSDAAYNLTGFNITYSFDMCPNNCSGRGECKISNSSDTVECECSENWKGEACDIPHCTDNCGFPHRGICNSSDVRGCSCFSDWQGPGCSVPVPANQSFWTREEYSNLKLPRASHKAVVNGNIMWVVGGYMFNHSDYNMVLAYDLASREWLPLNRSVNNVVVRYGHSLALYKDKIYMYGGKIDSTGNVTNELRVFHIHNESWVLLTPKAKEQYAVVGHSAHIVTLKNGRVVMLVIFGHCPLYGYISNVQEYDLDKNTWSILHTQGALVQGGYGHSSVYDHRTRALYVHGGYKAFSANKYRLADDLYRYDVDTQMWTILKDSRFFRYLHTAVIVSGTMLVFGGNTHNDTSMSHGAKCFSSDFMAYDIACDRWSVLPRPDLHHDVNRFGHSAVLHNSTMYVFGGFNSLLLSDILVFTSEQCDAHRSEAACLAAGPGIRCVWNTGSSQCISWALATDEQEEKLKSECFSKRTLDHDRCDQHTDCYSCTANTNDCHWCNDHCVPRNHSCSEGQISIFRYENCPKDNPMYYCNKKTSCRSCALDQNCQWEPRNQECIALPENICGIGWHLVGNSCLKITTAKENYDNAKLFCRNHNALLASLTTQKKVEFVLKQLRIMQSSQSMSKLTLTPWVGLRKINVSYWCWEDMSPFTNSLLQWMPSEPSDAGFCGILSEPSTRGLKAATCINPLNGSVCERPANHSAKQCRTPCALRTACGDCTSGSSECMWCSNMKQCVDSNAYVASFPFGQCMEWYTMSTCPPENCSGYCTCSHCLEQPGCGWCTDPSNTGKGKCIEGSYKGPVKMPSQAPTGNFYPQPLLNSSMCLEDSRYNWSFIHCPACQCNGHSKCINQSICEKCENLTTGKHCETCISGFYGDPTNGGKCQPCKCNGHASLCNTNTGKCFCTTKGVKGDECQLCEVENRYQGNPLRGTCYYTLLIDYQFTFSLSQEDDRYYTAINFVATPDEQNRDLDMFINASKNFNLNITWAASFSAGTQAGEEMPVVSKTNIKEYKDSFSNEKFDFRNHPNITFFVYVSNFTWPIKIQVQTE",
-            "Q8WXW3-4": "MSRKISKESKKVNISSSLESEDISLETTVPTDDISSSEEREGKVRITRQLIERKELLHNIQLLKIELSQKTMMIDNLKVDYLTKIEELEEKLNDALHQKQLLTLRLDNQLAFQQKDASKYQELMKQEMETILLRQKQLEETNLQLREKAGDVRRNLRDFELTEEQYIKLKAFPEDQLSIPEYVSVRFYELVNPLRKEICELQVKKNILAEELSTNKNQLKQLTEELAAMKQILVKMHSKHSENSLLLTKTEPKHVTENQKSKTLNVPKEHEDNIFTPKPTLFTKKEAPEWSKKQKMKT",
-        }
-    )
+    fasta_sequences.update(MISSING_FASTA_SEQUENCES)
     assays = pd.read_excel(assay_list_path)
     assays["Sequence"] = assays["UniProt ID"].map(
         lambda x: fasta_sequences.get(x, "N/A")

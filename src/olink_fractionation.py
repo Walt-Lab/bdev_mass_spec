@@ -1,5 +1,128 @@
 import pandas as pd
 
+def filter_fractions(data: pd.DataFrame, fractions: list) -> pd.DataFrame:
+    """
+    Filters a DataFrame to include only the rows that match the specified fractions.
+
+    Parameters
+    ----------
+    data : pandas.DataFrame
+        The input DataFrame containing **sample fraction data**.
+    fractions : list of str
+        A list of **fraction names** to filter.
+
+    Returns
+    -------
+    pandas.DataFrame
+        A filtered DataFrame containing only the selected fractions.
+
+    Notes
+    -----
+    - This function is **used by analyze_fractionation()** but can also be **reused elsewhere**.
+    - Returns an **empty DataFrame** if no matching fractions are found.
+    """
+    return pd.concat([
+        data[data.index.get_level_values("Sample").str.contains(frac)]
+        for frac in fractions
+    ], axis=0) if fractions else pd.DataFrame()
+
+
+# def analyze_fractionation(
+#     tidy_dataframe: pd.DataFrame,
+#     high_fractions: list,
+#     low_fractions: list,
+#     sample_health: str = "all",
+#     mean_median_individual: str = "individual_median",
+# ) -> list:
+#     """
+#     Identifies proteins that show higher expression in **high fractions** than **low fractions**.
+
+#     Parameters
+#     ----------
+#     tidy_dataframe : pandas.DataFrame
+#         A DataFrame containing **one column per assay**, **one row per sample**, and **linearized NPX values**.
+#         Must include the following index levels:
+#             - 'SampleID'
+#             - 'Health'
+#             - 'Sample'
+#             - 'CSF_sample'
+#     high_fractions : list of str
+#         List of **fractions expected to have higher expression levels**.
+#     low_fractions : list of str
+#         List of **fractions expected to have lower expression levels**.
+#     sample_health : {'all', 'healthy', 'ad', 'mci', 'mci_spectrum'}, optional
+#         Filter for sample health status. Options:
+#         - `'healthy'` : Only samples from healthy individuals.
+#         - `'all'` (default) : Includes all available health groups.
+#         - `'ad'` : Includes samples from individuals diagnosed with Alzheimer's Disease (AD).
+#         - `'mci'` : Includes samples from individuals diagnosed with mild cognitive impairment (MCI).
+#         - `'mci_spectrum'` : Includes **both MCI and AD** samples.
+#     mean_median_individual : {'mean', 'median', 'individual_mean', 'individual_median', 'individual_max'}, optional
+#         Defines **how expression levels should be compared**:
+#         - `'mean'` : Compare **mean of all high fractions** vs. **mean of all low fractions**.
+#         - `'median'` : Compare **median of all high fractions** vs. **median of all low fractions**.
+#         - `'individual_mean'` : Compare **mean per fraction**, taking the **minimum high vs. maximum low**.
+#         - `'individual_median'` (default) : Compare **median per fraction**, taking the **minimum high vs. maximum low**.
+#         - `'individual_max'` : Compare **maximum expression value per fraction**.
+
+#     Returns
+#     -------
+#     list
+#         A **list of UniProt assay IDs** that satisfy the **fractionation criteria**.
+
+#     Notes
+#     -----
+#     - The function **filters samples** based on `sample_health`, selects `high_fractions` and `low_fractions`,
+#       and applies different statistical comparisons based on `mean_median_individual`.
+#     - If **no valid expression values exist** in a fraction, that fraction is skipped in calculations.
+#     """
+
+#     non_ppa_data = tidy_dataframe[tidy_dataframe.index.get_level_values("Sample").str.contains("SEC")].copy()
+
+#     health_filters = {
+#         "healthy": "Healthy",
+#         "ad": "AD",
+#         "mci": "MCI",
+#         "mci_spectrum": ["AD", "MCI"],
+#         "all": None
+#     }
+#     selected_health = health_filters.get(sample_health, None)
+
+#     if selected_health:
+#         requested_health_data = non_ppa_data[non_ppa_data.index.get_level_values("Health").isin(
+#             selected_health if isinstance(selected_health, list) else [selected_health]
+#         )]
+#     else:
+#         requested_health_data = non_ppa_data
+
+#     high_fractions_df = filter_fractions(requested_health_data, high_fractions)
+#     low_fractions_df = filter_fractions(requested_health_data, low_fractions)
+
+#     correct_fractionation = []
+
+#     for assay in non_ppa_data.columns:
+#         if high_fractions_df[assay].notna().any() and low_fractions_df[assay].notna().any():
+            
+#             if mean_median_individual == "median":
+#                 if high_fractions_df[assay].median() > low_fractions_df[assay].median():
+#                     correct_fractionation.append(assay)
+
+#             elif mean_median_individual == "mean":
+#                 if high_fractions_df[assay].mean() > low_fractions_df[assay].mean():
+#                     correct_fractionation.append(assay)
+
+#             elif mean_median_individual in ["individual_median", "individual_mean", "individual_max"]:
+#                 stat_func = high_fractions_df[assay].median if "median" in mean_median_individual else high_fractions_df[assay].mean
+#                 high_values = [stat_func() for frac in high_fractions if high_fractions_df[high_fractions_df.index.get_level_values("Sample").str.contains(frac)][assay].notna().any()]
+#                 low_values = [stat_func() for frac in low_fractions if low_fractions_df[low_fractions_df.index.get_level_values("Sample").str.contains(frac)][assay].notna().any()]
+
+#                 if high_values and low_values:
+#                     high_stat = max(high_values) if mean_median_individual == "individual_max" else min(high_values)
+#                     low_stat = max(low_values)
+#                     if high_stat > low_stat:
+#                         correct_fractionation.append(assay)
+
+#     return correct_fractionation
 def analyze_fractionation(
     tidy_dataframe,
     high_fractions,
