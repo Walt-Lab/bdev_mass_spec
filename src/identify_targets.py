@@ -142,10 +142,74 @@ def identify_targets(
 
     return (set(correct_fractionation_uniprot_ids) & set(cell_type_uniprot_ids) & set(localization_uniprot_ids))
 
-def generate_protein_dataframe(low_tau, fractionation_ids, localization_ids, localization_label, tidy_data, high_fractions, low_fractions):
+def generate_protein_dataframe(
+        low_tau: pd.DataFrame, 
+        fractionation_ids: list, 
+        localization_ids: list, 
+        localization_label: str, 
+        tidy_data: pd.DataFrame, 
+        high_fractions: list, 
+        low_fractions: list
+    ) -> pd.DataFrame:
+    """
+    Generates a filtered protein dataframe based on tau scores, fractionation patterns, and localization.
+    
+    Parameters
+    ----------
+    low_tau: pd.DataFrame
+        DataFrame containing proteins with low tau scores.
+    fractionation_ids: list
+        List of UniProt IDs with the correct fractionation pattern.
+    localization_ids: list
+        List of UniProt IDs corresponding to a specific localization category.
+    localization_label: str
+        Label indicating the localization category (e.g., "internal", "transmembrane").
+    tidy_data: DataFrame
+        Dataset containing protein expression data.
+    high_fraction: list of str
+        List of high fraction numbers used for ratio calculation.
+    low_fractions: list of str
+        List of low fraction numbers used for ratio calculation.
+    
+    Returns
+    ----------
+    DataFrame
+        A processed DataFrame containing filtered proteins with calculated fractionation scores and localization labels.
+    """
     filtered_proteins = low_tau[low_tau.index.get_level_values("uniprot_ids").isin(localization_ids) & low_tau.index.get_level_values("uniprot_ids").isin(fractionation_ids)]
     scores = calculate_fractionation_scores(filtered_proteins.index.get_level_values("uniprot_ids"), tidy_data, high_fractions, low_fractions)
     filtered_proteins = filtered_proteins.reset_index()
     filtered_proteins["ev_association_score"] = scores
     filtered_proteins["localization"] = localization_label
     return filtered_proteins
+
+
+def extract_sample_npx(protein_list: list, tidy_data_sec: pd.DataFrame) -> pd.DataFrame: 
+
+    """
+    Processes a list of proteins to extract median NPX values for each sample.
+    
+    Parameters
+    ----------
+    protein_list: list
+        List of protein UniProt IDs to process.
+    tidy_data_sec: DataFrame
+        Filtered dataset containing SEC data from healthy samples.
+    
+    Returns
+    ----------
+    DataFrame
+        A DataFrame containing columns for protein ID, sample, and median NPX values.
+    """
+
+    proteins, samples, median_npx = [], [], []
+    
+    for column in protein_list:
+        df = tidy_data_sec[column]
+        for sample in df.index.get_level_values("Sample").unique():
+            proteins.append(column)
+            samples.append(sample)
+            sample_df = df[df.index.get_level_values("Sample") == sample]
+            median_npx.append(sample_df.median())
+    
+    return pd.DataFrame({"protein": proteins, "sample": samples, "median_npx": median_npx})

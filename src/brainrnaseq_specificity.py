@@ -39,7 +39,6 @@ def process_hgnc_data(hgnc_ids):
         ].str.split("|")
     hgnc_uniprot_mapping_data = hgnc_uniprot_mapping_data.explode("uniprot_ids")
     return hgnc_uniprot_mapping_data.reset_index(drop=True)
-        # return df.explode("uniprot_ids").reset_index(drop=True)
 
 def map_hgnc_ids(hgnc_ids: str, brain_rna_seq_raw_path: str) -> pd.DataFrame:
     """
@@ -67,18 +66,6 @@ def map_hgnc_ids(hgnc_ids: str, brain_rna_seq_raw_path: str) -> pd.DataFrame:
     Zhang et al. (2016) Purification and characterization of progenitor and mature human astrocytes reveals transcriptional and functional differences with mouse. Neuron 89(1):37-53. PMID: 26687838.
     """
     brain_rna_seq = pd.read_csv(brain_rna_seq_raw_path)
-
-    # hgnc_uniprot_mapping_data = pd.read_csv(
-    #     (StringIO(requests.get(hgnc_ids).text)),
-    #     sep="\t",
-    #     usecols=["hgnc_id", "uniprot_ids", "symbol", "name", "alias_symbol", "alias_name"]
-    # )
-
-    # hgnc_uniprot_mapping_data["uniprot_ids"] = hgnc_uniprot_mapping_data[
-    #     "uniprot_ids"
-    # ].str.split("|")
-    # hgnc_uniprot_mapping_data = hgnc_uniprot_mapping_data.explode("uniprot_ids")
-    # hgnc_uniprot_mapping_data = hgnc_uniprot_mapping_data.reset_index(drop=True)
     hgnc_uniprot_mapping_data = process_hgnc_data(hgnc_ids)
 
     brain_rna_seq = pd.merge(
@@ -118,7 +105,7 @@ def mean_cell_type(brain_rna_seq_data: pd.DataFrame, cell_type: str) -> pd.DataF
 
     Notes
     -----
-    - Uses the `CELL_TYPES` dictionary to account for naming inconsistencies in the raw dataset.
+    - Uses the "CELL_TYPES" dictionary to account for naming inconsistencies in the raw dataset.
     """
 
     key = CELL_TYPES[str(cell_type)]
@@ -157,8 +144,8 @@ def create_enrichment_dataframe(brain_rna_seq_data: pd.DataFrame) -> pd.DataFram
 
     Notes
     -----
-    - The function calls `mean_cell_type` for each cell type and merges the results.
-    - The column names are adjusted using `CELL_TYPES` to match expected formatting.
+    - The function calls "mean_cell_type" for each cell type and merges the results.
+    - The column names are adjusted using "CELL_TYPES" to match expected formatting.
     - The function ensures that all cell types are included in the final DataFrame.
     """
 
@@ -201,7 +188,7 @@ def cell_type_enrichment(
     cell_type : {'astrocyte', 'endothelial', 'microglia', 'oligodendrocyte', 'neuron'}
         The cell type of interest.
     specificity_metric : {'enrichment', 'tsi', 'zscore', 'spm', 'tau', 'gini', 'hg'}
-        The metric used to determine specificity (see detailed descriptions in `calculate_enrichment`).
+        The metric used to determine specificity (see detailed descriptions in "calculate_enrichment").
     specificity_cutoff : float
         The minimum threshold value for considering a gene as specific to a given cell type.
 
@@ -212,9 +199,9 @@ def cell_type_enrichment(
 
     Notes
     -----
-    - If `specificity_metric` is 'enrichment', genes must have an expression level **X times** higher than the highest non-target cell type.
-    - If `specificity_metric` is 'zscore' or 'spm', genes must exceed `specificity_cutoff` directly.
-    - If `specificity_metric` is one of {'tau', 'gini', 'hg', 'tsi'}, genes must have the highest expression in the target cell type and exceed `specificity_cutoff`.
+    - If "specificity_metric" is 'enrichment', genes must have an expression level **X times** higher than the highest non-target cell type.
+    - If "specificity_metric" is 'zscore' or 'spm', genes must exceed "specificity_cutoff" directly.
+    - If "specificity_metric" is one of {'tau', 'gini', 'hg', 'tsi'}, genes must have the highest expression in the target cell type and exceed "specificity_cutoff".
 
     References
     ----------
@@ -276,8 +263,3 @@ def cell_type_enrichment(
                     ].index.tolist()
 
     return cell_type_uniprot_ids
-
-
-def filter_low_tau(expression_df, tau_cutoff=0.25):
-    enrichment_values = expression_df.apply(lambda row: calculate_enrichment(row, "tau"), axis=1)
-    return enrichment_values[enrichment_values < tau_cutoff]

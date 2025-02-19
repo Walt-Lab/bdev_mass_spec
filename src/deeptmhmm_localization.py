@@ -171,6 +171,35 @@ def identify_localization(
     
     return get_regional_uniprots(localization_df, region)
 
-def get_localization_data(assays, fasta_sequences, localization_types, output_dir):
+def get_localization_data(
+        assays: pd.DataFrame, 
+        fasta_sequences: dict, 
+        localization_types: list, 
+        output_dir: str
+    ) -> dict:
+    """
+    Identifies protein localizations based on UniProt sequences and predefined localization types.
+    
+    Parameters
+    ----------
+    assays: DataFrame
+        DataFrame containing assay information, including UniProt IDs.
+    fasta_sequences: dict
+        Dictionary mapping UniProt IDs to their respective protein sequences.
+    localization_types: {"TMhelix", "internal", "external", "inside", "outside"}
+        The subcellular region of interest. Options:
+        - 'TMhelix' : Transmembrane proteins
+        - 'inside' : At least part of the protein is inside the cell/EV
+        - 'outside' : At least part of the protein is outside the cell/EV
+        - 'internal' : The protein is only found inside the cell, with no transmembrane or outside domains
+        - 'external' : The protein is only found outside the cell, with no transmembrane or inside domains
+    output_dir: str
+        Path to directory to store output files.
+    
+    Returns
+    ----------
+    dict
+        A dictionary where keys are localization types and values are lists of UniProt IDs corresponding to each localization.
+    """
     assays["Sequence"] = assays["UniProt ID"].map(lambda x: fasta_sequences.get(x, "N/A"))
     return {loc: identify_localization(assays, loc, output_dir) for loc in localization_types}
