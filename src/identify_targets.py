@@ -27,7 +27,7 @@ def identify_targets(
     sample_health: str,
     mean_median_individual: str = "median",
     raw_olink_data_file: Optional[str | Path] = None,
-    plate_layout_path: Optional[str | Path] = None,
+    plate_layout_dataframe: Optional[pd.DataFrame] = None,
     tidy_dataframe: Optional[pd.DataFrame] = None,
     output_directory: str | Path = "ht_output",
 ) -> set[str]:
@@ -35,8 +35,8 @@ def identify_targets(
     Identifies proteins that meet specified fractionation, cell-type
     specificity, and localization criteria.
 
-    This function integrates fractionation analysis,
-    gene expression specificity, and subcellular localization
+    This function integrates **fractionation analysis**,
+    **gene expression specificity**, and **subcellular localization**
     to identify proteins that meet all three criteria simultaneously.
 
     Parameters
@@ -145,7 +145,7 @@ def identify_targets(
     """
 
     if tidy_dataframe is None:
-        tidy_dataframe = clean_up_raw_data(raw_olink_data_file, plate_layout_path)
+        tidy_dataframe = clean_up_raw_data(raw_olink_data_file, plate_layout_dataframe)
 
     fasta_sequences = parse_gz_file(uniprot_fasta_database)
     fasta_sequences.update(MISSING_FASTA_SEQUENCES)
@@ -177,7 +177,7 @@ def identify_targets(
 
 
 def generate_protein_dataframe(
-    filtered_tau: pd.DataFrame,
+    low_tau: pd.DataFrame,
     fractionation_ids: list[str],
     localization_ids: list[str],
     localization_label: str,
@@ -191,8 +191,8 @@ def generate_protein_dataframe(
 
     Parameters
     ----------
-    filtered_tau: pd.DataFrame
-        DataFrame containing proteins with tau scores.
+    low_tau: pd.DataFrame
+        DataFrame containing proteins with low tau scores.
     fractionation_ids: list
         List of UniProt IDs with the correct fractionation pattern.
     localization_ids: list
@@ -214,9 +214,9 @@ def generate_protein_dataframe(
         A processed DataFrame containing filtered proteins with
         calculated fractionation scores and localization labels.
     """
-    filtered_proteins = filtered_tau[
-        filtered_tau.index.get_level_values("uniprot_ids").isin(localization_ids)
-        & filtered_tau.index.get_level_values("uniprot_ids").isin(fractionation_ids)
+    filtered_proteins = low_tau[
+        low_tau.index.get_level_values("uniprot_ids").isin(localization_ids)
+        & low_tau.index.get_level_values("uniprot_ids").isin(fractionation_ids)
     ]
     scores = calculate_fractionation_scores(
         filtered_proteins.index.get_level_values("uniprot_ids"),
