@@ -1,12 +1,15 @@
-import biolib
 import gzip
 import os
 import pathlib
+
+import biolib
 import pandas as pd
 
-def parse_gz_file(file_path: str) -> dict:
+
+def parse_gz_file(file_path: str | pathlib.Path) -> dict[str, str]:
     """
-    Parses a .gz FASTA file to extract UniProt IDs and their corresponding protein sequences.
+    Parses a .gz FASTA file to extract UniProt IDs and their
+    corresponding protein sequences.
 
     Parameters
     ----------
@@ -16,13 +19,17 @@ def parse_gz_file(file_path: str) -> dict:
     Returns
     -------
     dict
-        A dictionary where keys are UniProt IDs and values are the corresponding FASTA sequences.
+        A dictionary where keys are UniProt IDs and values are the
+        corresponding FASTA sequences.
 
     Notes
     -----
-    - The function assumes that the FASTA header follows the UniProt format: `>sp|UniProtID|Protein Name`.
-    - If a line in the FASTA file does not follow the expected format, it is skipped with a warning.
-    - The function processes multi-line FASTA sequences by concatenating them.
+    - The function assumes that the FASTA header follows the UniProt
+      format: `>sp|UniProtID|Protein Name`.
+    - If a line in the FASTA file does not follow the expected format,
+      it is skipped with a warning.
+    - The function processes multi-line FASTA sequences by concatenating
+      them.
     """
     protein_dict = {}
     current_uniprot_id = None
@@ -46,12 +53,13 @@ def parse_gz_file(file_path: str) -> dict:
     return protein_dict
 
 
-def tmhmm_localization(assays: pd.DataFrame, output_directory: str):
+def tmhmm_localization(assays: pd.DataFrame, output_directory: str | pathlib.Path):
     """
     Runs DeepTMHMM to predict transmembrane regions and protein localization.
 
-    This function creates a FASTA file from the input DataFrame, runs DeepTMHMM locally, 
-    and saves the results in the specified output directory.
+    This function creates a FASTA file from the input DataFrame, runs
+    DeepTMHMM locally, and saves the results in the specified output
+    directory.
 
     Parameters
     ----------
@@ -64,11 +72,12 @@ def tmhmm_localization(assays: pd.DataFrame, output_directory: str):
 
     Notes
     -----
-    - This function requires the DeepTMHMM model (`DTU/DeepTMHMM:1.0.24`) to be available.
+    - This function requires the DeepTMHMM model
+      (`DTU/DeepTMHMM:1.0.24`) to be available.
     - The FASTA file is temporarily created as `query.fasta`.
     - The function runs DeepTMHMM locally using `biolib`.
     """
-    deeptmhmm = biolib.load('DTU/DeepTMHMM:1.0.24')
+    deeptmhmm = biolib.load("DTU/DeepTMHMM:1.0.24")
     assay_list = []
     with open("query.fasta", "w") as fasta_file:
         for _, row in assays.iterrows():
@@ -78,7 +87,8 @@ def tmhmm_localization(assays: pd.DataFrame, output_directory: str):
     deeptmhmm_job = deeptmhmm.cli(args="--fasta query.fasta", machine="local")
     deeptmhmm_job.save_files(output_directory)
 
-def get_regional_uniprots(localization_df: pd.DataFrame, region_name: str) -> set:
+
+def get_regional_uniprots(localization_df: pd.DataFrame, region_name: str) -> set[str]:
     """
     Extracts a set of UniProt IDs associated with a given localization region.
 
@@ -87,24 +97,31 @@ def get_regional_uniprots(localization_df: pd.DataFrame, region_name: str) -> se
     localization_df : pandas.DataFrame
         A DataFrame containing protein localization data from DeepTMHMM.
     region_name : str
-        The localization region of interest (e.g., 'TMhelix', 'inside', 'outside').
+        The localization region of interest (e.g., 'TMhelix', 'inside',
+        'outside').
 
     Returns
     -------
     set
-        A set of UniProt IDs corresponding to proteins localized in the specified region.
+        A set of UniProt IDs corresponding to proteins localized in the
+        specified region.
     """
-    return set(localization_df[localization_df["region_location"] == region_name]["uniprot_id"])
+    return set(
+        localization_df[localization_df["region_location"] == region_name]["uniprot_id"]
+    )
 
 
 def identify_localization(
-    assays: pd.DataFrame, region: str, output_directory: str = "ht_output"
-) -> set:
+    assays: pd.DataFrame,
+    region: str,
+    output_directory: str | pathlib.Path = "ht_output",
+) -> set[str]:
     """
-    Identifies proteins localized in specific subcellular regions using DeepTMHMM predictions.
+    Identifies proteins localized in specific subcellular regions using
+    DeepTMHMM predictions.
 
-    This function reads DeepTMHMM output and returns a set of UniProt IDs for proteins 
-    found in a specified localization category.
+    This function reads DeepTMHMM output and returns a set of UniProt
+    IDs for proteins found in a specified localization category.
 
     Parameters
     ----------
@@ -116,22 +133,30 @@ def identify_localization(
         The subcellular region of interest. Options:
         - 'TMhelix' : Transmembrane proteins
         - 'inside' : At least part of the protein is inside the cell/EV
-        - 'outside' : At least part of the protein is outside the cell/EV
-        - 'internal' : The protein is only found inside the cell, with no transmembrane or outside domains
-        - 'external' : The protein is only found outside the cell, with no transmembrane or inside domains
+        - 'outside' : At least part of the protein is outside the
+          cell/EV
+        - 'internal' : The protein is only found inside the cell, with
+          no transmembrane or outside domains
+        - 'external' : The protein is only found outside the cell, with
+          no transmembrane or inside domains
     output_directory : str, optional
-        Path to the directory where DeepTMHMM output files are stored. Default is "ht_output".
+        Path to the directory where DeepTMHMM output files are stored.
+        Default is "ht_output".
 
     Returns
     -------
     set
-        A set of UniProt IDs corresponding to proteins localized in the specified region.
+        A set of UniProt IDs corresponding to proteins localized in the
+        specified region.
 
     Notes
     -----
-    - If DeepTMHMM output does not exist in the specified directory, it will be generated.
-    - The function reads localization data from the "TMRs.gff3" output file.
-    - For 'internal' and 'external' localizations, proteins are filtered by excluding transmembrane and opposing-region proteins.
+    - If DeepTMHMM output does not exist in the specified directory, it
+      will be generated.
+    - The function reads localization data from the "TMRs.gff3" output
+      file.
+    - For 'internal' and 'external' localizations, proteins are filtered
+      by excluding transmembrane and opposing-region proteins.
     """
     output_directory_path = pathlib.Path(output_directory)
     if not os.path.exists(output_directory_path):
@@ -157,49 +182,59 @@ def identify_localization(
         axis=1
     )
 
-    if region == "internal":
+    if region in ["internal", "externals"]:
         tm_uniprots = get_regional_uniprots(localization_df, "TMhelix")
         outside_uniprots = get_regional_uniprots(localization_df, "outside")
         inside_uniprots = get_regional_uniprots(localization_df, "inside")
-        return inside_uniprots - tm_uniprots - outside_uniprots
+        if region == "internal":
+            return inside_uniprots - tm_uniprots - outside_uniprots
+        else:
+            return outside_uniprots - inside_uniprots - tm_uniprots
 
-    elif region == "external":
-        tm_uniprots = get_regional_uniprots(localization_df, "TMhelix")
-        outside_uniprots = get_regional_uniprots(localization_df, "outside")
-        inside_uniprots = get_regional_uniprots(localization_df, "inside")
-        return outside_uniprots - inside_uniprots - tm_uniprots
-    
     return get_regional_uniprots(localization_df, region)
 
+
 def get_localization_data(
-        assays: pd.DataFrame, 
-        fasta_sequences: dict, 
-        localization_types: list, 
-        output_dir: str
-    ) -> dict:
+    assays: pd.DataFrame,
+    fasta_sequences: dict[str, str],
+    localization_types: list[str],
+    output_dir: str | pathlib.Path,
+) -> dict[str, set[str]]:
     """
-    Identifies protein localizations based on UniProt sequences and predefined localization types.
-    
+    Identifies protein localizations based on UniProt sequences and
+    predefined localization types.
+
     Parameters
     ----------
     assays: DataFrame
         DataFrame containing assay information, including UniProt IDs.
     fasta_sequences: dict
-        Dictionary mapping UniProt IDs to their respective protein sequences.
-    localization_types: {"TMhelix", "internal", "external", "inside", "outside"}
+        Dictionary mapping UniProt IDs to their respective protein
+        sequences.
+    localization_types: {"TMhelix", "internal", "external", "inside",
+    "outside"}
         The subcellular region of interest. Options:
         - 'TMhelix' : Transmembrane proteins
         - 'inside' : At least part of the protein is inside the cell/EV
-        - 'outside' : At least part of the protein is outside the cell/EV
-        - 'internal' : The protein is only found inside the cell, with no transmembrane or outside domains
-        - 'external' : The protein is only found outside the cell, with no transmembrane or inside domains
+        - 'outside' : At least part of the protein is outside the
+          cell/EV
+        - 'internal' : The protein is only found inside the cell, with
+          no transmembrane or outside domains
+        - 'external' : The protein is only found outside the cell, with
+          no transmembrane or inside domains
     output_dir: str
         Path to directory to store output files.
-    
+
     Returns
     ----------
     dict
-        A dictionary where keys are localization types and values are lists of UniProt IDs corresponding to each localization.
+        A dictionary where keys are localization types and values are
+        lists of UniProt IDs corresponding to each localization.
     """
-    assays["Sequence"] = assays["UniProt ID"].map(lambda x: fasta_sequences.get(x, "N/A"))
-    return {loc: identify_localization(assays, loc, output_dir) for loc in localization_types}
+    assays["Sequence"] = assays["UniProt ID"].map(
+        lambda x: fasta_sequences.get(x, "N/A")
+    )
+    return {
+        loc: identify_localization(assays, loc, output_dir)
+        for loc in localization_types
+    }
