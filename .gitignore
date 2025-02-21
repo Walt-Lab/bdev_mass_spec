@@ -1,4 +1,4 @@
-data/*.parquet
-outputs/olink_si/*.csv
-outputs/olink_si_condensed/*.csv
+# data/*.parquet
+# outputs/olink_si/*.csv
+# outputs/olink_si_condensed/*.csv
 
