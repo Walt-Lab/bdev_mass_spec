@@ -29,8 +29,12 @@ def calculate_tau_score(array: np.ndarray) -> float:
       types.
     - Divides the sum by the number of cell types minus one.
     """
-    row_x = array / max(array)
-    return np.sum(1 - row_x) / ((len(row_x)) - 1)
+    if max(array) <= 0:
+        return 0
+    else:
+        row_x = array / max(array)
+        return np.sum(1 - row_x) / ((len(row_x)) - 1)
+
 
 
 def calculate_tsi(array: np.ndarray) -> float:

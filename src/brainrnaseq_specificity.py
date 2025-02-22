@@ -185,8 +185,9 @@ def create_enrichment_dataframe(brain_rna_seq_data: pd.DataFrame) -> pd.DataFram
     }
 
     all_cell_types = pd.concat(cell_type_dfs.values(), axis=1)
+    all_cell_types_filtered = all_cell_types.filter(CELL_TYPES.values())
     cell_type_dict_inverted = {v: k for k, v in CELL_TYPES.items()}
-    return all_cell_types.rename(columns=cell_type_dict_inverted)
+    return all_cell_types_filtered.rename(columns=cell_type_dict_inverted)
 
 
 def cell_type_enrichment(
