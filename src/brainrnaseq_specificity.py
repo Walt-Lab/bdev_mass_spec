@@ -1,4 +1,5 @@
 from io import StringIO
+from pathlib import Path
 
 import pandas as pd
 import requests
@@ -49,7 +50,7 @@ def process_hgnc_data(hgnc_ids: str) -> pd.DataFrame:
     return hgnc_uniprot_mapping_data.reset_index(drop=True)
 
 
-def map_hgnc_ids(hgnc_ids: str, brain_rna_seq_raw_path) -> pd.DataFrame:
+def map_hgnc_ids(hgnc_ids: str, brain_rna_seq_raw_path: Path | str) -> pd.DataFrame:
     """
     Maps HGNC gene IDs from the Brain RNA-Seq dataset to UniProt protein IDs.
     This function integrates data from the Brain RNA-Seq dataset and
@@ -185,7 +186,7 @@ def create_enrichment_dataframe(brain_rna_seq_data: pd.DataFrame) -> pd.DataFram
     }
 
     all_cell_types = pd.concat(cell_type_dfs.values(), axis=1)
-    all_cell_types_filtered = all_cell_types.filter(CELL_TYPES.values())
+    all_cell_types_filtered = all_cell_types.filter([CELL_TYPES.values()])
     cell_type_dict_inverted = {v: k for k, v in CELL_TYPES.items()}
     return all_cell_types_filtered.rename(columns=cell_type_dict_inverted)
 

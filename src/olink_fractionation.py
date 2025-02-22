@@ -37,7 +37,7 @@ def analyze_fractionation(
     tidy_dataframe: pd.DataFrame,
     high_fractions: list,
     low_fractions: list,
-    sample_health="all",
+    sample_health: str="all",
     mean_median_individual="individual_median",
 ) -> list:
     """
